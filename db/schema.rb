@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_26_214511) do
+ActiveRecord::Schema.define(version: 2018_05_26_230640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 2018_05_26_214511) do
     t.integer "end_station_id"
     t.index ["end_station_id"], name: "index_trips_on_end_station_id"
     t.index ["start_station_id"], name: "index_trips_on_start_station_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.integer "role", default: 0
+    t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
