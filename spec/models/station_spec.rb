@@ -6,4 +6,8 @@ describe Station, type: :model do
     it {should validate_presence_of(:city)}
     it {should validate_presence_of(:installation_date)}
   end
+  describe 'Relationships' do
+    it {should have_many :trips_started}
+    it {should have_many :trips_ended}
+  end
 end
