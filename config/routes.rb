@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :accessories, only: [:index, :show]
   resources :stations, only: [:index, :show]
+<<<<<<< HEAD
 
   namespace :admin do
     get '/bikeshop/new', to: 'accessories#new'
@@ -22,4 +23,7 @@ Rails.application.routes.draw do
 =======
   resources :stations, only: [:index, :show]
 >>>>>>> adds stations routes
+=======
+  resources :trips, only: [:index, :show]
+>>>>>>> fixes broken view test and adds trips to routes
 end
