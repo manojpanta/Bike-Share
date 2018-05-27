@@ -11,7 +11,11 @@
 
   <body>
     <nav>
-      <%= link_to "Login", login_path %>
+      <% if current_user %>
+        <%= link_to "Logout", logout_path %>
+      <% else %>
+        <%= link_to "Login", login_path %>
+      <% end %>
     </nav>
     <% if flash[:error] %>
       <div class="error"><%= flash[:error] %></div>
