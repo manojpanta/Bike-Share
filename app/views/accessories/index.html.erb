@@ -1,0 +1,6 @@
+<h1> Bike Shop </h1>
+<article>
+  <%@accessories.each do |a| %>
+  <h2><%=a.title%>:</h2><h3><%=link_to 'Add to cart', '/bike-shop'%></h3>
+  <%end%>
+</article>

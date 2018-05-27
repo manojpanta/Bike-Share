@@ -1,4 +1,5 @@
 class AccessoriesController < ApplicationController
-  # def index
-  # end
+  def index
+    @accessories = Accessory.all
+  end
 end
