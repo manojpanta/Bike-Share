@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get '/login', to: 'sessions#new'
 
-  resources :users, only: [:new]
+  get '/dashboard', to: 'users#show'
+
+  resources :users, only: [:new, :create]
 
 end

@@ -18,7 +18,7 @@ describe 'user visits visits home page' do
     fill_in 'user[email]', with: email
     fill_in 'user[password]', with: password
     fill_in 'user[address]', with: address
-    click_button 'Create Account'
+    click_button 'Create'
 
     expect(current_path).to eq('/dashboard')
     expect(page).to have_content("Logged in as #{name}")
