@@ -9,7 +9,6 @@ describe "A visitor" do
 
       visit trips_path
 
-save_and_open_page
       expect(page).to have_content(trip1.start_date)
       expect(page).to have_content(trip1.start_station.name)
       expect(page).to have_content(trip1.end_date)
