@@ -11,6 +11,7 @@ describe "A visitor" do
       expect(page).to have_content(station.dock_count)
       expect(page).to have_content(station.city)
       expect(page).to have_content(station.installation_date)
+      expect(current_path).to eq("/stations/#{station.name}")
     end
   end
 end
