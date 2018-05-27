@@ -1,0 +1,9 @@
+<h1> <%=@accessory.title %></h1>
+<img src=<%=@accessory.image%>></img>
+<p> <%=@accessory.description %></p>
+<h3> <%=@accessory.price %></h3>
+<%if @accessory.is_retired?%>
+<h3>Accessory Retired</h3>
+<%else%>
+<h3> <%=link_to 'Add to cart', '/bike-shop'%></h3>
+<%end%>
