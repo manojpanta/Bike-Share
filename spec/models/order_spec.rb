@@ -7,5 +7,6 @@ RSpec.describe Order, type: :model do
 
   describe 'relationships' do
     it {should belong_to(:user)}
+    it {should have_many(:accessories).through(:accessory_orders)}
   end
 end
