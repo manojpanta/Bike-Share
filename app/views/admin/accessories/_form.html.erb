@@ -1,0 +1,15 @@
+<h1> New Accessory</h1>
+<%= form_for [:admin, @accessory] do |f| %>
+  <section>
+    <h2>Name:</h2>
+    <%= f.text_field :name%>
+  <section>
+    <h2>Description:</h2>
+    <%= f.text_field :description%>
+  </section>
+  <section>
+    <h2>Image:</h2>
+    <%= f.text_field :image%>
+  </section>
+  <%=f.submit%>
+<%end%>

@@ -13,4 +13,8 @@ Rails.application.routes.draw do
   resources :accessories
 
   resources :stations, only: [:index, :show]
+
+  namespace :admin do
+    get '/bikeshop/new', to: 'accessories#new'
+  end
 end

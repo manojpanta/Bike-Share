@@ -7,6 +7,6 @@ class User < ApplicationRecord
   validates_presence_of :role
 
   has_secure_password
-
+  enum role: %i[default admin]
   has_many :orders
 end
