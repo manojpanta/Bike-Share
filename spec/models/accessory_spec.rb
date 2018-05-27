@@ -8,4 +8,8 @@ RSpec.describe Accessory, type: :model do
     it {should validate_presence_of(:is_retired?)}
     it {should validate_presence_of(:price)}
   end
+
+  describe 'relationship' do
+    it {should have_many(:orders).through(:accessory_orders)}
+  end
 end
