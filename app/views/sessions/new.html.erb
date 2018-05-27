@@ -1,8 +1,16 @@
 <main>
   <article>
-
-
-
+    <%= form_tag login_path do %>
+    <section>
+      <h2>Email:</h2>
+      <h3><%= text_field_tag :email %></h3>
+    </section>
+    <section>
+      <h2>Password:</h2>
+      <h3><%= text_field_tag :password %></h3>
+    </section>
+    <%= submit_tag 'Log In' %>
+    <% end %>
   </article>
   <h3><%= link_to "Create Account", new_user_path %></h3>
 </main>
