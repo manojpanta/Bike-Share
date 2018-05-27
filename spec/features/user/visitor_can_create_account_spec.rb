@@ -7,8 +7,8 @@ describe 'user visits visits home page' do
     click_on 'Login'
 
     expect(current_path).to eq('/login')
-
-    click_on 'Create Accout'
+    # binding.pry
+    click_on 'Create Account'
 
     name = 'bob'
     email = 'bob@bob.bob'
