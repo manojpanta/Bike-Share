@@ -9,20 +9,20 @@ describe "A visitor" do
 
       visit trips_path
 
-
+save_and_open_page
       expect(page).to have_content(trip1.start_date)
-      expect(page).to have_content(trip1.start_station)
+      expect(page).to have_content(trip1.start_station.name)
       expect(page).to have_content(trip1.end_date)
-      expect(page).to have_content(trip1.end_station)
+      expect(page).to have_content(trip1.end_station.name)
       expect(page).to have_content(trip1.bike_id)
-      expect(page).to have_content(trip1.subscription)
+      expect(page).to have_content(trip1.subscription_type)
       expect(page).to have_content(trip1.zip_code)
       expect(page).to have_content(trip2.start_date)
-      expect(page).to have_content(trip2.start_station)
+      expect(page).to have_content(trip2.start_station.name)
       expect(page).to have_content(trip2.end_date)
-      expect(page).to have_content(trip2.end_station)
+      expect(page).to have_content(trip2.end_station.name)
       expect(page).to have_content(trip2.bike_id)
-      expect(page).to have_content(trip2.subscription)
+      expect(page).to have_content(trip2.subscription_type)
       expect(page).to have_content(trip2.zip_code)
 
     end
