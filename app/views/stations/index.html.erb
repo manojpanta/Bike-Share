@@ -1,0 +1,16 @@
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Dock Count</th>
+    <th>City</th>
+    <th>Install Date</th>
+  </tr>
+  <% @stations.each do |station| %>
+  <tr>
+    <td><%= station.name %></td>
+    <td><%= station.dock_count %></td>
+    <td><%= station.city %></td>
+    <td><%= station.installation_date %></td>
+  </tr>
+  <% end %>
