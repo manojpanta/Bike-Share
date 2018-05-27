@@ -5,19 +5,19 @@
     <%= form_for @user do |f| %>
     <section>
       <h2>Full Name:</h2>
-      <%= f.text_field :name %>
+      <h3><%= f.text_field :name %></h3>
     </section>
     <section>
       <h2>Email:</h2>
-      <%= f.text_field :email %>
+      <h3><%= f.text_field :email %></h3>
     </section>
     <section>
       <h2>Password:</h2>
-      <%= f.text_field :password %>
+      <h3><%= f.text_field :password %></h3>
     </section>
     <section>
       <h2>Address:</h2>
-      <%= f.text_field :address %>
+      <h3><%= f.text_field :address %></h3>
     </section>
     <%= f.submit %>
     <% end %>
