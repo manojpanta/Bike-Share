@@ -7,4 +7,8 @@ class Station < ApplicationRecord
   has_many :trips_started, class_name: 'Trip', foreign_key: 'start_station_id'
   has_many :trips_ended, class_name: 'Trip', foreign_key: 'end_station_id'
   
+  def to_param
+    name
+  end
+  
 end
