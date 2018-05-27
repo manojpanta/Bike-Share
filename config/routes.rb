@@ -10,11 +10,12 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'users#show'
 
   resources :users, only: [:new, :create]
-  resources :accessories
 
+  resources :accessories, only: [:index, :show]
   resources :stations, only: [:index, :show]
 
   namespace :admin do
     get '/bikeshop/new', to: 'accessories#new'
+    resources :accessories
   end
 end

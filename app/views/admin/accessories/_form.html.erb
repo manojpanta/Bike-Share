@@ -2,7 +2,11 @@
 <%= form_for [:admin, @accessory] do |f| %>
   <section>
     <h2>Name:</h2>
-    <%= f.text_field :name%>
+    <%= f.text_field :title%>
+  <section>
+  <section>
+    <h2>Price:</h2>
+    <%= f.text_field :price%>
   <section>
     <h2>Description:</h2>
     <%= f.text_field :description%>
