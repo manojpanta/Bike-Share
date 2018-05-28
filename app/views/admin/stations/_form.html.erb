@@ -1,0 +1,18 @@
+<%= form_for [:admin, @station] do |f| %>
+  <section>
+    <h2>Name:</h2>
+    <%= f.text_field :name%>
+  <section>
+  <section>
+    <h2>Dock Count:</h2>
+    <%= f.text_field :dock_count%>
+  <section>
+    <h2>City:</h2>
+    <%= f.text_field :city%>
+  </section>
+  <section>
+    <h2>Installation Date:</h2>
+    <%= f.text_field :installation_date%>
+  </section>
+  <%=f.submit%>
+<%end%>
