@@ -31,7 +31,7 @@ describe 'registered user visits dashboard' do
     expect(page).to have_link(item2.title)
     expect(page).to have_content(subtotal1)
     expect(page).to have_content(status)
-    expect(page).to have_content(order1.date_created)
+    expect(page).to have_content(order1.created_at)
 
   end
 end
