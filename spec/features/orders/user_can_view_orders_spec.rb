@@ -25,6 +25,13 @@ describe 'registered user visits dashboard' do
 
     expect(current_path).to eq(order_path(order1))
 
-    # binding.pry
+    status = 'ordered'
+    subtotal1 = item1.price * 2
+    expect(page).to have_link(item1.title)
+    expect(page).to have_link(item2.title)
+    expect(page).to have_content(subtotal)
+    expect(page).to have_content(status)
+    expect(page).to have_content(order1.date_created)
+
   end
 end

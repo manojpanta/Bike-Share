@@ -1,0 +1,18 @@
+<main>
+  <h1>Order</h1>
+  <table>
+    <tr>
+      <th>Item</th>
+      <th>Quantity</th>
+      <th>Subtotal</th>
+    </tr>
+    <% @order.accessory_orders.each do |ao| %>
+    <tr>
+      <td><%= link_to ao.accessory.title, accessory_path(ao.accessory) %></td>
+      <td><%= ao.quantity %></td>
+      <td><%= ao.subtotal %></td>
+    </tr>
+    <% end %>
+  </table>
+
+</main>
