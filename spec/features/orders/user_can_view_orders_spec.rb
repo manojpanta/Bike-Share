@@ -29,7 +29,7 @@ describe 'registered user visits dashboard' do
     subtotal1 = item1.price * 2
     expect(page).to have_link(item1.title)
     expect(page).to have_link(item2.title)
-    expect(page).to have_content(subtotal)
+    expect(page).to have_content(subtotal1)
     expect(page).to have_content(status)
     expect(page).to have_content(order1.date_created)
 
