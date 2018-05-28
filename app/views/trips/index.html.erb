@@ -1,0 +1,27 @@
+<h1>All Trips</h1>
+
+<%= will_paginate %>
+<table>
+  <tr>
+    <th>Duration</th>
+    <th>Start Date</th>
+    <th>Start Station</th>
+    <th>End Date</th>
+    <th>End Station</th>
+    <th>Bike ID</th>
+    <th>Subscription</th>
+    <th>Zip Code</th>
+  </tr>
+  <% @trips.each do |trip| %>
+  <tr>
+    <td>trip duration goes here...</td>
+    <td><%= trip.start_date %></td>
+    <td><%= trip.start_station.name %></td>
+    <td><%= trip.end_date %></td>
+    <td><%= trip.end_station.name %></td>
+    <td><%= trip.bike_id %></td>
+    <td><%= trip.subscription_type %></td>
+    <td><%= trip.zip_code %></td>
+  </tr>
+  <% end %>
+  <%= will_paginate %>
