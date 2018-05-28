@@ -15,7 +15,6 @@ describe 'user authorization' do
     expect(page).to_not have_content(user2.address)
 
     visit '/admin/accessories/new'
-
     expect(page).to have_content("404: These are not the droids you're looking for")
   end
 end
