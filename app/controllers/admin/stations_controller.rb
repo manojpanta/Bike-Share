@@ -24,6 +24,13 @@ class Admin::StationsController < Admin::BaseController
     redirect_to station_path(@station)
   end
 
+  def destroy
+    @station = Station.find_by(:name => 'Foo')
+    @station.destroy
+    flash[:notice]= "#{@station.name.upcase} Deleted!"
+    redirect_to stations_path
+  end
+
   private
   def station_params
     params.require(:station).permit(:name, :dock_count, :city, :installation_date)
