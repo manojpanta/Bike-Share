@@ -3,4 +3,8 @@ class AccessoryOrder < ApplicationRecord
 
   belongs_to :order
   belongs_to :accessory
+
+  def subtotal
+    quantity * accessory.price
+  end
 end
