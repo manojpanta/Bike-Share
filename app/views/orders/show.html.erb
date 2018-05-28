@@ -17,12 +17,18 @@
 
   <h3>Status: <%= @order.status %></h3>
   <h3>Total: <%= @order.cost %></h3>
-  <h3>Submitted: <%= @order.created_at %></h3>
+  <h3>Time Submitted: <%= @order.created_at %></h3>
 
-  <article>
+  <% if @order.status == 'completed' %>
+    <h3>Time Completed: <%= @order.updated_at %></h3>
+  <% elsif @order.status == 'cancelled' %>
+    <h3>Time Cancelled: <%= @order.updated_at %></h3>
+  <% end %>
+ 
+  <!-- <article>
     <section>
 
     </section>
-  </article>
+  </article> -->
 
 </main>

@@ -5,7 +5,7 @@ class Order < ApplicationRecord
   has_many :accessory_orders
   has_many :accessories, through: :accessory_orders
 
-  enum status: [:ordered, :completed, :paid, :canceled]
+  enum status: [:ordered, :completed, :paid, :cancelled]
 
   def cost
     accessory_orders.reduce(0) do |sum, ao|
