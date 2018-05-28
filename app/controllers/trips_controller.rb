@@ -4,4 +4,8 @@ class TripsController < ApplicationController
     @trips = Trip.paginate(page: params[:page])
   end
 
+  def show
+    
+  end
+
 end
