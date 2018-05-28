@@ -1,4 +1,8 @@
 <h1><%= @station.name %></h1>
+<%if current_admin?%>
+<h2><%=link_to 'Delete',  admin_station_path(@station), method: :delete%></h2>
+<h2><%=link_to 'Edit',  edit_admin_station_path(@station)%></h2>
+<%end%>
 
 <section><h2>Dock count:</h2><h3> <%= @station.dock_count %></h3></section>
 <section><h2>City:</h2><h3><%= @station.city %></h3></section>
