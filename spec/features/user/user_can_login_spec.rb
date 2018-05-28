@@ -22,8 +22,6 @@ describe 'user visits visits home page' do
   it 'user can logout and see a login link' do
     user = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123 Elm St')
 
-    # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-
     visit login_path
     fill_in :email, with: user.email
     fill_in :password, with: user.password
