@@ -11,6 +11,10 @@
     <th>Bike ID</th>
     <th>Subscription</th>
     <th>Zip Code</th>
+    <% if current_admin? %>
+    <th></th>
+    <th></th>
+    <% end %>
   </tr>
   <% @trips.each do |trip| %>
   <tr>
@@ -22,6 +26,10 @@
     <td><%= trip.bike_id %></td>
     <td><%= trip.subscription_type %></td>
     <td><%= trip.zip_code %></td>
+    <% if current_admin? %>
+    <td><%= button_to 'Edit', edit_admin_trip_path(trip) %></td>
+    <td><%= button_to 'Delete', admin_trip_path(trip) %></td>
+    <% end %>
   </tr>
   <% end %>
   <%= will_paginate %>
