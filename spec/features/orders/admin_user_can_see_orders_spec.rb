@@ -32,5 +32,10 @@ describe 'registered user visits dashboard' do
 
     expect(page).to have_content(user1.name)
     expect(page).to have_content(user1.address)
+
+    visit order_path(order3)
+
+    expect(page).to have_content(user2.name)
+    expect(page).to_not have_content(user1.name)
   end
 end
