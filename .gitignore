@@ -7,7 +7,6 @@
 # Ignore bundler config.
 /.bundle
 /coverage
-*.csv
 
 # Ignore all logfiles and tempfiles.
 /log/*
