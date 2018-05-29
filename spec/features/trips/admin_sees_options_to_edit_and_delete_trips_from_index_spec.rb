@@ -13,6 +13,7 @@ describe "An admin" do
       visit trips_path
 
       expect(page).to have_button('Edit')
+      expect(page).to have_button('Delete')
     end
   end
 end
