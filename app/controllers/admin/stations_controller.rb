@@ -14,18 +14,19 @@ class Admin::StationsController < Admin::BaseController
   end
 
   def edit
-    @station = Station.find_by(:name => 'Foo')
+    @station = Station.find_by(name: params[:id])
   end
 
   def update
-    @station = Station.find_by(:name => 'Foo')
+    @station = Station.find_by(name: params[:id])
     @station.update(station_params)
     flash[:notice] = "#{@station.name} station updated!"
     redirect_to station_path(@station)
   end
 
   def destroy
-    @station = Station.find_by(:name => 'Foo')
+    # binding.pry
+    @station = Station.find_by(name: params[:id])
     @station.destroy
     flash[:notice]= "#{@station.name.upcase} Deleted!"
     redirect_to stations_path

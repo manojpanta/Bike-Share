@@ -24,4 +24,20 @@ describe 'user can create a new station' do
     expect(page).to have_content(dock_count)
     expect(page).to have_content(city)
   end
+
+  it 'as an admin can navigate to new station from station index' do
+    admin = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123 Elm St', role: 1)
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+    name = 'Foo'
+    dock_count = 5
+    city = 'denver'
+    installation_date = Time.now
+
+    visit stations_path
+
+    click_on 'Create New Station'
+
+    expect(current_path).to eq(new_admin_station_path)
+  end
 end

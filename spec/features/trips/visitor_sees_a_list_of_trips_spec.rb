@@ -39,5 +39,18 @@ describe "A visitor" do
       expect(page).to have_content(12345)
       expect(page).to_not have_content(23456)
     end
+
+    it 'should link to trip show' do
+      station = Station.create(name: 'Foo', dock_count: 5, city: 'Denver', installation_date: Time.now)
+      trip1 = Trip.create(start_date: Time.now, start_station: station, end_date: (Time.now + 1), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
+      trip2 = Trip.create(start_date: Time.now, start_station: station, end_date: (Time.now + 1), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
+
+      visit trips_path
+
+      click_on trip1.id
+
+      expect(current_path).to eq(trip_path(trip1))
+
+    end
   end
 end

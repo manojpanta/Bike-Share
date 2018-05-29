@@ -3,6 +3,7 @@
 <%= will_paginate %>
 <table>
   <tr>
+    <th>ID</th>
     <th>Duration</th>
     <th>Start Date</th>
     <th>Start Station</th>
@@ -18,6 +19,7 @@
   </tr>
   <% @trips.each do |trip| %>
   <tr>
+    <td><%= link_to trip.id, trip_path(trip) %></td>
     <td><%= trip.duration %></td>
     <td><%= trip.start_date %></td>
     <td><%= trip.start_station.name %></td>
