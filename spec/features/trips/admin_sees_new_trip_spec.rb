@@ -29,8 +29,7 @@ describe "An admin" do
 
     click_on 'Create Trip'
 
-save_and_open_page
-
+    expect(page).to have_content("Trip has been created!") 
     expect(current_path).to eq(trip_path(Trip.last))
     expect(page).to have_content(duration)
     expect(page).to have_content(start_date.to_s[0..10])
