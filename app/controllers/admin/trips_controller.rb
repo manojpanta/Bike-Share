@@ -14,4 +14,6 @@ class Admin::TripsController < Admin::BaseController
     flash[:notice]= "Trip has been Deleted!"
     redirect_to trips_path
   end
+
+  
 end
