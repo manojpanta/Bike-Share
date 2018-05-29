@@ -1,6 +1,10 @@
 
 <%= form_for [:admin, @trip] do |f| %>
   <section>
+    <h2>Duration:</h2>
+    <%= f.number_field :duration%>
+  <section>
+  <section>
     <h2>Start Date:</h2>
     <%= f.text_field :start_date%>
   <section>

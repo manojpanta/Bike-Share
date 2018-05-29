@@ -11,6 +11,7 @@ describe "An admin" do
 
     visit new_admin_trip_path
 
+    save_and_open_page
     fill_in :duration,	with: trip.duration
     fill_in :start_date,	with: trip.start_date
     fill_in :start_station,	with: station.name
@@ -21,7 +22,6 @@ describe "An admin" do
     fill_in :zip_code,	with: trip.zip_code
 
     click_on 'Create Trip'
-
     expect(current_page).to eq(admin_trip)
     expect(current_page).to have_content(trip.duration)
     expect(current_page).to have_content(trip.start_date)
