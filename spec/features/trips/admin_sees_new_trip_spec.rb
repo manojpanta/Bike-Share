@@ -18,7 +18,6 @@ describe "An admin" do
 
     visit new_admin_trip_path
 
-    save_and_open_page
     fill_in 'trip[duration]',	with: duration
     fill_in 'trip[start_date]',	with: start_date
     fill_in 'trip[start_station_id]',	with: station
@@ -29,16 +28,18 @@ describe "An admin" do
     fill_in 'trip[zip_code]',	with: zip_code
 
     click_on 'Create Trip'
-    
-    expect(current_page).to eq(admin_trip)
-    expect(current_page).to have_content(trip.duration)
-    expect(current_page).to have_content(trip.start_date)
-    expect(current_page).to have_content(station.name)
-    expect(current_page).to have_content(trip.end_date)
-    expect(current_page).to have_content(station.name)
-    expect(current_page).to have_content(trip.bike_id)
-    expect(current_page).to have_content(trip.subscription_type)
-    expect(current_page).to have_content(trip.zip_code)
+
+# binding.pry
+
+    expect(current_path).to eq(trips_path)
+    expect(page).to have_content(duration)
+    expect(page).to have_content(start_date)
+    expect(page).to have_content(station.name)
+    expect(page).to have_content(end_date)
+    expect(page).to have_content(station.name)
+    expect(page).to have_content(bike_id)
+    expect(page).to have_content(subscription_type)
+    expect(page).to have_content(zip_code)
     end
   end
 end
