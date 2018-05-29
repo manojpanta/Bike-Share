@@ -1,6 +1,9 @@
 <h1> Bike Shop </h1>
 <article>
   <%@accessories.each do |a| %>
-  <h2><%=a.title%>:</h2><h3><%=link_to 'Add to cart', '/bike-shop'%></h3>
+  <h2><%=link_to a.title, accessory_path(a)%>:</h2><h3><%=link_to 'Add to cart', '/bike-shop'%></h3>
+  <% if current_admin? %>
+    <%=link_to 'Edit', edit_admin_accessory_path(a) %>
+  <%end%>
   <%end%>
 </article>

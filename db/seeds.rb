@@ -7,6 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Station.destroy_all
 Trip.destroy_all
+
+TITLES = ['wranch', 'screw driver', 'Jumper Cables', 'socket set']
+IMAGES = ['https://cimg2.ibsrv.net/cimg/www.doityourself.com/660x300_100-1/514/Tools-199514.jpg', 'https://www.3wayplumbing.com/Portals/0/EasyGalleryImages/1/73/tools.jpg', 'https://cdn.everydaycarry.com/uploads/17-12-04/15a257f8f0ad64.jpg']
+PRICES = [12, 34, 45, 56, 67, 67, 92]
+DESCRIPTIONS = ['This my tool', 'This tool is necessory', 'This tool is must have', 'Hepls you fix your oil change', 'This is the best offer you will see today', 'This is not really the product we think is useful for household usage', 'This is not a goo tool we have to be honest with you all.']
 require 'csv'
 require File.expand_path('../config/environment', __dir__)
 
@@ -28,7 +33,7 @@ trips = CSV.open('./data/trip.csv',
                     headers: true,
                     header_converters: :symbol)
 trips.each do |trip|
-  Trip.create!(
+  Trip.create(
   id:             trip[:id],
   duration:             trip[:duration],
   start_date:           DateTime.strptime(trip[:start_date], '%m/%d/%Y'),
@@ -38,4 +43,8 @@ trips.each do |trip|
   zip_code:    trip[:zip_code],
   start_station_id:    trip[:start_station_id],
   end_station_id:    trip[:end_station_id])
+end
+
+10.times do
+  Accessory.create(title: TITLES.sample, image: IMAGES.sample, price: PRICES.sample, description: DESCRIPTIONS.sample)
 end
