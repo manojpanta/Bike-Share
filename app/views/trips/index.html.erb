@@ -18,7 +18,7 @@
   </tr>
   <% @trips.each do |trip| %>
   <tr>
-    <td>trip duration goes here...</td>
+    <td><%= trip.duration %></td>
     <td><%= trip.start_date %></td>
     <td><%= trip.start_station.name %></td>
     <td><%= trip.end_date %></td>
