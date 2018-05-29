@@ -20,15 +20,16 @@ describe "An admin" do
 
     save_and_open_page
     fill_in 'trip[duration]',	with: duration
-    fill_in :start_date,	with: start_date
-    fill_in :start_station,	with: station
-    fill_in :end_date,	with: end_date
-    fill_in :end_station,	with: station.name
-    fill_in :bike_id,	with: bike_id
-    fill_in :subscription_type,	with: subscription_type
-    fill_in :zip_code,	with: zip_code
+    fill_in 'trip[start_date]',	with: start_date
+    fill_in 'trip[start_station_id]',	with: station
+    fill_in 'trip[end_date]',	with: end_date
+    fill_in 'trip[end_station_id]',	with: station.name
+    fill_in 'trip[bike_id]',	with: bike_id
+    fill_in 'trip[subscription_type]',	with: subscription_type
+    fill_in 'trip[zip_code]',	with: zip_code
 
     click_on 'Create Trip'
+    
     expect(current_page).to eq(admin_trip)
     expect(current_page).to have_content(trip.duration)
     expect(current_page).to have_content(trip.start_date)
