@@ -1,14 +1,13 @@
 require 'rails_helper'
 
 describe 'visit user edit page' do
-  it 'can edit user with all fields present' do
+  it 'can edit user their information' do
     user = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123 Elm St')
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit edit_user_path(user)
-    # save_and_open_page
-    # binding.pry
+
     new_name = 'blob'
     new_email = 'blob@blob.blob'
     new_password = '12345'
@@ -25,17 +24,15 @@ describe 'visit user edit page' do
     expect(page).to have_content(new_address)
   end
 
-  it 'fails with blank fields' do
 
+  it 'does not allow users to access other users' do
+    user = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123 Elm St')
+    user2 = User.create(name: 'blob', email: 'blob@blob.blob', password: '1234', address: '321 Elm St')
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    visit edit_user_path(user2)
+
+    expect(page).to have_content("404: These are not the droids you're looking for")
   end
-
-  # it 'does not allow users to access other users' do
-  #   user = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123 Elm St')
-  #
-  #   allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-  #
-  #   visit edit_user_path
-  #
-  #
-  # end
 end
