@@ -13,6 +13,17 @@ class Admin::AccessoriesController < Admin::BaseController
       render :new
     end
   end
+
+  def edit
+    @accessory = Accessory.find(params[:id])
+  end
+
+  def update
+    @accessory = Accessory.find(params[:id])
+    @accessory.update(accessory_params)
+    flash[:notice] = "#{@accessory.title} Updated"
+    redirect_to accessory_path(@accessory)
+  end
   private
 
   def accessory_params
