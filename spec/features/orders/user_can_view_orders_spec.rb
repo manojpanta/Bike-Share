@@ -32,8 +32,11 @@ describe 'registered user visits dashboard' do
     expect(page).to have_content(subtotal1)
     expect(page).to have_content(status)
     expect(page).to have_content(order1.created_at)
+
     expect(page).to_not have_content("Time Completed: ")
     expect(page).to_not have_content("Time Canceled: ")
+    expect(page).to_not have_content(user1.name)
+    expect(page).to_not have_content(user1.address)
 
     order1.update(status: 1)
 

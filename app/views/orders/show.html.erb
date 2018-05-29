@@ -24,7 +24,12 @@
   <% elsif @order.status == 'cancelled' %>
     <h3>Time Cancelled: <%= @order.updated_at %></h3>
   <% end %>
- 
+
+
+  <% if current_admin? %>
+    <h3>Purchacer Name: <%= @order.user.name %></h3>
+    <h3>Address: <%= @order.user.address %></h3>
+  <% end %>
   <!-- <article>
     <section>
 
