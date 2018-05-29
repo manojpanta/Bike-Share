@@ -12,9 +12,13 @@
   <body>
     <nav>
       <%= link_to "Stations", stations_path %>
-      <!-- < %= link_to "Trips", trips_path % > -->
+      <%= link_to "Trips", trips_path %>
       <% if current_user %>
-        <%= link_to "My Profile", '/dashboard' %>
+        <% if current_admin? %>
+          <%= link_to "Admin Dashboard", '/admin/dashboard' %>
+        <% else %>
+          <%= link_to "My Profile", '/dashboard' %>
+        <% end %>
         <%= link_to "Logout", logout_path %>
       <% else %>
         <%= link_to "Sign Up", new_user_path %>
