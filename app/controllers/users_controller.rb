@@ -23,6 +23,29 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    # binding.pry
+    if current_user && current_user.id == params[:id].to_i
+      @user = current_user
+    else
+      render file: 'public/404'
+    end
+  end
+
+  def update
+    # binding.pry
+    user = current_user
+    user.update(user_params)
+    if user.save
+      flash[:notice] = "Information updated #{user.name}"
+      session[:user_id] = user.id
+      redirect_to '/dashboard'
+    else
+      flash[:error] = "User update failed"
+      redirect_to '/dashboard'
+    end
+  end
+
   private
 
   def user_params
