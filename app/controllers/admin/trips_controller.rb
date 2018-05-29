@@ -6,7 +6,6 @@ class Admin::TripsController < Admin::BaseController
   def new
     @trip = Trip.new
   end
-  
 
   def destroy
     @trip = Trip.find(params[:id])
@@ -24,6 +23,14 @@ class Admin::TripsController < Admin::BaseController
       render :new
     end
   end
+
+  def update
+    @trip = Trip.find(params[:id])
+    @trip.update(trip_params)
+    flash[:notice] = "Trip updated!"
+    redirect_to trip_path(@trip)
+  end
+
 
   private
 
