@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     get '/bikeshop/new', to: 'accessories#new'
     resources :stations
     resources :accessories
+    resources :trips
   end
 
   resources :trips, only: [:index, :show]
