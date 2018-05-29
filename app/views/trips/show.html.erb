@@ -4,6 +4,7 @@
 <h2><%= link_to 'Delete', admin_trip_path(@trip), method: :delete %></h2>
 <%end%>
 
+<section><h2>Duration:</h2><h3> <%= @trip.duration %></h3></section>
 <section><h2>Start Date:</h2><h3> <%= @trip.start_date %></h3></section>
 <section><h2>Start Station:</h2><h3><%= @trip.start_station.name %></h3></section>
 <section><h2>End Date:</h2><h3><%= @trip.end_date %></h3></section>

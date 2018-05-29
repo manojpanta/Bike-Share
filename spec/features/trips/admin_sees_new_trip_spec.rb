@@ -20,22 +20,22 @@ describe "An admin" do
 
     fill_in 'trip[duration]',	with: duration
     fill_in 'trip[start_date]',	with: start_date
-    fill_in 'trip[start_station_id]',	with: station
+    fill_in 'trip[start_station_id]',	with: station.id
     fill_in 'trip[end_date]',	with: end_date
-    fill_in 'trip[end_station_id]',	with: station.name
+    fill_in 'trip[end_station_id]',	with: station.id
     fill_in 'trip[bike_id]',	with: bike_id
     fill_in 'trip[subscription_type]',	with: subscription_type
     fill_in 'trip[zip_code]',	with: zip_code
 
     click_on 'Create Trip'
 
-# binding.pry
+save_and_open_page
 
-    expect(current_path).to eq(trips_path)
+    expect(current_path).to eq(trip_path(Trip.last))
     expect(page).to have_content(duration)
-    expect(page).to have_content(start_date)
+    expect(page).to have_content(start_date.to_s[0..10])
     expect(page).to have_content(station.name)
-    expect(page).to have_content(end_date)
+    expect(page).to have_content(end_date.to_s[0..10])
     expect(page).to have_content(station.name)
     expect(page).to have_content(bike_id)
     expect(page).to have_content(subscription_type)
