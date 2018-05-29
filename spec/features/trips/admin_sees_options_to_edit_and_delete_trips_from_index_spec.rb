@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "An admin" do
   context "visits the trips index page" do
-    it "and can see a button to edit a trip" do
+    it "and can see buttons to edit and delete a trip" do
       admin = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123 Elm St', role: 1)
       station = Station.create(name: 'Foo', dock_count: 5, city: 'Denver', installation_date: Time.now)
       trip1 = Trip.create(start_date: Time.now, start_station: station, end_date: (Time.now + 1), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
@@ -15,5 +15,18 @@ describe "An admin" do
       expect(page).to have_button('Edit')
       expect(page).to have_button('Delete')
     end
+
+    it "and buttons are invisible unless you're logged in as an admin" do
+      admin = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123 Elm St', role: 0)
+      station = Station.create(name: 'Foo', dock_count: 5, city: 'Denver', installation_date: Time.now)
+      trip1 = Trip.create(start_date: Time.now, start_station: station, end_date: (Time.now + 1), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
+      trip2 = Trip.create(start_date: Time.now, start_station: station, end_date: (Time.now + 1), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
+
+      visit trips_path
+
+      expect(page).to_not have_button('Edit')
+      expect(page).to_not have_button('Delete')
+    end
+    
   end
 end
