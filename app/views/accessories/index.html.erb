@@ -2,6 +2,7 @@
 <% @accessories.each do |a| %>
 <tr>
   <td><%= link_to a.title, accessory_path(a) %></td>
+  <td> <img src="<%=a.image%>" alt="Forest" style="width:150px"></td>
   <%if a.is_retired?%>
     <% if current_admin? %>
       <td><%= button_to 'Reactivate', admin_accessory_path(a, is_retired?: false), method: :put %></td>
