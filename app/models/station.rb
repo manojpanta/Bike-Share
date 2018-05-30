@@ -51,4 +51,8 @@ class Station < ApplicationRecord
     joins(:trips_started).count
   end
   
+  def self.ended_here
+    joins(:trips_ended).count
+  end
+  
 end
