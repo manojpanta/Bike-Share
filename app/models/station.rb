@@ -46,4 +46,9 @@ class Station < ApplicationRecord
   def self.oldest_station
     find_by(installation_date: minimum(:installation_date))
   end
+
+  def self.started_here
+    joins(:trips_started).count
+  end
+  
 end
