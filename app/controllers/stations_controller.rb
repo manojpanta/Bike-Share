@@ -8,6 +8,7 @@ class StationsController < ApplicationController
     @station = Station.find_by_param(params[:id])
     @started_here = @station.started_here
     @ended_here = @station.ended_here
+    @frequent_destination = @station.frequent_destination
   end
 
   def dashboard

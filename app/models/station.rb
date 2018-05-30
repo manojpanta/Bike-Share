@@ -55,4 +55,8 @@ class Station < ApplicationRecord
     trips_ended.count
   end
   
+  def frequent_destination_id
+    trips_ended.maximum(:end_station_id)
+  end
+  
 end
