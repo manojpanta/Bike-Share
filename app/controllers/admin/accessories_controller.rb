@@ -34,8 +34,8 @@ class Admin::AccessoriesController < Admin::BaseController
       redirect_to accessory_path(@accessory)
     end
   end
-  private
 
+  private
   def accessory_params
     params.require(:accessory).permit(:title, :description, :image, :price)
   end
