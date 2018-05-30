@@ -50,7 +50,7 @@ describe 'user visits accessory path' do
 
     accessory = Accessory.create!(title: 'wranch', image: 'http://blog.zealousgood.com/wp-content/uploads/2013/05/tools.jpg', price: 100, description: 'this is tool')
 
-    visit accessories_path
+    visit 'admin/bike-shop'
 
     expect(page).to have_content('Add to cart')
 
@@ -71,7 +71,7 @@ describe 'user visits accessory path' do
 
     accessory = Accessory.create!(title: 'wranch', image: 'http://blog.zealousgood.com/wp-content/uploads/2013/05/tools.jpg', price: 100, description: 'this is tool', is_retired?: true)
 
-    visit accessories_path
+    visit 'admin/bike-shop'
 
     expect(page).to_not have_content('Add to cart')
 

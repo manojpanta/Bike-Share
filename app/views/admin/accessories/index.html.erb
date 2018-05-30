@@ -1,0 +1,20 @@
+<h1> Bike Shop </h1>
+<% @accessories.each do |a| %>
+<tr>
+  <td><%= link_to a.title, accessory_path(a) %></td>
+  <td> <img src="<%=a.image%>" alt="Forest" style="width:150px"></td>
+  <%if a.is_retired?%>
+    <% if current_admin? %>
+      <td><%= button_to 'Reactivate', admin_accessory_path(a, is_retired?: false), method: :put %></td>
+      <td><%= button_to 'Edit', edit_admin_accessory_path(a), method: :get %></td>
+    <%end %>
+    <td><h4>Accessory Retired</h4></td>
+  <%else%>
+    <td><%= link_to 'Add to cart', '/bike-shop' %></td>
+    <% if current_admin? %>
+      <td><%= button_to 'Edit', edit_admin_accessory_path(a), method: :get %></td>
+      <td><%= button_to 'Retire', admin_accessory_path(a, is_retired?: true), method: :put%></td>
+    <%end%>
+  <%end%>
+</tr>
+<% end %>

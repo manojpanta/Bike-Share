@@ -8,5 +8,5 @@ class User < ApplicationRecord
 
   has_secure_password
   enum role: %i[default admin]
-  has_many :orders
+  has_many :orders, dependent: :delete_all
 end
