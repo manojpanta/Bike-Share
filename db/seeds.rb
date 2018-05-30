@@ -5,9 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Station.destroy_all
-Trip.destroy_all
-User.destroy_all
+# Station.destroy_all
+# Trip.destroy_all
+# # User.destroy_all
 
 TITLES = ['wranch', 'screw driver', 'Jumper Cables', 'socket set']
 IMAGES = ['https://cimg2.ibsrv.net/cimg/www.doityourself.com/660x300_100-1/514/Tools-199514.jpg', 'https://www.3wayplumbing.com/Portals/0/EasyGalleryImages/1/73/tools.jpg', 'https://cdn.everydaycarry.com/uploads/17-12-04/15a257f8f0ad64.jpg']
@@ -46,8 +46,35 @@ trips.each do |trip|
   end_station_id:    trip[:end_station_id])
 end
 
-10.times do
-  Accessory.create!(title: TITLES.sample, image: IMAGES.sample, price: PRICES.sample, description: DESCRIPTIONS.sample)
+50.times do
+  retired = false
+  if rand > 0.8
+    retired = true
+  end
+  Accessory.create!(title: TITLES.sample, image: IMAGES.sample, price: PRICES.sample, description: DESCRIPTIONS.sample, is_retired?: retired)
 end
 
-User.create(name: 'manoj', email: 'manoj', password: 'manoj', address: 'manoj', role: 1)
+m = User.create(name: 'manoj', email: 'manoj', password: 'manoj', address: 'manoj', role: 1)
+5.times do
+  o = m.orders.create(status: rand(4))
+  2.times do
+    item = Accessory.all.sample
+    o.accessory_orders.create(accessory: item, quantity: (rand(3) + 1))
+  end
+end
+s = User.create(name: 'steve', email: 'bob@bob.bob', password: '1234', address: 'manoj', role: 1)
+5.times do
+  o = s.orders.create(status: rand(4))
+  3.times do
+    item = Accessory.all.sample
+    o.accessory_orders.create(accessory: item, quantity: (rand(3) + 1))
+  end
+end
+u = User.create(name: 'user', email: 'user@bob.bob', password: '1234', address: 'manoj', role: 0)
+5.times do
+  o = u.orders.create(status: rand(4))
+  2.times do
+    item = Accessory.all.sample
+    o.accessory_orders.create(accessory: item, quantity: (rand(3) + 1))
+  end
+end

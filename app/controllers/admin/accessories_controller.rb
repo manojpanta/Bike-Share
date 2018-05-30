@@ -1,7 +1,12 @@
 class Admin::AccessoriesController < Admin::BaseController
 
   def index
-    redirect_to accessories_path
+    # redirect_to accessories_path
+    @accessories = Accessory.all
+  end
+
+  def show
+    redirect_to accessory_path(params[:id])
   end
 
   def new

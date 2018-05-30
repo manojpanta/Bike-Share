@@ -11,9 +11,10 @@ Rails.application.routes.draw do
   get 'admin/dashboard', to: 'users#show'
   get '/stations-dashboard', to:'stations#dashboard'
 
+
   resources :users, only: [:new, :create, :edit, :show, :update]
 
-  resources :accessories, only: [:index, :show]
+  resources :accessories, only: [:show]
   resources :stations, only: [:index, :show]
 
   resources :orders, only: [:show]
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
     get '/bikeshop/new', to: 'accessories#new'
     get '/bike-shop', to: 'accessories#index'
     resources :stations
-    resources :accessories
+    resources :accessories, only: [:show, :edit, :create, :destroy, :update]
     resources :trips
   end
 

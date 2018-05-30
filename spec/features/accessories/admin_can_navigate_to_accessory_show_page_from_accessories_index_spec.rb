@@ -4,7 +4,7 @@ describe 'user visits bikeshop ' do
   it 'can navigate to accessory show page' do
     accessory = Accessory.create!(title: 'wranch', image: 'http://blog.zealousgood.com/wp-content/uploads/2013/05/tools.jpg', price: 100, description: 'this is tool')
 
-    visit accessories_path
+    visit '/bike-shop'
 
     click_on accessory.title
 
@@ -15,7 +15,7 @@ describe 'user visits bikeshop ' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
     accessory = Accessory.create!(title: 'wranch', image: 'http://blog.zealousgood.com/wp-content/uploads/2013/05/tools.jpg', price: 100, description: 'this is tool')
 
-    visit accessories_path
+    visit '/admin/bike-shop'
 
     click_on 'Edit'
 
