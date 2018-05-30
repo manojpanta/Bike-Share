@@ -26,4 +26,8 @@ class Station < ApplicationRecord
   def self.most_bikes_in_one_station
     maximum(:dock_count)
   end
+
+  def self.station_with_most_bikes
+    where(dock_count: maximum(:dock_count))
+  end
 end

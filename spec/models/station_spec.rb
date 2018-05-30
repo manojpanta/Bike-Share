@@ -75,8 +75,8 @@ describe Station, type: :model do
       city = 'denver'
       installation_date = Time.now
 
-      Station.create(name: name, dock_count: dock_count, city: city, installation_date: installation_date)
-      Station.create(name: name1, dock_count: dock_count1, city: city, installation_date: installation_date)
+      s1 = Station.create(name: name, dock_count: dock_count, city: city, installation_date: installation_date)
+      s2 = Station.create(name: name1, dock_count: dock_count1, city: city, installation_date: installation_date)
       s3 = Station.create(name: name2, dock_count: dock_count2, city: city, installation_date: installation_date)
 
       top_station = s3.name
