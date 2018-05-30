@@ -24,4 +24,23 @@ describe Station, type: :model do
       expect(Station.total_station_count).to eq(2)
     end
   end
+
+  describe 'class method' do
+    it 'calculates average bikes available' do
+      name = 'Foo'
+      name1 = 'Foo1'
+      dock_count = 5
+      dock_count1 = 10
+      dock_count2 = 15
+      city = 'denver'
+      installation_date = Time.now
+      s1 = Station.create(name: name, dock_count: dock_count, city: city, installation_date: installation_date)
+      s2 = Station.create(name: name1, dock_count: dock_count1, city: city, installation_date: installation_date)
+      s3 = Station.create(name: name1, dock_count: dock_count2, city: city, installation_date: installation_date)
+
+      avg_bikes_count = (s1.dock_count + s1.dock_count + s1.dock_count)/3
+
+      expect(Station.avg_bikes_count).to eq(avg_bikes_count)
+    end
+  end
 end
