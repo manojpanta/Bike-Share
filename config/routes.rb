@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: 'users#show'
   get 'admin/dashboard', to: 'users#show'
+  get '/stations-dashboard', to:'stations#dashboard'
 
   resources :users, only: [:new, :create, :edit, :show, :update]
 

@@ -14,4 +14,8 @@ class Station < ApplicationRecord
   def self.find_by_param(input)
     find_by_name(input)
   end
+
+  def self.total_station_count
+    Station.all.count
+  end
 end
