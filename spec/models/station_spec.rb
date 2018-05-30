@@ -81,7 +81,7 @@ describe Station, type: :model do
 
       top_station = s3.name
 
-      expect(Station.station_with_most_bikes.first.name).to eq(top_station)
+      expect(Station.station_with_most_bikes.name).to eq(top_station)
     end
   end
 
@@ -103,6 +103,50 @@ describe Station, type: :model do
       fewest_bike_available_in_one_station = 5
 
       expect(Station.fewest_bikes_in_one_station).to eq(fewest_bike_available_in_one_station)
+    end
+  end
+
+  describe 'class method' do
+    it 'it shows station with fewest bikes count' do
+      name = 'Foo'
+      name1 = 'Foo1'
+      name2 = 'Mnaoj'
+      dock_count = 5
+      dock_count1 = 10
+      dock_count2 = 15
+      city = 'denver'
+      installation_date = Time.now
+
+      s1 = Station.create(name: name, dock_count: dock_count, city: city, installation_date: installation_date)
+      s2 = Station.create(name: name1, dock_count: dock_count1, city: city, installation_date: installation_date)
+      s3 = Station.create(name: name2, dock_count: dock_count2, city: city, installation_date: installation_date)
+
+      low_station = s1.name
+
+      expect(Station.station_with_fewest_bikes.name).to eq(low_station)
+    end
+  end
+
+  describe 'class method' do
+    it 'it shows most recently installed station' do
+      name = 'Foo'
+      name1 = 'Foo1'
+      name2 = 'Mnaoj'
+      dock_count = 5
+      dock_count1 = 10
+      dock_count2 = 15
+      city = 'denver'
+      installation_date = '08/12/23'
+      installation_date1 = '09/12/23'
+      installation_date2 = '10/12/23'
+
+      s1 = Station.create(name: name, dock_count: dock_count, city: city, installation_date: installation_date)
+      s2 = Station.create(name: name1, dock_count: dock_count1, city: city, installation_date: installation_date1)
+      s3 = Station.create(name: name2, dock_count: dock_count2, city: city, installation_date: installation_date2)
+
+      recent_station = s3.name
+
+      expect(Station.most_recently_installed.name).to eq(recent_station)
     end
   end
 end
