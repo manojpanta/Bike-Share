@@ -9,13 +9,13 @@ describe "A registered user" do
 
       visit station_path(station)
 
-      expect(page).to have_content("Number of rides started from here: 1")
+      expect(page).to have_content("Rides started here: 1")
 
       Trip.create(duration: 90, start_date: (Time.now + 2), start_station: station, end_date: (Time.now + 3), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
 
       visit station_path(station)
 
-      expect(page).to have_content("Number of rides started from here: 2")
+      expect(page).to have_content("Rides started here: 2")
     end
 
     it "and sees the number of rides ended at this station" do
@@ -25,13 +25,13 @@ describe "A registered user" do
 
       visit station_path(station)
 
-      expect(page).to have_content("Number of rides ended from here: 1")
+      expect(page).to have_content("Rides ended here: 1")
 
       Trip.create(duration: 90, start_date: (Time.now + 2), start_station: station, end_date: (Time.now + 3), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
 
       visit station_path(station)
 
-      expect(page).to have_content("Number of rides ended from here: 2")
+      expect(page).to have_content("Rides ended here: 2")
     end
   end
 end
