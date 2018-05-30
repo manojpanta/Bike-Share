@@ -1,4 +1,7 @@
 <h1>All Trips</h1>
+<% if current_admin? %>
+<h1><%=link_to 'Create New Trip', new_admin_trip_path %></h1>
+<% end %>
 
 <%= will_paginate %>
 <table>
@@ -29,8 +32,8 @@
     <td><%= trip.subscription_type %></td>
     <td><%= trip.zip_code %></td>
     <% if current_admin? %>
-    <td><%= button_to 'Edit', edit_admin_trip_path(trip) %></td>
-    <td><%= button_to 'Delete', admin_trip_path(trip) %></td>
+    <td><%= button_to 'Edit', edit_admin_trip_path(trip), method: :get %></td>
+    <td><%= button_to 'Delete', admin_trip_path(trip), method: :delete%></td>
     <% end %>
   </tr>
   <% end %>

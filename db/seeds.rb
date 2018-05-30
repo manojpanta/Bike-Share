@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Station.destroy_all
 Trip.destroy_all
+User.destroy_all
 
 TITLES = ['wranch', 'screw driver', 'Jumper Cables', 'socket set']
 IMAGES = ['https://cimg2.ibsrv.net/cimg/www.doityourself.com/660x300_100-1/514/Tools-199514.jpg', 'https://www.3wayplumbing.com/Portals/0/EasyGalleryImages/1/73/tools.jpg', 'https://cdn.everydaycarry.com/uploads/17-12-04/15a257f8f0ad64.jpg']
@@ -46,5 +47,7 @@ trips.each do |trip|
 end
 
 10.times do
-  Accessory.create(title: TITLES.sample, image: IMAGES.sample, price: PRICES.sample, description: DESCRIPTIONS.sample)
+  Accessory.create!(title: TITLES.sample, image: IMAGES.sample, price: PRICES.sample, description: DESCRIPTIONS.sample)
 end
+
+User.create(name: 'manoj', email: 'manoj', password: 'manoj', address: 'manoj', role: 1)

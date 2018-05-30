@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
 
   get '/dashboard', to: 'users#show'
+  get 'admin/dashboard', to: 'users#show'
 
   resources :users, only: [:new, :create, :edit, :show, :update]
 
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/bikeshop/new', to: 'accessories#new'
+    get '/bike-shop', to: 'accessories#index'
     resources :stations
     resources :accessories
     resources :trips
