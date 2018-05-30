@@ -7,13 +7,13 @@ describe "A registered user" do
       station = Station.create(name:'Foo', dock_count: 5, city: 'Denver', installation_date: Time.now)
       trip = Trip.create(duration: 100, start_date: Time.now, start_station: station, end_date: (Time.now + 1), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
 
-      visit trip_path(trip)
+      visit station_path(station)
 
-      expect(page).to have_content("Number of rides: 1")
+      expect(page).to have_content("Number of rides started from here: 1")
 
       trip = Trip.create(duration: 90, start_date: (Time.now + 2), start_station: station, end_date: (Time.now + 3), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
 
-      # expect(page).to have_content(2)
+      expect(page).to have_content(2)
     end
   end
 end
