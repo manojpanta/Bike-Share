@@ -44,4 +44,24 @@ describe Station, type: :model do
       expect(Station.avg_bikes_count).to eq(avg_bike_count)
     end
   end
+  describe 'class method' do
+    it 'calculates most bikes available in one station' do
+      name = 'Foo'
+      name1 = 'Foo1'
+      name2 = 'Foo2'
+      dock_count = 5
+      dock_count1 = 10
+      dock_count2 = 15
+      city = 'denver'
+      installation_date = Time.now
+      
+      Station.create(name: name, dock_count: dock_count, city: city, installation_date: installation_date)
+      Station.create(name: name1, dock_count: dock_count1, city: city, installation_date: installation_date)
+      Station.create(name: name2, dock_count: dock_count2, city: city, installation_date: installation_date)
+
+      most_bike_available_in_one_station = 15
+
+      expect(Station.most_bikes_in_one_station).to eq(most_bike_available_in_one_station)
+    end
+  end
 end

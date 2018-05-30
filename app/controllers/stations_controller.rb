@@ -12,5 +12,4 @@ class StationsController < ApplicationController
     @total_station_count = Station.total_station_count
     @avg_bikes_count = Station.avg_bikes_count
   end
-
 end
