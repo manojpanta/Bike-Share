@@ -16,6 +16,7 @@
       <% if current_user %>
         <% if current_admin? %>
           <%= link_to "Admin Dashboard", '/admin/dashboard' %>
+          <%= link_to 'Accessories', '/admin/bike-shop' %>
         <% else %>
           <%= link_to "My Profile", '/dashboard' %>
         <% end %>

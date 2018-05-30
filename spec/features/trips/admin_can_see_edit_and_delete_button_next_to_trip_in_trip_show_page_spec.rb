@@ -23,12 +23,12 @@ describe "A visitor" do
 
       station = Station.create!(name: 'Foo', dock_count: 5, city: 'Denver', installation_date: Time.now)
       trip = Trip.create!(duration: 100, start_date: Time.now, start_station: station, end_date: (Time.now + 1), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
-      
+
       visit trip_path(trip)
       click_on 'Edit'
 
       expect(current_path).to eq(edit_admin_trip_path(trip))
-      
+
 
       fill_in 'trip[duration]',	with: 50
       fill_in 'trip[start_date]',	with: trip.start_date

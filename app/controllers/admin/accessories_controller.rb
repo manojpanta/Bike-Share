@@ -1,5 +1,9 @@
 class Admin::AccessoriesController < Admin::BaseController
 
+  def index
+    redirect_to accessories_path
+  end
+
   def new
     @accessory = Accessory.new
   end
@@ -19,10 +23,16 @@ class Admin::AccessoriesController < Admin::BaseController
   end
 
   def update
-    @accessory = Accessory.find(params[:id])
-    @accessory.update(accessory_params)
-    flash[:notice] = "#{@accessory.title} Updated"
-    redirect_to accessory_path(@accessory)
+    if params[:is_retired?]
+      @accessory = Accessory.find(params[:id])
+      @accessory.update(is_retired?: params[:is_retired?])
+      redirect_to accessory_path(@accessory)
+    else
+      @accessory = Accessory.find(params[:id])
+      @accessory.update(accessory_params)
+      flash[:notice] = "#{@accessory.title} Updated"
+      redirect_to accessory_path(@accessory)
+    end
   end
   private
 

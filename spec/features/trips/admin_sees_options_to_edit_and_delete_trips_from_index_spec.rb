@@ -16,6 +16,7 @@ describe "An admin" do
       expect(page).to have_button('Delete')
     end
 
+
     it "and buttons are invisible unless you're logged in as an admin" do
       admin = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123 Elm St', role: 0)
       station = Station.create(name: 'Foo', dock_count: 5, city: 'Denver', installation_date: Time.now)
@@ -27,6 +28,6 @@ describe "An admin" do
       expect(page).to_not have_button('Edit')
       expect(page).to_not have_button('Delete')
     end
-    
+
   end
 end
