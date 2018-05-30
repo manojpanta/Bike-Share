@@ -166,4 +166,27 @@ describe 'user visiting stations dashboard' do
 
     expect(page).to have_content("Most recently installed station: #{recent_station}")
   end
+  it 'it shows oldest station' do
+    name = 'Foo'
+    name1 = 'Foo1'
+    name2 = 'Mnaoj'
+    dock_count = 5
+    dock_count1 = 10
+    dock_count2 = 15
+    city = 'denver'
+    installation_date = '08/12/23'
+    installation_date1 = '09/12/23'
+    installation_date2 = '10/12/23'
+
+    s1 = Station.create(name: name, dock_count: dock_count, city: city, installation_date: installation_date)
+    s2 = Station.create(name: name1, dock_count: dock_count1, city: city, installation_date: installation_date1)
+    s3 = Station.create(name: name2, dock_count: dock_count2, city: city, installation_date: installation_date2)
+
+    oldest_station = s1.name
+    visit '/stations-dashboard'
+
+    expect(current_path).to eq('/stations-dashboard')
+
+    expect(page).to have_content("Oldest station: #{oldest_station}")
+  end
 end

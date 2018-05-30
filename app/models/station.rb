@@ -42,4 +42,8 @@ class Station < ApplicationRecord
   def self.most_recently_installed
     find_by(installation_date: maximum(:installation_date))
   end
+
+  def self.oldest_station
+    find_by(installation_date: minimum(:installation_date))
+  end
 end
