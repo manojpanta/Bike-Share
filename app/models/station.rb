@@ -47,12 +47,12 @@ class Station < ApplicationRecord
     find_by(installation_date: minimum(:installation_date))
   end
 
-  def self.started_here
-    joins(:trips_started).count
+  def started_here
+    trips_started.count
   end
   
-  def self.ended_here
-    joins(:trips_ended).count
+  def ended_here
+    trips_ended.count
   end
   
 end

@@ -6,6 +6,8 @@ class StationsController < ApplicationController
 
   def show
     @station = Station.find_by_param(params[:id])
+    @started_here = @station.started_here
+    @ended_here = @station.ended_here
   end
 
   def dashboard
