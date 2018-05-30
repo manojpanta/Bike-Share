@@ -8,7 +8,7 @@ describe "A registered user" do
       trip = Trip.create(duration: 100, start_date: Time.now, start_station: station, end_date: (Time.now + 1), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
 
       visit trip_path(trip)
-save_and_open_page
+
       expect(page).to have_content("Number of rides: 1")
 
       trip = Trip.create(duration: 90, start_date: (Time.now + 2), start_station: station, end_date: (Time.now + 3), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )

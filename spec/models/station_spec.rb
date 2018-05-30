@@ -172,4 +172,23 @@ describe Station, type: :model do
       expect(Station.oldest_station.name).to eq(oldest_station)
     end
   end
+
+  describe "class methods" do
+    it "#started_here should return number of trips started from this station." do
+      name = 'Foo'
+      dock_count = 5
+      city = 'denver'
+      installation_date = Time.now
+
+      station = Station.create(name: name, dock_count: dock_count, city: city, installation_date: installation_date)
+      Trip.create(start_date: Time.now, start_station: station, end_date: (Time.now + 1), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
+      Trip.create(start_date: Time.now, start_station: station, end_date: (Time.now + 1), end_station: station, bike_id: 5, subscription_type: 'Member', zip_code: 80202 )
+
+      rides_started = Trip.all.count
+
+      expect(Station.started_here).to eq(rides_started)
+    end
+    
+  end
+
 end
