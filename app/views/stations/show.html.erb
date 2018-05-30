@@ -8,7 +8,7 @@
 <section><h2>City:</h2><h3><%= @station.city %></h3></section>
 <section><h2>Install date:</h2><h3><%= @station.installation_date %></h3></section>
 
-<%# <%if current_user %> 
+<%if current_user %>
 <h3>Rides started here: <%= @started_here %></h3>
 <h3>Rides ended here: <%= @ended_here %></h3>
-<%# <%end%> 
+<% end %>
