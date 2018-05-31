@@ -11,12 +11,12 @@ describe "A registered user" do
 
       visit station_path(station)
 
-      expect(page).to have_content("Rides started here: 1")
+      expect(page).to have_content("Rides started here:\n1\n")
       Trip.create(duration: 90, start_date: (Time.now + 2), start_station: station, end_date: (Time.now + 3), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
 
       visit station_path(station)
 
-      expect(page).to have_content("Rides started here: 2")
+      expect(page).to have_content("Rides started here:\n2\n")
     end
 
     it "and sees the number of rides ended at this station" do
@@ -28,13 +28,13 @@ describe "A registered user" do
 
       visit station_path(station)
 
-      expect(page).to have_content("Rides ended here: 1")
+      expect(page).to have_content("Rides ended here:\n1\n")
 
       Trip.create(duration: 90, start_date: (Time.now + 2), start_station: station, end_date: (Time.now + 3), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
 
       visit station_path(station)
 
-      expect(page).to have_content("Rides ended here: 2")
+      expect(page).to have_content("Rides ended here:\n2\n")
     end
 
     it "and sees the most frequent destination station" do
@@ -49,8 +49,8 @@ describe "A registered user" do
 
       visit station_path(station)
 
-      expect(page).to have_content("Most frequent destination: Denver-Cap Hill")
-      expect(page).to_not have_content("Most frequent destination: Jack")
+      expect(page).to have_content("Most frequent destination:\nDenver-Cap Hill\n")
+      expect(page).to_not have_content("Most frequent destination:\nJack\n")
     end
 
     it "and sees the most frequent origination station" do
@@ -65,7 +65,7 @@ describe "A registered user" do
 
       visit station_path(station)
 
-      expect(page).to have_content("Most frequent origination: Denver-Cap Hill")
+      expect(page).to have_content("Most frequent origination:\nDenver-Cap Hill\n")
       expect(page).to_not have_content("Most frequent origination: Jack")
     end
 
@@ -83,7 +83,7 @@ describe "A registered user" do
 
       visit station_path(station)
 
-      expect(page).to have_content("Date with the most rides started: #{date1.strftime('%A, %B%e, %Y')}")
+      expect(page).to have_content("Date with the most rides started:\n#{date1.strftime('%A, %B%e, %Y')}")
       expect(page).to_not have_content("Date with the most rides started: 03/04/2018")
     end
 
@@ -104,14 +104,14 @@ describe "A registered user" do
 
       visit station_path(station)
 
-      expect(page).to have_content("Most frequent zip code: #{zip1}")
-      expect(page).to_not have_content("Most frequent zip code: #{zip2}")
+      expect(page).to have_content("Most frequent zip code:\n#{zip1}\n")
+      expect(page).to_not have_content("Most frequent zip code:\n#{zip2}")
     end
 
   end
 end
 
 
-
+ 
 # I see the Most frequent zip code for users starting trips at this station,
 # I see the Bike ID most frequently starting a trip at this station.

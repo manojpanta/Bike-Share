@@ -9,10 +9,12 @@
 <section><h2>Install date:</h2><h3><%= @station.installation_date %></h3></section>
 
 <%if current_user %>
-<h3>Rides started here: <%= @started_here %></h3>
-<h3>Rides ended here: <%= @ended_here %></h3>
-<h3>Most frequent destination: <%= @frequent_destination %></h3>
-<h3>Most frequent origination: <%= @frequent_origination %></h3>
-<h3>Date with the most rides started: <%= @most_rides_started %></h3>
-<h3>Most frequent zip code: <%= @most_frequent_zip %></h3>
+<div class="show-display">
+<h2>Rides started here: </h2><h3><%= @started_here %></h3>
+<h2>Rides ended here: </h2><h3><%= @ended_here %></h3>
+<h2>Most frequent destination: </h2><h3><%= @frequent_destination %></h3>
+<h2>Most frequent origination: </h2><h3><%= @frequent_origination %></h3>
+<h2>Date with the most rides started: </h2><h3><%= @most_rides_started %></h3>
+<h2>Most frequent zip code: </h2><h3><%= @most_frequent_zip %></h3>
+</div>
 <% end %>
