@@ -43,7 +43,7 @@
   <%= link_to 'Paid', user_path(current_user, status: 'paid') %>
   <%= link_to 'Cancelled', user_path(current_user, status: 'cancelled') %>
   <%= link_to 'All Orders', user_path(current_user) %>
-    <table>
+    <table class='orders-table'>
       <h2> <%=@header%></h2>
       <tr>
         <th>Order ID</th>
@@ -57,6 +57,7 @@
         <td><%= order.cost %></td>
         <td><%= order.status %></td>
         <td><%= order.created_at %></td>
+
       </tr>
       <% end %>
     </table>
