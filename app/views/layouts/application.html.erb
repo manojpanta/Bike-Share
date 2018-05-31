@@ -13,11 +13,12 @@
     <nav>
       <%= link_to "Stations", stations_path %>
       <%= link_to "Trips", trips_path %>
-      <%= link_to 'Accessories', '/admin/bike-shop' %>
       <% if current_user %>
         <% if current_admin? %>
-          <%= link_to "Admin Dashboard", '/admin/dashboard' %>
+        <%= link_to 'Accessories', '/admin/bike-shop' %>
+        <%= link_to "Admin Dashboard", '/admin/dashboard' %>
         <% else %>
+        <%= link_to 'Accessories', '/bike-shop' %>
           <%= link_to "My Profile", '/dashboard' %>
         <% end %>
         <%= link_to "Logout", logout_path %>
