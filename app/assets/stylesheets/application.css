@@ -144,7 +144,9 @@ a {
   background-color: red;
 }
 .add-button {
+  border: none;
   background-color: darkgreen;
+  color: white;
 }
 .add-button:hover {
   background-color: green;
@@ -152,9 +154,6 @@ a {
 
 h3 input {
   padding: .2em;
-  width: 100%;
-  border: none;
-  /* background-color: green; */
-  color: white;
+  width: 80%;
   font-size: .8em;
 }

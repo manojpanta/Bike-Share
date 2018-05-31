@@ -7,6 +7,6 @@ describe 'user visits bikeshop page' do
 
     expect(page).to have_content('Bike Shop')
     expect(page).to have_content(accessory.title)
-    expect(page).to have_link('Add to cart')
+    expect(page).to have_button('Add to cart')
   end
 end
