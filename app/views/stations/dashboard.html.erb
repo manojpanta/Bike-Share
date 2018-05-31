@@ -5,7 +5,7 @@
 <h2>Most recently installed station: <%=@recent_station%></h2>
 <h2>Oldest station: <%=@oldest_station%></h1>
 
-<h1>Station with most bikes</h1>
+<h1>Station with Most bikes</h1>
 <center><table>
   <tr>
     <th>Station Name</th>
@@ -19,4 +19,16 @@
   <%end%>
 </table></center>
 
-  <h1>Station with fewest bikes: <%=@station_with_fewest_bikes%></h1>
+<h1>Station with Fewest bikes</h1>
+<center><table>
+  <tr>
+    <th>Station Name</th>
+    <th>Bikes Count</th>
+  </tr>
+  <% @station_with_fewest_bikes.each do |station| %>
+  <tr>
+    <td><%= link_to station.name, station_path(station) %></td>
+    <td><%=@fewest_bikes_in_one_station%></td>
+  </tr>
+  <%end%>
+</table></center>
