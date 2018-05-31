@@ -123,6 +123,7 @@ a {
   width: 35%;
 }
 .admin-buttons form input {
+  padding: .2em;
   width: 100%;
   border: none;
   /* background-color: green; */
@@ -131,20 +132,29 @@ a {
 }
 
 .edit-button {
-  background-color: orange;
-}
-.edit-button:hover {
   background-color: darkorange;
 }
-.delete-button {
-  background-color: red;
+.edit-button:hover {
+  background-color: orange;
 }
-.delete-button:hover {
+.delete-button {
   background-color: darkred;
 }
+.delete-button:hover {
+  background-color: red;
+}
 .add-button {
-  background-color: green;
+  background-color: darkgreen;
 }
 .add-button:hover {
-  background-color: darkgreen;
+  background-color: green;
+}
+
+h3 input {
+  padding: .2em;
+  width: 100%;
+  border: none;
+  /* background-color: green; */
+  color: white;
+  font-size: .8em;
 }

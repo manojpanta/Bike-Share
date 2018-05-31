@@ -20,7 +20,7 @@
               <%= button_to 'Retire', admin_accessory_path(a, is_retired?: true), method: :put, class: 'delete-button'%>
             </div>
             <%end%>
-            <h3><%= link_to 'Add to cart', '/bike-shop' %></h3>
+            <h3><%= button_to 'Add to cart', '/bike-shop', class: 'add-button' %></h3>
           <%end%>
       </section>
     <% end %>
