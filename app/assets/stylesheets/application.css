@@ -80,3 +80,7 @@ article section h3 {
 h3 {
   text-align: center;
 }
+
+a {
+  text-decoration: none;
+}
