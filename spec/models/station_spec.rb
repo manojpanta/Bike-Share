@@ -213,4 +213,36 @@ describe Station, type: :model do
     end
   end
 
+  describe "class methods" do
+    it "#frequent_destination returns the name of the most frequent desination from this station" do
+      user = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123 Elm St', role: 0)
+      station = Station.create(name:'Denver-Cap Hill', dock_count: 5, city: 'Denver', installation_date: Time.now)
+      station2 = Station.create(name:'Jack', dock_count: 5, city: 'New Jack City', installation_date: Time.now)
+      Trip.create(duration: 100, start_date: Time.now, start_station: station, end_date: (Time.now + 1), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
+      Trip.create(duration: 75, start_date: Time.now, start_station: station, end_date: (Time.now + 1), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
+      Trip.create(duration: 80, start_date: Time.now, start_station: station2, end_date: (Time.now + 1), end_station: station2, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
+
+      frequent_destinations = 'Denver-Cap Hill'
+
+      expect(station.frequent_destination).to eq(frequent_destinations)
+      expect(station.frequent_destination).to_not eq('Jack')
+    end
+  end
+
+  describe "class methods" do
+    it "#frequent_origination returns the name of the most frequent desination from this station" do
+      user = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123 Elm St', role: 0)
+      station = Station.create(name:'Denver-Cap Hill', dock_count: 5, city: 'Denver', installation_date: Time.now)
+      station2 = Station.create(name:'Jack', dock_count: 5, city: 'New Jack City', installation_date: Time.now)
+      Trip.create(duration: 100, start_date: Time.now, start_station: station, end_date: (Time.now + 1), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
+      Trip.create(duration: 75, start_date: Time.now, start_station: station, end_date: (Time.now + 1), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
+      Trip.create(duration: 80, start_date: Time.now, start_station: station2, end_date: (Time.now + 1), end_station: station2, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
+
+      frequent_originations = 'Denver-Cap Hill'
+
+      expect(station.frequent_origination).to eq(frequent_originations)
+      expect(station.frequent_origination).to_not eq('Jack')
+    end
+  end
+
 end

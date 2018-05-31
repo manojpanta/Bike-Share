@@ -65,4 +65,16 @@ class Station < ApplicationRecord
         Station.find(destination.first[0]).name
       end
   end
+
+  def frequent_origination
+      origination = trips_started.group(:start_station_id)
+                              .order('count_all DESC')
+                              .count
+      if origination.empty?
+        "Unknown"
+      else
+        Station.find(origination.first[0]).name
+      end
+  end
+  
 end
