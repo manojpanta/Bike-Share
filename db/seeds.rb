@@ -37,8 +37,8 @@ trips.each do |trip|
   Trip.create(
   id:             trip[:id],
   duration:             trip[:duration],
-  start_date:           DateTime.strptime(trip[:start_date], '%m/%d/%Y'),
-  end_date:            DateTime.strptime(trip[:end_date], '%m/%d/%Y'),
+  start_date:           DateTime.strptime(trip[:start_date], '%m/%d/%y %H:%M'),
+  end_date:            DateTime.strptime(trip[:end_date], '%m/%d/%y %H:%M'),
   bike_id:     trip[:bike_id],
   subscription_type:   trip[:subscription_type],
   zip_code:    trip[:zip_code],

@@ -2,6 +2,7 @@ class Admin::AccessoriesController < Admin::BaseController
 
   def index
     @accessories = Accessory.all
+    render 'accessories/index'
   end
 
   def show
