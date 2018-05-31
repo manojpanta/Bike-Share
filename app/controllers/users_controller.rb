@@ -21,6 +21,7 @@ class UsersController < ApplicationController
       @order = @user.orders
       if current_admin?
         @total_ordered = Order.total_ordered
+        @total_paid = Order.total_paid
         @all_orders = Order.all
       end
     else
