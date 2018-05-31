@@ -12,7 +12,6 @@ describe "A registered user" do
       visit station_path(station)
 
       expect(page).to have_content("Rides started here: 1")
-
       Trip.create(duration: 90, start_date: (Time.now + 2), start_station: station, end_date: (Time.now + 3), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
 
       visit station_path(station)
@@ -40,7 +39,7 @@ describe "A registered user" do
 
     it "and sees the most frequent destination station" do
       user = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123 Elm St', role: 0)
-      station = Station.create(name:'Denver', dock_count: 5, city: 'Denver', installation_date: Time.now)
+      station = Station.create(name:'Denver-Cap Hill', dock_count: 5, city: 'Denver', installation_date: Time.now)
       station2 = Station.create(name:'Jack', dock_count: 5, city: 'New Jack City', installation_date: Time.now)
       Trip.create(duration: 100, start_date: Time.now, start_station: station, end_date: (Time.now + 1), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
       Trip.create(duration: 75, start_date: Time.now, start_station: station, end_date: (Time.now + 1), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
@@ -50,13 +49,13 @@ describe "A registered user" do
 
       visit station_path(station)
 
-      expect(page).to have_content("Most frequent destination: Denver")
+      expect(page).to have_content("Most frequent destination: Denver-Cap Hill")
       expect(page).to_not have_content("Most frequent destination: Jack")
     end
 
     it "and sees the most frequent origination station" do
       user = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123 Elm St', role: 0)
-      station = Station.create(name:'Denver', dock_count: 5, city: 'Denver', installation_date: Time.now)
+      station = Station.create(name:'Denver-Cap Hill', dock_count: 5, city: 'Denver', installation_date: Time.now)
       station2 = Station.create(name:'Jack', dock_count: 5, city: 'New Jack City', installation_date: Time.now)
       Trip.create(duration: 100, start_date: Time.now, start_station: station, end_date: (Time.now + 1), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
       Trip.create(duration: 75, start_date: Time.now, start_station: station, end_date: (Time.now + 1), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
@@ -66,7 +65,7 @@ describe "A registered user" do
 
       visit station_path(station)
 
-      expect(page).to have_content("Most frequent origination: Denver")
+      expect(page).to have_content("Most frequent origination: Denver-Cap Hill")
       expect(page).to_not have_content("Most frequent origination: Jack")
     end
 
