@@ -27,11 +27,11 @@ describe 'admin visits admin dashboard' do
     expect(page).to have_content('cancelled')
     expect(page).to_not have_content('paid')
   end
-  it 'can filter orders by status' do
+  it 'can change status to paid from ordered' do
     user1 = User.create(name: 'bob', password: '1234', email: 'bob@bob.bob', address: '123 Elm St')
 
-    order1 = user1.orders.create(status: 'paid')
-  
+    order1 = user1.orders.create(status: 'ordered')
+
     item1 = Accessory.create(title: 'chain', image: 'chain.jpg', price: 27.55, description: 'pedal to wheel')
     item2 = Accessory.create(title: 'pedal', image: 'pedal.jpg', price: 36.55, description: 'goes around')
 
@@ -44,13 +44,13 @@ describe 'admin visits admin dashboard' do
     visit 'admin/dashboard'
 
     expect(page).to have_content(order1.id)
-    expect(page).to have_content('paid')
+    expect(page).to have_content('ordered')
 
     within ('.orders-table') do
-      click_on 'Cancel'
+      click_on 'Mark as Paid'
     end
 
-    expect(page).to have_content('Cancelled')
-    expect(page).to_not have_content('paid')
+    expect(page).to have_content('paid')
+    expect(page).to_not have_content('ordered')
   end
 end

@@ -61,6 +61,9 @@
         <%if order.status =='paid' || order.status == 'ordered' %>
         <td><%= button_to 'Cancel', admin_order_path(order, status: 'cancelled'), method: :put %></td>
         <%end%>
+        <%if order.status == 'ordered' %>
+        <td><%= button_to 'Mark as Paid', admin_order_path(order, status: 'paid'), method: :put %></td>
+        <%end%>
       </tr>
       <% end %>
     </table>
