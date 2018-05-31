@@ -18,11 +18,12 @@
         <%= link_to 'Accessories', '/admin/bike-shop' %>
         <%= link_to "Admin Dashboard", '/admin/dashboard' %>
         <% else %>
-        <%= link_to 'Accessories', '/bike-shop' %>
+          <%= link_to 'Accessories', '/bike-shop' %>
           <%= link_to "My Profile", '/dashboard' %>
         <% end %>
         <%= link_to "Logout", logout_path %>
       <% else %>
+        <%= link_to 'Accessories', '/bike-shop' %>
         <%= link_to "Sign Up", new_user_path %>
         <%= link_to "Login", login_path %>
       <% end %>
