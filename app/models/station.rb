@@ -98,5 +98,10 @@ class Station < ApplicationRecord
       zip.first[0]
     end
   end
+
+  def most_used_bike
+    
+  end
+  
   
 end
