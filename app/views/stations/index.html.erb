@@ -16,8 +16,8 @@
     <td><%= station.city %></td>
     <td><%= station.installation_date %></td>
     <%if current_admin?%>
-    <td><%= link_to 'Edit', edit_admin_station_path(station) %></td>
-    <td><%= link_to 'Delete', admin_station_path(station), method: :delete %></td>
+    <td><%= button_to 'Edit', edit_admin_station_path(station), method: :get %></td>
+    <td><%= button_to 'Delete', admin_station_path(station), method: :delete %></td>
     <%end%>
   </tr>
   <% end %>
