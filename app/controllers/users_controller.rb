@@ -24,7 +24,13 @@ class UsersController < ApplicationController
         @total_paid = Order.total_paid
         @total_cancelled = Order.total_cancelled
         @total_completed = Order.total_completed
-        @all_orders = Order.all
+        if params[:status]
+          @all_orders = Order.where(status: params[:status])
+          @header = "All #{params[:status].capitalize} Orders"
+        else
+          @all_orders = Order.all
+          @header = "All  Orders"
+        end
       end
     else
       render file: '/public/404'

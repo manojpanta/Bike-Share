@@ -32,14 +32,19 @@
     <% end %>
   </table>
 
-
   <%if current_admin? %>
   <h2> Total Number Of Orders With Ordered Status: <%=@total_ordered%></h2>
   <h2> Total Number Of Orders With Paid Status: <%=@total_paid%></h2>
   <h2> Total Number Of Orders With Cancelled Status: <%=@total_cancelled%></h2>
   <h2> Total Number Of Orders With Completed Status: <%=@total_completed%></h2>
+
+  <%= link_to 'Ordered', user_path(current_user, status: 'ordered') %>
+  <%= link_to 'Completed', user_path(current_user, status: 'completed') %>
+  <%= link_to 'Paid', user_path(current_user, status: 'paid') %>
+  <%= link_to 'Cancelled', user_path(current_user, status: 'cancelled') %>
+  <%= link_to 'All Orders', user_path(current_user) %>
     <table>
-      <h2> All Orders </h2>
+      <h2> <%=@header%></h2>
       <tr>
         <th>Order ID</th>
         <th>Total Price</th>

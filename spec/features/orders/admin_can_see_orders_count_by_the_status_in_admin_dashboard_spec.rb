@@ -19,9 +19,9 @@ describe 'registered user visits dashboard' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
     visit 'admin/dashboard'
-    orders_paid = "Total Number Of Orders With Ordered Status: 1"
+    orders_ordered = "Total Number Of Orders With Ordered Status: 1"
 
-    expect(page).to have_content(orders_paid)
+    expect(page).to have_content(orders_ordered)
   end
   it 'total no. of order with paid status' do
     user1 = User.create(name: 'bob', password: '1234', email: 'bob@bob.bob', address: '123 Elm St')
@@ -63,9 +63,9 @@ describe 'registered user visits dashboard' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
     visit 'admin/dashboard'
-    orders_paid = "Total Number Of Orders With Cancelled Status: 1"
+    orders_cancelled = "Total Number Of Orders With Cancelled Status: 1"
 
-    expect(page).to have_content(orders_paid)
+    expect(page).to have_content(orders_cancelled)
   end
   it 'total no. of order with completed status' do
     user1 = User.create(name: 'bob', password: '1234', email: 'bob@bob.bob', address: '123 Elm St')
@@ -85,8 +85,8 @@ describe 'registered user visits dashboard' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
     visit 'admin/dashboard'
-    orders_paid = "Total Number Of Orders With Completed Status: 1"
+    orders_completed = "Total Number Of Orders With Completed Status: 1"
 
-    expect(page).to have_content(orders_paid)
+    expect(page).to have_content(orders_completed)
   end
 end
