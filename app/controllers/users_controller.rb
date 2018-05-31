@@ -22,8 +22,8 @@ class UsersController < ApplicationController
       if current_admin?
         @total_ordered = Order.total_ordered
         @total_paid = Order.total_paid
-        @total_cancelled = Order.total_paid
-        @total_completed = Order.total_paid
+        @total_cancelled = Order.total_cancelled
+        @total_completed = Order.total_completed
         @all_orders = Order.all
       end
     else
