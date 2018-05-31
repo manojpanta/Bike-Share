@@ -1,14 +1,18 @@
-<h1>Trip</h1>
-<%if current_admin?%>
-<h2><%= link_to 'Edit', edit_admin_trip_path(@trip) %></h2>
-<h2><%= link_to 'Delete', admin_trip_path(@trip), method: :delete %></h2>
-<%end%>
+<main>
+  <h1>Trip</h1>
+  <%if current_admin?%>
+  <h2><%= link_to 'Edit', edit_admin_trip_path(@trip) %></h2>
+  <h2><%= link_to 'Delete', admin_trip_path(@trip), method: :delete %></h2>
+  <%end%>
 
-<section><h2>Duration:</h2><h3> <%= @trip.duration %></h3></section>
-<section><h2>Start Date:</h2><h3> <%= @trip.start_date %></h3></section>
-<section><h2>Start Station:</h2><h3><%= @trip.start_station.name %></h3></section>
-<section><h2>End Date:</h2><h3><%= @trip.end_date %></h3></section>
-<section><h2>End Station:</h2><h3><%= @trip.end_station.name %></h3></section>
-<section><h2>Bike ID:</h2><h3><%= @trip.bike_id %></h3></section>
-<section><h2>Subscription:</h2><h3><%= @trip.subscription_type %></h3></section>
-<section><h2>Subscription:</h2><h3><%= @trip.zip_code %></h3></section>
+  <div class='show-display'>
+    <section><h2>Duration:</h2><h3> <%= @trip.duration %></h3></section>
+    <section><h2>Start Date:</h2><h3> <%= @trip.start_date %></h3></section>
+    <section><h2>Start Station:</h2><h3><%= @trip.start_station.name %></h3></section>
+    <section><h2>End Date:</h2><h3><%= @trip.end_date %></h3></section>
+    <section><h2>End Station:</h2><h3><%= @trip.end_station.name %></h3></section>
+    <section><h2>Bike ID:</h2><h3><%= @trip.bike_id %></h3></section>
+    <section><h2>Subscription:</h2><h3><%= @trip.subscription_type %></h3></section>
+    <section><h2>Subscription:</h2><h3><%= @trip.zip_code %></h3></section>
+  </div>
+</main>

@@ -51,7 +51,6 @@ article form {
   width: 80%;
 }
 article section {
-  /* width: 95%; */
   width: 500px;
   margin-left: auto;
   margin-right: auto;
@@ -65,8 +64,6 @@ article section h2 {
   width: 225px;
   float: left;
   text-align: right;
-  /* font-size: 1.5em; */
-  /* height: 1.6em; */
 }
 article section h3 {
   padding: .5em;
@@ -74,8 +71,6 @@ article section h3 {
   width: 225px;
   float: right;
   text-align: left;
-  /* font-size: 1.5em; */
-  /* height: 1.6em; */
 }
 
 h3 {
@@ -144,7 +139,9 @@ a {
   background-color: red;
 }
 .add-button {
+  border: none;
   background-color: darkgreen;
+  color: white;
 }
 .add-button:hover {
   background-color: green;
@@ -152,9 +149,32 @@ a {
 
 h3 input {
   padding: .2em;
-  width: 100%;
-  border: none;
-  /* background-color: green; */
-  color: white;
+  width: 80%;
   font-size: .8em;
+}
+
+.show-display {
+  margin-left: auto;
+  margin-right: auto;
+  width: 680px;
+}
+.show-display section {
+  height: 2.5em;
+  padding: .5em;
+}
+.show-display section h2 {
+  padding: .5em;
+  margin: 0px;
+  width: 300px;
+  float: left;
+  text-align: right;
+  font-size: 1.3em;
+}
+.show-display section h3 {
+  padding: .5em;
+  margin: 0px;
+  width: 300px;
+  float: right;
+  text-align: left;
+  font-size: 1.3em;
 }

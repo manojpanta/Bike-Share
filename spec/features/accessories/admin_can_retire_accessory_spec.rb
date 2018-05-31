@@ -13,12 +13,12 @@ describe 'user visits accessory path' do
     accessory = Accessory.create!(title: 'wranch', image: 'http://blog.zealousgood.com/wp-content/uploads/2013/05/tools.jpg', price: 100, description: 'this is tool')
 
     visit accessory_path(accessory)
-
-    expect(page).to have_content('Add to cart')
+    # save_and_open_page
+    expect(page).to have_link('Add to cart')
 
     click_on 'Retire'
 
-    expect(page).to_not have_content('Add to cart')
+    expect(page).to_not have_link('Add to cart')
   end
   it 'as an admin can reactivate accessory' do
     admin = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123 Elm St', role: 1)
@@ -37,7 +37,7 @@ describe 'user visits accessory path' do
 
     click_on 'Reactivate'
 
-    expect(page).to have_content('Add to cart')
+    expect(page).to have_link('Add to cart')
   end
   it 'as an admin can retire accessory from accessory index page' do
     admin = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123 Elm St', role: 1)
@@ -52,7 +52,7 @@ describe 'user visits accessory path' do
 
     visit 'admin/bike-shop'
 
-    expect(page).to have_content('Add to cart')
+    expect(page).to have_button('Add to cart')
 
     click_on 'Retire'
 
@@ -79,6 +79,6 @@ describe 'user visits accessory path' do
 
 
     expect(current_path).to eq(accessory_path(accessory))
-    expect(page).to have_content('Add to cart')
+    expect(page).to have_link('Add to cart')
   end
 end
