@@ -88,5 +88,15 @@ class Station < ApplicationRecord
     end
   end
   
+  def most_frequent_zip
+    zip = trips_started.group(:zip_code)
+                       .order('count_all DESC')
+                       .count
+    if zip.empty?
+      "Unknown"
+    else
+      zip.first[0]
+    end
+  end
   
 end
