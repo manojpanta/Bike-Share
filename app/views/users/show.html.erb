@@ -64,6 +64,9 @@
         <%if order.status == 'ordered' %>
         <td><%= button_to 'Mark as Paid', admin_order_path(order, status: 'paid'), method: :put %></td>
         <%end%>
+        <%if order.status == 'paid' %>
+        <td><%= button_to 'Mark as Completed', admin_order_path(order, status: 'completed'), method: :put %></td>
+        <%end%>
       </tr>
       <% end %>
     </table>
