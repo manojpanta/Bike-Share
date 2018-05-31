@@ -36,6 +36,7 @@ nav a:hover {
 
 main {
   padding: 1em;
+  /* display: block; */
 }
 h1 {
   text-align: center;
@@ -83,4 +84,25 @@ h3 {
 
 a {
   text-decoration: none;
+}
+
+.accessories {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* flex: 0, 0, 250px; */
+}
+.accessories section {
+  padding: 1rem;
+  max-width: 250px;
+  /* min-width: 200px; */
+}
+.accessories h2 {
+  text-align: center;
+}
+.accessories img {
+  width: 95%;
 }
