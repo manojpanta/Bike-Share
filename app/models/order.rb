@@ -21,7 +21,7 @@ class Order < ApplicationRecord
     where(status: 'paid').count
   end
 
-  def self.total_paid
-    where(status: 'paid').count
+  def self.total_cancelled
+    where(status: 'cancelled').count
   end
 end
