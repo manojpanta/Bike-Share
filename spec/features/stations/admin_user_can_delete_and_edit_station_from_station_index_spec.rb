@@ -10,8 +10,8 @@ describe 'admin visiting station index page' do
 
     visit stations_path
 
-    expect(page).to have_link('Delete')
-    expect(page).to have_link('Edit')
+    expect(page).to have_button('Delete')
+    expect(page).to have_button('Edit')
   end
   it 'can  edit station' do
     admin = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123 Elm St', role: 1)
