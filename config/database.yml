@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: BikeShare_production
-  username: BikeShare
+  # username: BikeShare
   password: <%= ENV['BIKESHARE_DATABASE_PASSWORD'] %>
