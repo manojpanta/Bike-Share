@@ -100,7 +100,7 @@ RSpec.describe Order, type: :model do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
 
-      expect(Order.total_cancelled).to eq(1)
+      expect(Order.total_completed).to eq(1)
     end
   end
 end

@@ -24,4 +24,7 @@ class Order < ApplicationRecord
   def self.total_cancelled
     where(status: 'cancelled').count
   end
+  def self.total_completed
+    where(status: 'completed').count
+  end
 end
