@@ -38,4 +38,36 @@ describe 'registered user visits dashboard' do
     expect(page).to have_content(user2.name)
     expect(page).to_not have_content(user1.name)
   end
+
+
+  it "admin can see all the orders in addition to admin's order" do
+    user1 = User.create(name: 'bob', password: '1234', email: 'bob@bob.bob', address: '123 Elm St')
+
+    order1 = user1.orders.create
+    order2 = user1.orders.create
+
+    item1 = Accessory.create(title: 'chain', image: 'chain.jpg', price: 27.55, description: 'pedal to wheel')
+    item2 = Accessory.create(title: 'pedal', image: 'pedal.jpg', price: 36.55, description: 'goes around')
+
+    order1.accessory_orders.create(accessory: item1, quantity: 2)
+
+    order1.accessories << item2
+
+    admin = User.create(name: 'admin', password: '1234', email: 'admin@bob.bob', address: '123 Elm St', role: 1)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+    visit 'admin/dashboard'
+
+    order1_id = order1.id
+    order1_total_price = item1.price * 2 + item2.price
+    order1_status = order1.status
+    order1_order_date = order1.created_at
+
+    expect(page).to have_content("All Orders")
+    expect(page).to have_content("Your Orders")
+    expect(page).to have_content(order1_id)
+    expect(page).to have_content(order1_total_price)
+    expect(page).to have_content(order1_status)
+    expect(page).to have_content(order1_order_date)
+  end
 end

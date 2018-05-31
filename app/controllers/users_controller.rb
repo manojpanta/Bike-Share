@@ -18,6 +18,10 @@ class UsersController < ApplicationController
   def show
     if current_user
       @user = current_user
+      @order = @user.orders
+      if current_admin?
+        @all_orders = Order.all
+      end
     else
       render file: '/public/404'
     end
