@@ -247,17 +247,16 @@ describe Station, type: :model do
 
   describe "class methods" do
     it "#most_rides_started returns the date where the most rides started from this station." do
-      user = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123 Elm St', role: 0)
       station = Station.create(name:'Denver-Cap Hill', dock_count: 5, city: 'Denver', installation_date: Time.now)
       station2 = Station.create(name:'Jack', dock_count: 5, city: 'New Jack City', installation_date: Time.now)
-      Trip.create(duration: 100, start_date: Time.now, start_station: station, end_date: (Time.now + 1), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
-      Trip.create(duration: 75, start_date: Time.now, start_station: station, end_date: (Time.now + 1), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
-      Trip.create(duration: 80, start_date: (Time.now + 10), start_station: station2, end_date: (Time.now + 15), end_station: station2, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
+      date1 = Date.new(2018, 2, 4)
+      date2 = Date.new(2018, 2, 1)
+      Trip.create(duration: 100, start_date: date1, start_station: station, end_date: (Time.now + 1), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
+      Trip.create(duration: 75, start_date: date1, start_station: station, end_date: (Time.now + 1), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
+      Trip.create(duration: 80, start_date: date2, start_station: station2, end_date: (Time.now + 15), end_station: station2, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
 
-      most_rides_started = Time.now
-
-      expect(station.most_rides_started).to eq(most_rides_started)
-      expect(station.most_rides_started).to_not eq(Time.now + 10)
+      expect(station.most_rides_started).to eq(date1)
+      expect(station.most_rides_started).to_not eq(date2)
     end
   end
 

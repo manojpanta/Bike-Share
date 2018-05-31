@@ -76,5 +76,20 @@ class Station < ApplicationRecord
         Station.find(origination.first[0]).name
       end
   end
+
+  def most_rides_started
+    
+    binding.pry
+    
+    rides_date = trips_started.group(:start_date)
+                              .order('count_all DESC')
+                              .count
+    if rides_date.empty?
+      "Unknown"
+    else
+      rides_date
+    end
+  end
+  
   
 end
