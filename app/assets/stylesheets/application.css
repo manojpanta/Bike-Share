@@ -97,12 +97,64 @@ a {
 }
 .accessories section {
   padding: 1rem;
-  max-width: 250px;
+  width: 250px;
   /* min-width: 200px; */
 }
 .accessories h2 {
   text-align: center;
+  margin-bottom: .2em;
 }
 .accessories img {
-  width: 95%;
+  width: 100%;
+}
+
+.med-image {
+  height: 175px;
+  display: flex;
+  align-items: center;
+}
+
+.admin-buttons {
+  margin-top: .5em;
+  display: flex;
+  justify-content: space-around;
+}
+.admin-buttons form {
+  width: 35%;
+}
+.admin-buttons form input {
+  padding: .2em;
+  width: 100%;
+  border: none;
+  /* background-color: green; */
+  color: white;
+  font-size: .8em;
+}
+
+.edit-button {
+  background-color: darkorange;
+}
+.edit-button:hover {
+  background-color: orange;
+}
+.delete-button {
+  background-color: darkred;
+}
+.delete-button:hover {
+  background-color: red;
+}
+.add-button {
+  background-color: darkgreen;
+}
+.add-button:hover {
+  background-color: green;
+}
+
+h3 input {
+  padding: .2em;
+  width: 100%;
+  border: none;
+  /* background-color: green; */
+  color: white;
+  font-size: .8em;
 }
