@@ -5,9 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# Station.destroy_all
-# Trip.destroy_all
-# # User.destroy_all
+Station.destroy_all
+Trip.destroy_all
+User.destroy_all
+
 
 TITLES = ['wranch', 'screw driver', 'Jumper Cables', 'socket set']
 IMAGES = ['https://cimg2.ibsrv.net/cimg/www.doityourself.com/660x300_100-1/514/Tools-199514.jpg', 'https://www.3wayplumbing.com/Portals/0/EasyGalleryImages/1/73/tools.jpg', 'https://cdn.everydaycarry.com/uploads/17-12-04/15a257f8f0ad64.jpg']

@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     get '/bike-shop', to: 'accessories#index'
     resources :stations
     resources :accessories, only: [:show, :edit, :create, :destroy, :update]
+    resources :orders, only: [:update]
     resources :trips
   end
 

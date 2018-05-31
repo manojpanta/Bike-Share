@@ -18,13 +18,26 @@ class UsersController < ApplicationController
   def show
     if current_user
       @user = current_user
+      @order = @user.orders
+      if current_admin?
+        @total_ordered = Order.total_ordered
+        @total_paid = Order.total_paid
+        @total_cancelled = Order.total_cancelled
+        @total_completed = Order.total_completed
+        if params[:status]
+          @all_orders = Order.where(status: params[:status])
+          @header = "All #{params[:status].capitalize} Orders"
+        else
+          @all_orders = Order.all
+          @header = "All  Orders"
+        end
+      end
     else
       render file: '/public/404'
     end
   end
 
   def edit
-    # binding.pry
     if current_user && current_user.id == params[:id].to_i
       @user = current_user
     else
@@ -33,7 +46,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    # binding.pry
     user = current_user
     user.update(user_params)
     if user.save

@@ -12,4 +12,19 @@ class Order < ApplicationRecord
       sum + ao.quantity * ao.accessory.price
     end
   end
+
+  def self.total_ordered
+    where(status: 'ordered').count
+  end
+
+  def self.total_paid
+    where(status: 'paid').count
+  end
+
+  def self.total_cancelled
+    where(status: 'cancelled').count
+  end
+  def self.total_completed
+    where(status: 'completed').count
+  end
 end
