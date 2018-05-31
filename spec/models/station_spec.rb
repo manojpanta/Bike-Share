@@ -81,7 +81,7 @@ describe Station, type: :model do
 
       top_station = s3.name
 
-      expect(Station.station_with_most_bikes.name).to eq(top_station)
+      expect(Station.station_with_most_bikes.first.name).to eq(top_station)
     end
   end
 
@@ -123,7 +123,7 @@ describe Station, type: :model do
 
       low_station = s1.name
 
-      expect(Station.station_with_fewest_bikes.name).to eq(low_station)
+      expect(Station.station_with_fewest_bikes.first.name).to eq(low_station)
     end
   end
 
