@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'registered user visits dashboard' do
-  it 'total no. of order with ordered status' do
+describe 'admin visits admin dashboard' do
+  it 'shows total no. of order with ordered status' do
     user1 = User.create(name: 'bob', password: '1234', email: 'bob@bob.bob', address: '123 Elm St')
 
     order1 = user1.orders.create
@@ -23,7 +23,7 @@ describe 'registered user visits dashboard' do
 
     expect(page).to have_content(orders_ordered)
   end
-  it 'total no. of order with paid status' do
+  it 'shows total no. of order with paid status' do
     user1 = User.create(name: 'bob', password: '1234', email: 'bob@bob.bob', address: '123 Elm St')
 
     order1 = user1.orders.create(status: 'ordered')
@@ -45,7 +45,7 @@ describe 'registered user visits dashboard' do
 
     expect(page).to have_content(orders_paid)
   end
-  it 'total no. of order with cancelled status' do
+  it 'shows total no. of order with cancelled status' do
     user1 = User.create(name: 'bob', password: '1234', email: 'bob@bob.bob', address: '123 Elm St')
 
     order1 = user1.orders.create(status: 'ordered')
@@ -67,7 +67,7 @@ describe 'registered user visits dashboard' do
 
     expect(page).to have_content(orders_cancelled)
   end
-  it 'total no. of order with completed status' do
+  it 'shows total no. of order with completed status' do
     user1 = User.create(name: 'bob', password: '1234', email: 'bob@bob.bob', address: '123 Elm St')
 
     order1 = user1.orders.create(status: 'ordered')
