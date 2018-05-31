@@ -104,7 +104,7 @@ describe "A registered user" do
 
       visit station_path(station)
 
-      expect(page).to have_content("Most frequent zip code:\n#{zip1}\n")
+      expect(page).to have_content("Most frequent zip code:\n#{zip1}")
       expect(page).to_not have_content("Most frequent zip code:\n#{zip2}")
     end
 

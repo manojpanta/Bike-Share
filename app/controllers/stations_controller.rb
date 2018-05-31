@@ -11,7 +11,7 @@ class StationsController < ApplicationController
     @frequent_destination = @station.frequent_destination
     @frequent_origination = @station.frequent_origination
     @most_rides_started = @station.most_rides_started
-    @most_fequent_zip = @station.most_frequent_zip
+    @most_frequent_zip = @station.most_frequent_zip
   end
 
   def dashboard
