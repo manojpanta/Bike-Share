@@ -10,6 +10,7 @@ class StationsController < ApplicationController
     @ended_here = @station.ended_here
     @frequent_destination = @station.frequent_destination
     @frequent_origination = @station.frequent_origination
+    @most_rides_started = @station.most_rides_started
   end
 
   def dashboard

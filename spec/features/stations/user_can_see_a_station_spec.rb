@@ -83,7 +83,7 @@ describe "A registered user" do
 
       visit station_path(station)
 
-      expect(page).to have_content("Date with the most rides started: Sun, Feb 04 2018")
+      expect(page).to have_content("Date with the most rides started: #{date1.strftime('%A, %B%e, %Y')}")
       expect(page).to_not have_content("Date with the most rides started: 03/04/2018")
     end
 

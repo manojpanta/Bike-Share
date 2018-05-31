@@ -255,7 +255,7 @@ describe Station, type: :model do
       Trip.create(duration: 75, start_date: date1, start_station: station, end_date: (Time.now + 1), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
       Trip.create(duration: 80, start_date: date2, start_station: station2, end_date: (Time.now + 15), end_station: station2, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
 
-      expect(station.most_rides_started).to eq(date1)
+      expect(station.most_rides_started).to eq(date1.strftime('%A, %B %e, %Y'))
       expect(station.most_rides_started).to_not eq(date2)
     end
   end
