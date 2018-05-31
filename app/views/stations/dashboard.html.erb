@@ -1,11 +1,11 @@
-<h2>Total Stations: <%=@total_station_count%></h2>
+<center><h2>Total Stations: <%=@total_station_count%></h2>
 <h2>Average Bike Count Per Station: <%=@avg_bikes_count%></h2>
 <h2>Most Bikes available at a station: <%=@most_bikes_in_one_station%></h2>
 <h2>Fewest Bikes available at a station: <%=@fewest_bikes_in_one_station%></h2>
 <h2>Most recently installed station: <%= link_to @recent_station, station_path(@recent_station) %></h2>
 <h2>Oldest station: <%= link_to @oldest_station, station_path(@recent_station) %></h2>
 <h1>Station with Most bikes</h1>
-<center><table>
+<table>
   <tr>
     <th>Station Name</th>
     <th>Bikes Count</th>
