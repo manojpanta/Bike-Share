@@ -56,14 +56,13 @@ class Station < ApplicationRecord
   end
   
   def frequent_destination
-    destination = trips_ended.select('end_station_id')
-                             .group('end_station_id')
-                             .order('end_station_id DESC')
-                             .first
-                             
-                             binding.pry
-                             
-    Station.find(destination.end_station_id).name
+      destination = trips_ended.group(:end_station_id)
+                              .order('count_all DESC')
+                              .count
+      if destination.empty?
+        "Unknown"
+      else
+        Station.find(destination.first[0]).name
+      end
   end
-  
 end
