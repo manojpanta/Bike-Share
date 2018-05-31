@@ -91,7 +91,8 @@ describe 'user visiting stations dashboard' do
     visit '/stations-dashboard'
 
     expect(current_path).to eq('/stations-dashboard')
-    expect(page).to have_content("Station with most bikes: #{top_station}")
+    expect(page).to have_content("Station with Most bikes")
+    expect(page).to have_content(top_station)
   end
   it 'as a user can see station with most bikes' do
     admin = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123 Elm St', role: 1)
@@ -115,7 +116,8 @@ describe 'user visiting stations dashboard' do
     visit '/stations-dashboard'
 
     expect(current_path).to eq('/stations-dashboard')
-    expect(page).to have_content("Station with fewest bikes: #{low_station}")
+    expect(page).to have_content("Station with Fewest bikes")
+    expect(page).to have_content(low_station)
   end
 
   it 'as a user can see fewest  bikes in one station' do
