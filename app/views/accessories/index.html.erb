@@ -4,15 +4,15 @@
     <% @accessories.each do |a| %>
       <section>
           <h2><%= link_to a.title, accessory_path(a) %></h2>
-          <img src="<%=a.image%>" alt="Forest" style="width:100px">
+          <img src="<%=a.image%>" alt="Forest">
           <%if a.is_retired?%>
             <% if current_admin? %>
               <%= button_to 'Reactivate', admin_accessory_path(a, is_retired?: false), method: :put %>
               <%= button_to 'Edit', edit_admin_accessory_path(a), method: :get %>
             <%end %>
-            <h4>Accessory Retired</h4>
+            <h3>Accessory Retired</h3>
           <%else%>
-            <%= link_to 'Add to cart', '/bike-shop' %>
+            <h3><%= link_to 'Add to cart', '/bike-shop' %></h3>
             <% if current_admin? %>
               <%= button_to 'Edit', edit_admin_accessory_path(a), method: :get %>
               <%= button_to 'Retire', admin_accessory_path(a, is_retired?: true), method: :put%>
