@@ -59,7 +59,7 @@
         <td><%= order.status %></td>
         <td><%= order.created_at %></td>
         <%if order.status =='paid' || order.status == 'ordered' %>
-        <td><%= button_to 'Cancel', order_path(order, status: 'cancelled'), method: :put %></td>
+        <td><%= button_to 'Cancel', admin_order_path(order, status: 'cancelled'), method: :put %></td>
         <%end%>
       </tr>
       <% end %>
