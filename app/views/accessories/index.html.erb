@@ -4,19 +4,23 @@
     <% @accessories.each do |a| %>
       <section>
           <h2><%= link_to a.title, accessory_path(a) %></h2>
-          <img src="<%=a.image%>" alt="Forest">
+          <div class='med-image'><img src="<%=a.image%>" alt="Forest"></div>
           <%if a.is_retired?%>
             <% if current_admin? %>
-              <%= button_to 'Reactivate', admin_accessory_path(a, is_retired?: false), method: :put %>
-              <%= button_to 'Edit', edit_admin_accessory_path(a), method: :get %>
+              <div class='admin-buttons'>
+                <%= button_to 'Edit', edit_admin_accessory_path(a), method: :get, class: 'edit-button' %>
+              <%= button_to 'Reactivate', admin_accessory_path(a, is_retired?: false), method: :put, class: 'add-button' %>
+            </div>
             <%end %>
             <h3>Accessory Retired</h3>
           <%else%>
-            <h3><%= link_to 'Add to cart', '/bike-shop' %></h3>
             <% if current_admin? %>
-              <%= button_to 'Edit', edit_admin_accessory_path(a), method: :get %>
-              <%= button_to 'Retire', admin_accessory_path(a, is_retired?: true), method: :put%>
+            <div class='admin-buttons'>
+              <%= button_to 'Edit', edit_admin_accessory_path(a), method: :get, class: 'edit-button' %>
+              <%= button_to 'Retire', admin_accessory_path(a, is_retired?: true), method: :put, class: 'delete-button'%>
+            </div>
             <%end%>
+            <h3><%= link_to 'Add to cart', '/bike-shop' %></h3>
           <%end%>
       </section>
     <% end %>
