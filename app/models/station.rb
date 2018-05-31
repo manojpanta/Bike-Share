@@ -55,8 +55,15 @@ class Station < ApplicationRecord
     trips_ended.count
   end
   
-  def frequent_destination_id
-    trips_ended.maximum(:end_station_id)
+  def frequent_destination
+    destination = trips_ended.select('end_station_id')
+                             .group('end_station_id')
+                             .order('end_station_id DESC')
+                             .first
+                             
+                             binding.pry
+                             
+    Station.find(destination.end_station_id).name
   end
   
 end
