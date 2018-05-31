@@ -32,7 +32,9 @@
     <% end %>
   </table>
 
+
   <%if current_admin? %>
+  <h2> Total Number Of Orders With Ordered Status: <%=@total_ordered%></h2>
     <table>
       <h2> All Orders </h2>
       <tr>

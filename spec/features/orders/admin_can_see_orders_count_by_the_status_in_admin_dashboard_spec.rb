@@ -19,7 +19,7 @@ describe 'registered user visits dashboard' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
     visit 'admin/dashboard'
-    orders_paid = "Total Number Of Orders With Ordered Status: 1 "
+    orders_paid = "Total Number Of Orders With Ordered Status: 1"
 
     expect(page).to have_content(orders_paid)
   end

@@ -20,6 +20,7 @@ class UsersController < ApplicationController
       @user = current_user
       @order = @user.orders
       if current_admin?
+        @total_ordered = Order.total_ordered
         @all_orders = Order.all
       end
     else
@@ -28,7 +29,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    # binding.pry
     if current_user && current_user.id == params[:id].to_i
       @user = current_user
     else
@@ -37,7 +37,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    # binding.pry
     user = current_user
     user.update(user_params)
     if user.save
