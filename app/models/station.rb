@@ -100,7 +100,14 @@ class Station < ApplicationRecord
   end
 
   def most_used_bike
-    
+    bike = trips_started.group(:bike_id)
+                        .order('count_all DESC')
+                        .count
+    if bike.empty?
+      "Unknown"
+    else
+      bike.keys[0]
+    end
   end
   
   
