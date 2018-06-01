@@ -16,11 +16,27 @@
     </section>
     <section>
       <h2>Station With Most Rides Started:</h2>
-      <h3><%= link_to @most_starts.name, trip_path(@most_starts) %>
+      <h3><%= link_to @most_starts.name, trip_path(@most_starts) %></h3>
     </section>
     <section>
       <h2>Station With Most Rides Ended:</h2>
-      <h3><%= link_to @fewest_starts.name, trip_path(@fewest_starts) %>
+      <h3><%= link_to @fewest_starts.name, trip_path(@fewest_starts) %></h3>
+    </section>
+    <section>
+      <h2>Most Ridden Bike:</h2>
+      <h3><%= @most_ridden_bike %>, <%= @most_bike_rides %> rides</h3>
+    </section>
+    <section>
+      <h2>Least Ridden Bike:</h2>
+      <h3><%= @least_ridden_bike %>, <%= @fewest_bike_rides %> rides</h3>
+    </section>
+    <section>
+      <h2>Subscribers:</h2>
+      <h3><%= @subscriber_count %>, %<%= @subscriber_percent %></h3>
+    </section>
+    <section>
+      <h2>Customers:</h2>
+      <h3><%= @customer_count %>, %<%= @customer_percent %></h3>
     </section>
   </div>
 </main>
