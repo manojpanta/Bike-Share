@@ -6,9 +6,9 @@ describe "An admin" do
     admin = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123 Elm St', role: 1)
     station = Station.create(name: 'Foo', dock_count: 5, city: 'Denver', installation_date: Time.now)
     duration = 100
-    start_date = Time.now
+    start_date = Time.zone.now
     start_station = station.id
-    end_date = (Time.now + 1)
+    end_date = (Time.zone.now + 1)
     end_station = station.id
     bike_id = 4
     subscription_type = 'Member'
@@ -29,7 +29,7 @@ describe "An admin" do
 
     click_on 'Create Trip'
 
-    expect(page).to have_content("Trip has been created!") 
+    expect(page).to have_content("Trip has been created!")
     expect(current_path).to eq(trip_path(Trip.last))
     expect(page).to have_content(duration)
     expect(page).to have_content(start_date.to_s[0..10])

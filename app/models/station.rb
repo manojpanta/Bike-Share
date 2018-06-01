@@ -50,11 +50,11 @@ class Station < ApplicationRecord
   def started_here
     trips_started.count
   end
-  
+
   def ended_here
     trips_ended.count
   end
-  
+
   def frequent_destination
       destination = trips_ended.group(:end_station_id)
                               .order('count_all DESC')
