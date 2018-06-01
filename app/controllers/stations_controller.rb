@@ -6,6 +6,13 @@ class StationsController < ApplicationController
 
   def show
     @station = Station.find_by_param(params[:id])
+    @started_here = @station.started_here
+    @ended_here = @station.ended_here
+    @frequent_destination = @station.frequent_destination
+    @frequent_origination = @station.frequent_origination
+    @most_rides_started = @station.most_rides_started
+    @most_frequent_zip = @station.most_frequent_zip
+    @most_used_bike = @station.most_used_bike
   end
 
   def dashboard
