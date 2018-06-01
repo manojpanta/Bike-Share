@@ -121,11 +121,10 @@ describe "A registered user" do
       Trip.create(duration: 100, start_date: date1, start_station: station, end_date: (Time.zone.now + 1), end_station: station, bike_id: bikeid1, subscription_type: 'Member', zip_code: zip1 )
       Trip.create(duration: 75, start_date: date1, start_station: station, end_date: (Time.zone.now + 1), end_station: station, bike_id: bikeid1, subscription_type: 'Member', zip_code: zip1 )
       Trip.create(duration: 80, start_date: date2, start_station: station2, end_date: (Time.zone.now + 15), end_station: station2, bike_id: bikeid2, subscription_type: 'Member', zip_code: zip2 )
-      
+
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-      
+
       visit station_path(station)
-      save_and_open_page
 
       expect(page).to have_content("Most used bike:\n#{bikeid1}")
       expect(page).to_not have_content("Most used bike:\n#{bikeid2}")
@@ -133,6 +132,3 @@ describe "A registered user" do
 
   end
 end
-
-
-# I see the Bike ID most frequently starting a trip at this station.
