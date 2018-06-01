@@ -4,7 +4,7 @@
     <% @accessories.each do |a| %>
       <section>
           <h2><%= link_to a.title, accessory_path(a) %></h2>
-          <div class='med-image'><img src="<%=a.image%>" alt="Forest"></div>
+          <div class='med-image'><a href="/accessories/<%=a.id%>"><img src="<%=a.image%>" alt="Forest"></div>
           <%if a.is_retired?%>
             <% if current_admin? %>
               <div class='admin-buttons'>
