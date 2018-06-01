@@ -46,4 +46,69 @@ class Station < ApplicationRecord
   def self.oldest_station
     find_by(installation_date: minimum(:installation_date))
   end
+
+  def started_here
+    trips_started.count
+  end
+
+  def ended_here
+    trips_ended.count
+  end
+
+  def frequent_destination
+      destination = trips_ended.group(:end_station_id)
+                              .order('count_all DESC')
+                              .count
+      if destination.empty?
+        "Unknown"
+      else
+        Station.find(destination.first[0]).name
+      end
+  end
+
+  def frequent_origination
+      origination = trips_started.group(:start_station_id)
+                              .order('count_all DESC')
+                              .count
+      if origination.empty?
+        "Unknown"
+      else
+        Station.find(origination.first[0]).name
+      end
+  end
+
+  def most_rides_started
+    rides_date = trips_started.group(:start_date)
+                              .order('count_all DESC')
+                              .count
+    if rides_date.empty?
+      "Unknown"
+    else
+      rides_date.keys[0].strftime('%A, %B %e, %Y')
+    end
+  end
+  
+  def most_frequent_zip
+    zip = trips_started.group(:zip_code)
+                       .order('count_all DESC')
+                       .count
+    if zip.empty?
+      "Unknown"
+    else
+      zip.first[0]
+    end
+  end
+
+  def most_used_bike
+    bike = trips_started.group(:bike_id)
+                        .order('count_all DESC')
+                        .count
+    if bike.empty?
+      "Unknown"
+    else
+      bike.keys[0]
+    end
+  end
+  
+  
 end
