@@ -1,0 +1,26 @@
+<main>
+  <h1>Trips Dashboard</h1>
+
+  <div class='show-display'>
+    <section>
+      <h2>Average Duration:</h2>
+      <h3><%= @average.to_i %> seconds</h3>
+    </section>
+    <section>
+      <h2>Longest Ride:</h2>
+      <h3><%= link_to @longest, trip_path(@longest) %>
+    </section>
+    <section>
+      <h2>Shortest Ride:</h2>
+      <h3><%= link_to @shortest, trip_path(@shortest) %>
+    </section>
+    <section>
+      <h2>Station With Most Rides Started:</h2>
+      <h3><%= link_to @most_starts.name, trip_path(@most_starts) %>
+    </section>
+    <section>
+      <h2>Station With Most Rides Ended:</h2>
+      <h3><%= link_to @fewest_starts.name, trip_path(@fewest_starts) %>
+    </section>
+  </div>
+</main>
