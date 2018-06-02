@@ -31,7 +31,7 @@ class Admin::AccessoriesController < Admin::BaseController
     if params[:is_retired?]
       @accessory = Accessory.find(params[:id])
       @accessory.update(is_retired?: params[:is_retired?])
-      redirect_to accessory_path(@accessory)
+      redirect_back(fallback_location: admin_bike_shop_path)
     else
       @accessory = Accessory.find(params[:id])
       @accessory.update(accessory_params)
