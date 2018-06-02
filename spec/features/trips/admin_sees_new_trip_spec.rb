@@ -6,9 +6,15 @@ describe "An admin" do
     admin = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123 Elm St', role: 1)
     station = Station.create(name: 'Foo', dock_count: 5, city: 'Denver', installation_date: Time.now)
     duration = 100
+<<<<<<< HEAD
     start_date = Time.zone.now
     start_station = station.id
     end_date = (Time.zone.now + 1)
+=======
+    start_date = Time.now.gmtime
+    start_station = station.id
+    end_date = (Time.now + 1).gmtime
+>>>>>>> partial implementation of trips dashboard
     end_station = station.id
     bike_id = 4
     subscription_type = 'Member'
