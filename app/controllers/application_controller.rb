@@ -1,6 +1,14 @@
 class ApplicationController < ActionController::Base
 
   helper_method :current_user, :current_admin?
+  before_action :set_cart
+
+  def set_cart
+    if !session[:cart]
+      session[:cart] = Hash.new
+    end
+    @cart = Cart.new(session[:cart])
+  end
 
   def current_user
     if session[:user_id]
