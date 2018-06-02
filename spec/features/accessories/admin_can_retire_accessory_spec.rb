@@ -57,7 +57,7 @@ describe 'user visits accessory path' do
     click_on 'Retire'
 
 
-    expect(current_path).to eq(accessory_path(accessory))
+    expect(current_path).to eq('/admin/bike-shop')
     expect(page).to_not have_content('Add to cart')
   end
   it 'as an admin can reactivate accessory from accessory index page' do
@@ -78,7 +78,7 @@ describe 'user visits accessory path' do
     click_on 'Reactivate'
 
 
-    expect(current_path).to eq(accessory_path(accessory))
-    expect(page).to have_link('Add to cart')
+    expect(current_path).to eq('/admin/bike-shop')
+    expect(page).to have_button('Add to cart')
   end
 end
