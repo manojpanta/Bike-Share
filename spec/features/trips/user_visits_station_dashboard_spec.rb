@@ -2,6 +2,9 @@ require 'rails_helper'
 
 describe "A user" do
   it "visits the trips dashboard" do
+    user = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123')
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
     station1 = Station.create(name: 'Foo', dock_count: 5, city: 'Denver', installation_date: Time.now.gmtime)
     station2 = Station.create(name: 'Bar', dock_count: 10, city: 'Denver', installation_date: Time.now.gmtime)
     date1 = DateTime.strptime('8/29/13 16:18', '%m/%d/%y %H:%M')
@@ -22,6 +25,7 @@ describe "A user" do
     expect(page).to have_content("Least Ridden Bike:\n#{trip1.bike_id}, 1 rides")
     expect(page).to have_content("Subscribers:\n2, %66")
     expect(page).to have_content("Customers:\n1, %33")
-
+    expect(page).to have_content("Date With Most Rides:\n#{date1.to_s[0..9]}")
+    expect(page).to have_content("Date With Fewest Rides:\n#{date2.to_s[0..9]}")
   end
 end

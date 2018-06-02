@@ -29,5 +29,9 @@ class TripsController < ApplicationController
     @subscriber_percent = (@subscriber_count * 100) / total_count
     @customer_count = subscriptions.where(subscription_type: 'Customer').first.sub_count
     @customer_percent = (@customer_count * 100) / total_count
+
+    dates = Trip.select('COUNT(id) AS date_count, start_date').group(:start_date).order('date_count DESC')
+    @max_date = dates.first
+    @min_date = dates.last
   end
 end
