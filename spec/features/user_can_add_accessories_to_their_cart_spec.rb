@@ -10,8 +10,8 @@ describe 'as a visitor' do
 
         click_on 'Add to cart'
 
-        expect(current_path).to eq('/bike-shop')
         expect(page).to have_content("You now have 1 #{accessory.title} in your cart.")
+        expect(current_path).to eq('/bike-shop')
       end
     end
   end

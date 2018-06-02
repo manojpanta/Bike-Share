@@ -21,7 +21,7 @@
             </div>
 
             <%end%>
-            <h3><%= button_to 'Add to cart', carts_path, class: 'add-button'%></h3>
+            <h3><%= button_to 'Add to cart', carts_path(accessory_id: a.id), class: 'add-button'%></h3>
           <%end%>
       </section>
     <% end %>
