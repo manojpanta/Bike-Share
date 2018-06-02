@@ -33,7 +33,7 @@
     <% elsif flash[:notice] %>
       <div class="notice"><%= flash[:notice] %></div>
     <% end %>
-    <p>Cart: 0</p>
+    <p>Cart: <%= @cart.total_count %></p>
     <%= yield %>
   </body>
 </html>
