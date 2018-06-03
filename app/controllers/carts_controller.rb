@@ -17,8 +17,13 @@ class CartsController < ApplicationController
     @cart = Cart.new(session[:cart])
     if params[:decrease]
       # binding.pry
-      delete_accessory(accessory.id) if @cart.contents[accessory.id.to_s] == 1
-      @cart.decrease_accessory(accessory.id)
+      if @cart.contents[accessory.id.to_s] <= 1
+        delete_accessory(accessory.id.to_s)
+        @cart = Cart.new(session[:cart])
+        # binding.pry
+      else
+        @cart.decrease_accessory(accessory.id)
+      end
     else
       @cart.add_accessory(accessory.id)
     end
@@ -48,7 +53,7 @@ class CartsController < ApplicationController
   def delete_accessory(id)
     # binding.pry
     accessory = Accessory.find(id)
-    session[:cart].delete(params[:accessory])
+    session[:cart].delete(id)
     flash[:notice] = "Successfully removed #{view_context.link_to accessory.title, accessory_path(accessory)} from your cart"
     # redirect_to cart_path
   end
