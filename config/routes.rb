@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get '/stations-dashboard', to:'stations#dashboard'
   get '/trips-dashboard', to: 'trips#dashboard'
 
+  get '/cart', to: 'carts#show'
+
+
 
   resources :users, only: [:new, :create, :edit, :show, :update]
 

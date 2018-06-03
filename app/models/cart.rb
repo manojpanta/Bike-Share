@@ -20,4 +20,10 @@ class Cart
   def count_of(id)
     contents[id.to_s]
   end
+
+  def total_cost
+    @contents.keys.reduce(0) do |sum, item|
+      sum + (Accessory.find(item.to_i).price * @contents[item])
+    end
+  end
 end
