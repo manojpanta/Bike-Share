@@ -25,9 +25,10 @@ describe "A user" do
     expect(page).to have_content("Least Ridden Bike:\n#{trip1.bike_id}, 1 rides")
     expect(page).to have_content("Subscribers:\n2, %66")
     expect(page).to have_content("Customers:\n1, %33")
-    expect(page).to have_content("Date With Most Rides:\n#{date1.to_s[0..9]}")
-    expect(page).to have_content("Date With Fewest Rides:\n#{date2.to_s[0..9]}")
+    expect(page).to have_content("Date With Most Rides:\n#{date1.strftime('%D')}")
+    expect(page).to have_content("Date With Fewest Rides:\n#{date2.strftime('%D')}")
   end
+
   it "shows trips by month" do
     user = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123')
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
@@ -45,8 +46,8 @@ describe "A user" do
 
     visit 'trips-dashboard'
     # save_and_open_page
-    expect(page).to have_content("June, 2014:\n2")
-    expect(page).to have_content("August, 2013:\n1")
+    expect(page).to have_content("June, 14:\n2")
+    expect(page).to have_content("August, 13:\n1")
     # expect(page).to have_content("June\t2\t1\t1")
   end
 end

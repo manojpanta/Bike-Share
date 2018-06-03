@@ -15,7 +15,7 @@
  */
 body {
   font-family: ariel, sans-serif;
-  font-size: 14pt;
+  font-size: 12pt;
   margin: 0;
 }
 
@@ -156,25 +156,25 @@ h3 input {
 .show-display {
   margin-left: auto;
   margin-right: auto;
-  width: 680px;
+  width: 700px;
 }
 .show-display section {
   height: 2.5em;
-  padding: .5em;
+  padding: 0;
 }
 .show-display section h2 {
   padding: .5em;
   margin: 0px;
-  width: 300px;
+  width: 320px;
   float: left;
   text-align: right;
-  font-size: 1.3em;
+  font-size: 1.2em;
 }
 .show-display section h3 {
   padding: .5em;
   margin: 0px;
-  width: 300px;
+  width: 320px;
   float: right;
   text-align: left;
-  font-size: 1.3em;
+  font-size: 1.2em;
 }
