@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   get '/cart', to: 'carts#show'
   delete '/carts', to: 'carts#destroy'
+  patch '/carts', to: 'carts#update'
 
   resources :users, only: [:new, :create, :edit, :show, :update]
 
@@ -21,7 +22,7 @@ Rails.application.routes.draw do
   resources :stations, only: [:index, :show]
 
   resources :orders, only: [:show]
-  resources :carts, only: [:create]
+  resources :carts, only: [:create, :update]
 
 
   namespace :admin do

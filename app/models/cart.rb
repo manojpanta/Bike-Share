@@ -17,6 +17,10 @@ class Cart
     end
   end
 
+  def decrease_accessory(id)
+    @contents[id.to_s] = @contents[id.to_s] - 1
+  end
+
   def count_of(id)
     contents[id.to_s]
   end
