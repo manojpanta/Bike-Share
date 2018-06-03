@@ -10,5 +10,6 @@ describe 'visitor visits cart show' do
 
     expect(page).to have_content(item1.title)
     expect(page).to have_content("Quantity: 1")
+    expect(page).to have_content("Total Cost: #{item1.price}")
   end
 end
