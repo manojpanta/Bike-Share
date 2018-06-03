@@ -178,3 +178,9 @@ h3 input {
   text-align: left;
   font-size: 1.2em;
 }
+.show-display img {
+  width: 100%;
+}
+.show-display p {
+  text-align: center;
+}
