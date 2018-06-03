@@ -1,33 +1,61 @@
-<center><h2>Total Stations: <%=@total_station_count%></h2>
-<h2>Average Bike Count Per Station: <%=@avg_bikes_count%></h2>
-<h2>Most Bikes available at a station: <%=@most_bikes_in_one_station%></h2>
-<h2>Fewest Bikes available at a station: <%=@fewest_bikes_in_one_station%></h2>
-<h2>Most recently installed station: <%= link_to @recent_station, station_path(@recent_station) %></h2>
-<h2>Oldest station: <%= link_to @oldest_station, station_path(@oldest_station) %></h2>
-<h1>Station with Most bikes</h1>
-<table>
-  <tr>
-    <th>Station Name</th>
-    <th>Bikes Count</th>
-  </tr>
-  <% @station_with_most_bikes.each do |station| %>
-  <tr>
-    <td><%= link_to station.name, station_path(station) %></td>
-    <td><%=@most_bikes_in_one_station%></td>
-  </tr>
-  <%end%>
-</table></center>
+<main>
+  <h1>Stations Dashboard</h1>
 
-<h1>Station with Fewest bikes</h1>
-<center><table>
-  <tr>
-    <th>Station Name</th>
-    <th>Bikes Count</th>
-  </tr>
-  <% @station_with_fewest_bikes.each do |station| %>
-  <tr>
-    <td><%= link_to station.name, station_path(station) %></td>
-    <td><%=@fewest_bikes_in_one_station%></td>
-  </tr>
-  <%end%>
-</table></center>
+  <div class='show-display'>
+    <section>
+      <h2>Total Stations:</h2>
+      <h3><%=@total_station_count%></h3>
+    </section>
+    <section>
+      <h2>Average Bike Count Per Station:</h2>
+      <h3><%=@avg_bikes_count%></h3>
+    </section>
+    <section>
+      <h2>Most Bikes available at a station:</h2>
+      <h3><%=@most_bikes_in_one_station%></h3>
+    </section>
+    <section>
+      <h2>Fewest Bikes at a station:</h2>
+      <h3><%=@fewest_bikes_in_one_station%></h3>
+    </section>
+    <section>
+      <h2>Most recently installed station:</h2>
+      <h3><%= link_to @recent_station, station_path(@recent_station) %></h3>
+    </section>
+    <section>
+      <h2>Oldest station:</h2>
+      <h3><%= link_to @oldest_station, station_path(@oldest_station) %></h3>
+    </section>
+
+    <h3>Station with Most bikes:</h3>
+    <table>
+      <tr>
+        <th>Station Name</th>
+        <th>Bikes Count</th>
+      </tr>
+      <% @station_with_most_bikes.each do |station| %>
+      <tr>
+        <td><%= link_to station.name, station_path(station) %></td>
+        <td><%=@most_bikes_in_one_station%></td>
+      </tr>
+      <%end%>
+    </table>
+
+
+    <h3>Station with Fewest bikes:</h3>
+    <table>
+      <tr>
+        <th>Station Name</th>
+        <th>Bikes Count</th>
+      </tr>
+      <% @station_with_fewest_bikes.each do |station| %>
+      <tr>
+        <td><%= link_to station.name, station_path(station) %></td>
+        <td><%=@fewest_bikes_in_one_station%></td>
+      </tr>
+      <%end%>
+    </table>
+
+  </section>
+</div>
+</main>

@@ -45,9 +45,7 @@ describe "A user" do
     trip4 = Trip.create!(duration: 20, start_date: date4, start_station: station1, end_date: (Time.now + 20).gmtime, end_station: station2, bike_id: 4, subscription_type: 'Subscriber', zip_code: 80202 )
 
     visit 'trips-dashboard'
-    # save_and_open_page
     expect(page).to have_content("June, 14:\n2")
     expect(page).to have_content("August, 13:\n1")
-    # expect(page).to have_content("June\t2\t1\t1")
   end
 end

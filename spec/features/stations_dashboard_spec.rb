@@ -13,7 +13,7 @@ describe 'user visiting stations dashboard' do
     Station.create(name: name, dock_count: dock_count, city: city, installation_date: installation_date)
     Station.create(name: name1, dock_count: dock_count, city: city, installation_date: installation_date)
 
-    total_station_count = 'Total Stations: 2'
+    total_station_count = "Total Stations:\n2"
 
 
     visit '/stations-dashboard'
@@ -21,6 +21,7 @@ describe 'user visiting stations dashboard' do
     expect(current_path).to eq('/stations-dashboard')
     expect(page).to have_content(total_station_count)
   end
+
   it 'as a user can see average bikes per station' do
     admin = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123 Elm St', role: 1)
 
@@ -43,8 +44,9 @@ describe 'user visiting stations dashboard' do
     visit '/stations-dashboard'
 
     expect(current_path).to eq('/stations-dashboard')
-    expect(page).to have_content("Average Bike Count Per Station: #{avg_bike_count}")
+    expect(page).to have_content("Average Bike Count Per Station:\n#{avg_bike_count}")
   end
+
   it 'as a user can see most bikes in one station' do
     admin = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123 Elm St', role: 1)
 
@@ -67,8 +69,9 @@ describe 'user visiting stations dashboard' do
     visit '/stations-dashboard'
 
     expect(current_path).to eq('/stations-dashboard')
-    expect(page).to have_content("Most Bikes available at a station: #{max_bike_count}")
+    expect(page).to have_content("Most Bikes available at a station:\n#{max_bike_count}")
   end
+
   it 'as a user can see station with most bikes' do
     admin = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123 Elm St', role: 1)
 
@@ -138,11 +141,10 @@ describe 'user visiting stations dashboard' do
 
     min_bike_count = 5
 
-
     visit '/stations-dashboard'
 
     expect(current_path).to eq('/stations-dashboard')
-    expect(page).to have_content("Fewest Bikes available at a station: #{min_bike_count}")
+    expect(page).to have_content("Fewest Bikes at a station:\n#{min_bike_count}")
   end
 
   it 'it shows most recently installed station' do
@@ -166,8 +168,9 @@ describe 'user visiting stations dashboard' do
 
     expect(current_path).to eq('/stations-dashboard')
 
-    expect(page).to have_content("Most recently installed station: #{recent_station}")
+    expect(page).to have_content("Most recently installed station:\n#{recent_station}")
   end
+
   it 'it shows oldest station' do
     name = 'Foo'
     name1 = 'Foo1'
@@ -189,6 +192,6 @@ describe 'user visiting stations dashboard' do
 
     expect(current_path).to eq('/stations-dashboard')
 
-    expect(page).to have_content("Oldest station: #{oldest_station}")
+    expect(page).to have_content("Oldest station:\n#{oldest_station}")
   end
 end
