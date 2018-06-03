@@ -12,6 +12,16 @@ class CartsController < ApplicationController
     redirect_to '/bike-shop'
   end
 
+  def update
+    accessory = Accessory.find(params[:accessory_id])
+
+    @cart = Cart.new(session[:cart])
+    @cart.add_accessory(accessory.id)
+    session[:cart] = @cart.contents
+
+    redirect_to '/cart'
+  end
+
   def show
     cart = Cart.new(session[:cart])
     contents = cart.contents
