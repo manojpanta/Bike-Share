@@ -1,6 +1,10 @@
+<main>
 <h1>All Trips</h1>
+<% if current_user %>
+  <h3><%= link_to "Trips Dashboard", '/trips-dashboard' %></h3>
+<% end %>
 <% if current_admin? %>
-<h1><%=link_to 'Create New Trip', new_admin_trip_path %></h1>
+  <h3><%=link_to 'Create New Trip', new_admin_trip_path %></h3>
 <% end %>
 
 <%= will_paginate %>
@@ -37,3 +41,5 @@
     <% end %>
   </tr>
   <% end %>
+</table>
+</main>

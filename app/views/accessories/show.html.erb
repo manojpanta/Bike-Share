@@ -1,17 +1,25 @@
-<h1> <%=@accessory.title %></h1>
-<img src=<%=@accessory.image%>></img>
-<p> <%=@accessory.description %></p>
-<h3> Price: <%=@accessory.price %></h3>
-<%if @accessory.is_retired?%>
-  <% if current_admin? %>
-    <h3><%= button_to 'Reactivate', admin_accessory_path(@accessory, is_retired?: false), method: :put %></h3>
-    <h3><%= button_to 'Edit', edit_admin_accessory_path(@accessory), method: :get %></h3>
-  <%end %>
-  <h3>Accessory Retired</h3>
-<%else%>
-  <h3><%= link_to 'Add to cart', '/bike-shop' %></h3>
-  <% if current_admin? %>
-    <h3><%= button_to 'Edit', edit_admin_accessory_path(@accessory), method: :get %></h3>
-    <h3><%= button_to 'Retire', admin_accessory_path(@accessory, is_retired?: true), method: :put%></h3>
-  <%end%>
-<%end%>
+<main>
+  <h1><%=@accessory.title %></h1>
+
+  <div class='show-display'>
+    <img src=<%= @accessory.image %>></img>
+    <p><%= @accessory.description %></p>
+    <section>
+      <h2>Price:</h2>
+      <h3><%= @accessory.price %></h3>
+    </section>
+    <%if @accessory.is_retired?%>
+      <% if current_admin? %>
+        <h3><%= button_to 'Reactivate', admin_accessory_path(@accessory, is_retired?: false), method: :put %></h3>
+        <h3><%= button_to 'Edit', edit_admin_accessory_path(@accessory), method: :get %></h3>
+      <% end %>
+      <h3>Accessory Retired</h3>
+      <%else%>
+      <h3><%= link_to 'Add to cart', '/bike-shop' %></h3>
+      <% if current_admin? %>
+      <h3><%= button_to 'Edit', edit_admin_accessory_path(@accessory), method: :get %></h3>
+      <h3><%= button_to 'Retire', admin_accessory_path(@accessory, is_retired?: true), method: :put%></h3>
+      <%end%>
+    <%end%>
+  </div>
+</main>

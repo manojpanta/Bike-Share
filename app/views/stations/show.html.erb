@@ -1,21 +1,53 @@
-<h1><%= @station.name %></h1>
-<%if current_admin?%>
-<h2><%=link_to 'Delete',  admin_station_path(@station), method: :delete%></h2>
-<h2><%=link_to 'Edit',  edit_admin_station_path(@station)%></h2>
-<%end%>
+<main>
+  <h1><%= @station.name %></h1>
+  <%if current_admin?%>
+  <h3><%=link_to 'Delete',  admin_station_path(@station), method: :delete%></h3>
+  <h3><%=link_to 'Edit',  edit_admin_station_path(@station)%></h3>
+  <%end%>
 
-<section><h2>Dock count:</h2><h3> <%= @station.dock_count %></h3></section>
-<section><h2>City:</h2><h3><%= @station.city %></h3></section>
-<section><h2>Install date:</h2><h3><%= @station.installation_date %></h3></section>
+  <div class="show-display">
+    <section>
+      <h2>Dock count:</h2>
+      <h3><%= @station.dock_count %></h3>
+    </section>
+    <section>
+      <h2>City:</h2>
+      <h3><%= @station.city %></h3>
+    </section>
+    <section>
+      <h2>Install date:</h2>
+      <h3><%= @station.installation_date %></h3>
+    </section>
 
-<%if current_user %>
-<div class="show-display">
-<h2>Rides started here: </h2><h3><%= @started_here %></h3>
-<h2>Rides ended here: </h2><h3><%= @ended_here %></h3>
-<h2>Most frequent destination: </h2><h3><%= @frequent_destination %></h3>
-<h2>Most frequent origination: </h2><h3><%= @frequent_origination %></h3>
-<h2>Date with the most rides started: </h2><h3><%= @most_rides_started %></h3>
-<h2>Most frequent zip code: </h2><h3><%= @most_frequent_zip.to_s %></h3>
-<h2>Most used bike: </h2><h3><%= @most_used_bike %></h3>
-</div>
-<% end %>
+    <%if current_user %>
+    <section>
+      <h2>Rides started here:</h2>
+      <h3><%= @started_here %></h3>
+    </section>
+    <section>
+      <h2>Rides ended here:</h2>
+      <h3><%= @ended_here %></h3>
+    </section>
+    <section>
+      <h2>Most frequent destination:</h2>
+      <h3><%= @frequent_destination %></h3>
+    </section>
+    <section>
+      <h2>Most frequent origination:</h2>
+      <h3><%= @frequent_origination %></h3>
+    </section>
+    <section>
+      <h2>Date with the most rides started:</h2>
+      <h3><%= @most_rides_started %></h3>
+    </section>
+    <section>
+      <h2>Most frequent zip code:</h2>
+      <h3><%= @most_frequent_zip.to_s %></h3>
+    </section>
+    <section>
+      <h2>Most used bike:</h2>
+      <h3><%= @most_used_bike %></h3>
+    </section>
+    <% end %>
+  </div>
+</main>

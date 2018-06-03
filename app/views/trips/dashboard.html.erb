@@ -40,16 +40,16 @@
     </section>
     <section>
       <h2>Date With Most Rides:</h2>
-      <h3><%= @max_date.start_date.to_s[0..9] %>, %<%= @max_date.date_count %></h3>
+      <h3><%= @max_date.start_date.strftime('%D') %>, <%= @max_date.date_count %></h3>
     </section>
     <section>
       <h2>Date With Fewest Rides:</h2>
-      <h3><%= @min_date.start_date.to_s[0..9] %>, %<%= @min_date.date_count %></h3>
+      <h3><%= @min_date.start_date.strftime('%D') %>, <%= @min_date.date_count %></h3>
     </section>
 
     <%= @months.each do |month| %>
     <section>
-      <h2><%= month[0].strftime('%B, %Y') %>:</h2>
+      <h2><%= month[0].strftime('%B, %y') %>:</h2>
       <h3><%= month[1] %></h3>
     </section>
     <% end %>

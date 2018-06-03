@@ -2,7 +2,7 @@
   <h1>Hello <%= @user.name %></h1>
   <h3><%= link_to "Edit Info", edit_user_path(@user) %></h3>
 
-  <article>
+  <div class='show-display'>
     <section>
       <h2>Email:</h2>
       <h3><%= @user.email %></h3>
@@ -12,7 +12,7 @@
       <h3><%= @user.address %></h3>
     </section>
 
-  </article>
+  </div>
 
   <table>
     <h2> Your Orders </h2>
@@ -31,23 +31,36 @@
     </tr>
     <% end %>
   </table>
-<<<<<<< HEAD
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   <%if current_admin? %>
-  <h2> Total Number Of Orders With Ordered Status: <%=@total_ordered%></h2>
-  <h2> Total Number Of Orders With Paid Status: <%=@total_paid%></h2>
-  <h2> Total Number Of Orders With Cancelled Status: <%=@total_cancelled%></h2>
-  <h2> Total Number Of Orders With Completed Status: <%=@total_completed%></h2>
+  <div class='show-display'>
+    <section>
+      <h2> Total Orders With Ordered Status:</h2>
+      <h3><%=@total_ordered%></h3>
+    </section>
+    <section>
+      <h2>Total Orders With Paid Status:</h2>
+      <h3><%=@total_paid%></h3>
+    </section>
+    <section>
+      <h2>Total Orders With Cancelled Status:</h2>
+      <h3><%=@total_cancelled%></h3>
+    </section>
+    <section>
+      <h2>Total Orders With Completed Status:</h2>
+      <h3><%=@total_completed%></h3>
+    </section>
+  </div>
 
-  <%= link_to 'Ordered', user_path(current_user, status: 'ordered') %>
-  <%= link_to 'Completed', user_path(current_user, status: 'completed') %>
-  <%= link_to 'Paid', user_path(current_user, status: 'paid') %>
-  <%= link_to 'Cancelled', user_path(current_user, status: 'cancelled') %>
-  <%= link_to 'All Orders', user_path(current_user) %>
+  <div class='admin-order-buttons'>
+    <%= link_to 'Ordered', user_path(current_user, status: 'ordered'), class: 'ordered' %>
+    <%= link_to 'Completed', user_path(current_user, status: 'completed'), class: 'completed' %>
+    <%= link_to 'Paid', user_path(current_user, status: 'paid'), class: 'paid' %>
+    <%= link_to 'Cancelled', user_path(current_user, status: 'cancelled'), class: 'cancelled' %>
+  <%= link_to 'All Orders', user_path(current_user), class: 'all-orders' %>
+  </div>
     <table class='orders-table'>
-      <h2> <%=@header%></h2>
+      <h2><%=@header%></h2>
       <tr>
         <th>Order ID</th>
         <th>Total Price</th>

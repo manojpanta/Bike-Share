@@ -1,26 +1,12 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+
 body {
   font-family: ariel, sans-serif;
-  font-size: 14pt;
+  font-size: 12pt;
   margin: 0;
 }
 
 nav {
-  background-color: navy;
+  background-color: darkblue;
   color: white;
   font-size: 1.2em;
   padding: .5em;
@@ -35,8 +21,7 @@ nav a:hover {
 }
 
 main {
-  padding: 1em;
-  /* display: block; */
+  padding: 0em, 1em, 0, 1em;
 }
 h1 {
   text-align: center;
@@ -88,12 +73,10 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* flex: 0, 0, 250px; */
 }
 .accessories section {
   padding: 1rem;
   width: 250px;
-  /* min-width: 200px; */
 }
 .accessories h2 {
   text-align: center;
@@ -102,6 +85,33 @@ a {
 .accessories img {
   width: 100%;
 }
+
+.crementers {
+  margin-top: -.7em;
+  display: flex;
+  justify-content: center;
+}
+.crementers input {
+  width: 40px;
+  height: 25px;
+  border: none;
+  font-size: 1em;
+}
+.inc {
+  background-color: darkblue;
+  color: white;
+}
+.dec {
+  background-color: darkred;
+  color: white;
+}
+.inc:hover {
+  background-color: blue;
+}
+.dec:hover {
+  background-color: red;
+}
+
 
 .med-image {
   height: 175px;
@@ -121,7 +131,6 @@ a {
   padding: .2em;
   width: 100%;
   border: none;
-  /* background-color: green; */
   color: white;
   font-size: .8em;
 }
@@ -133,6 +142,7 @@ a {
   background-color: orange;
 }
 .delete-button {
+  color: white;
   background-color: darkred;
 }
 .delete-button:hover {
@@ -156,25 +166,73 @@ h3 input {
 .show-display {
   margin-left: auto;
   margin-right: auto;
-  width: 680px;
+  width: 720px;
 }
 .show-display section {
   height: 2.5em;
-  padding: .5em;
+  padding: 0;
 }
 .show-display section h2 {
   padding: .5em;
   margin: 0px;
-  width: 300px;
+  width: 340px;
   float: left;
   text-align: right;
-  font-size: 1.3em;
+  font-size: 1.2em;
 }
 .show-display section h3 {
   padding: .5em;
   margin: 0px;
-  width: 300px;
+  width: 340px;
   float: right;
   text-align: left;
-  font-size: 1.3em;
+  font-size: 1.2em;
+}
+.show-display img {
+  width: 100%;
+}
+.show-display p {
+  text-align: center;
+}
+
+.admin-order-buttons {
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+}
+.admin-order-buttons a {
+  margin: .3em;
+  padding: .3em;
+  color: white;
+}
+.ordered {
+  background-color: darkgreen;
+}
+.completed {
+  background-color: darkorange;
+}
+.paid {
+  background-color: darkblue;
+}
+.cancelled {
+  background-color: darkred;
+}
+.all-orders {
+  background-color: darkgreen;
+}
+.ordered:hover {
+  background-color: green;
+}
+.completed:hover {
+  background-color: orange;
+}
+.paid:hover {
+  background-color: blue;
+}
+.cancelled:hover {
+  background-color: red;
+}
+.all-orders:hover {
+  background-color: green;
 }

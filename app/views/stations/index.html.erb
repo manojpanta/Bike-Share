@@ -1,4 +1,8 @@
+<main>
 <h1>All Stations</h1>
+<% if current_user %>
+  <h3><%= link_to "Stations Dashboard", '/stations-dashboard' %></h3>
+<% end %>
 <% if current_admin? %>
   <h3><%= link_to "Create New Station", new_admin_station_path %></h3>
 <% end %>
@@ -21,3 +25,5 @@
     <%end%>
   </tr>
   <% end %>
+</table>
+</main>
