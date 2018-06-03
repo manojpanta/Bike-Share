@@ -54,13 +54,13 @@
 
   <div class='admin-order-buttons'>
     <%= link_to 'Ordered', user_path(current_user, status: 'ordered'), class: 'ordered' %>
-    <%= link_to 'Completed', user_path(current_user, status: 'completed') %>
-    <%= link_to 'Paid', user_path(current_user, status: 'paid') %>
-    <%= link_to 'Cancelled', user_path(current_user, status: 'cancelled') %>
-  <%= link_to 'All Orders', user_path(current_user) %>
+    <%= link_to 'Completed', user_path(current_user, status: 'completed'), class: 'completed' %>
+    <%= link_to 'Paid', user_path(current_user, status: 'paid'), class: 'paid' %>
+    <%= link_to 'Cancelled', user_path(current_user, status: 'cancelled'), class: 'cancelled' %>
+  <%= link_to 'All Orders', user_path(current_user), class: 'all-orders' %>
   </div>
     <table class='orders-table'>
-      <h2> <%=@header%></h2>
+      <h2><%=@header%></h2>
       <tr>
         <th>Order ID</th>
         <th>Total Price</th>

@@ -202,6 +202,37 @@ h3 input {
   margin-top: 1em;
 }
 .admin-order-buttons a {
-  width: 100px;
-  margin: .5em;
+  margin: .3em;
+  padding: .3em;
+  color: white;
+}
+.ordered {
+  background-color: darkgreen;
+}
+.completed {
+  background-color: darkorange;
+}
+.paid {
+  background-color: darkblue;
+}
+.cancelled {
+  background-color: darkred;
+}
+.all-orders {
+  background-color: darkgreen;
+}
+.ordered:hover {
+  background-color: green;
+}
+.completed:hover {
+  background-color: orange;
+}
+.paid:hover {
+  background-color: blue;
+}
+.cancelled:hover {
+  background-color: red;
+}
+.all-orders:hover {
+  background-color: green;
 }
