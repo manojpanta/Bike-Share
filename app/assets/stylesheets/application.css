@@ -21,7 +21,7 @@ nav a:hover {
 }
 
 main {
-  padding: 1em, 0;
+  padding: 0em, 1em, 0, 1em;
 }
 h1 {
   text-align: center;
@@ -166,7 +166,7 @@ h3 input {
 .show-display {
   margin-left: auto;
   margin-right: auto;
-  width: 700px;
+  width: 720px;
 }
 .show-display section {
   height: 2.5em;
@@ -175,7 +175,7 @@ h3 input {
 .show-display section h2 {
   padding: .5em;
   margin: 0px;
-  width: 320px;
+  width: 340px;
   float: left;
   text-align: right;
   font-size: 1.2em;
@@ -183,7 +183,7 @@ h3 input {
 .show-display section h3 {
   padding: .5em;
   margin: 0px;
-  width: 320px;
+  width: 340px;
   float: right;
   text-align: left;
   font-size: 1.2em;
@@ -193,4 +193,15 @@ h3 input {
 }
 .show-display p {
   text-align: center;
+}
+
+.admin-order-buttons {
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+}
+.admin-order-buttons a {
+  width: 100px;
+  margin: .5em;
 }

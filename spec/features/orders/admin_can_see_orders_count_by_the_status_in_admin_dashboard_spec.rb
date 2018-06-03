@@ -19,7 +19,7 @@ describe 'admin visits admin dashboard' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
     visit 'admin/dashboard'
-    orders_ordered = "Total Number Of Orders With Ordered Status: 1"
+    orders_ordered = "Total Orders With Ordered Status:\n1"
 
     expect(page).to have_content(orders_ordered)
   end
@@ -41,7 +41,7 @@ describe 'admin visits admin dashboard' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
     visit 'admin/dashboard'
-    orders_paid = "Total Number Of Orders With Paid Status: 1"
+    orders_paid = "Total Orders With Paid Status:\n1"
 
     expect(page).to have_content(orders_paid)
   end
@@ -63,7 +63,7 @@ describe 'admin visits admin dashboard' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
     visit 'admin/dashboard'
-    orders_cancelled = "Total Number Of Orders With Cancelled Status: 1"
+    orders_cancelled = "Total Orders With Cancelled Status:\n1"
 
     expect(page).to have_content(orders_cancelled)
   end
@@ -85,7 +85,7 @@ describe 'admin visits admin dashboard' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
     visit 'admin/dashboard'
-    orders_completed = "Total Number Of Orders With Completed Status: 1"
+    orders_completed = "Total Orders With Completed Status:\n1"
 
     expect(page).to have_content(orders_completed)
   end
