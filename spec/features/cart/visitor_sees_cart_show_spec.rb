@@ -11,5 +11,15 @@ describe 'visitor visits cart show' do
     expect(page).to have_content(item1.title)
     expect(page).to have_content("Quantity: 1")
     expect(page).to have_content("Total Cost: #{item1.price}")
+
+    user = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123')
+    visit '/'
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    visit '/cart'
+
+    expect(page).to have_content(item1.title)
+    expect(page).to have_content("Quantity: 1")
+    expect(page).to have_content("Total Cost: #{item1.price}")
   end
 end
