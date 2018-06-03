@@ -13,8 +13,7 @@ Rails.application.routes.draw do
   get '/trips-dashboard', to: 'trips#dashboard'
 
   get '/cart', to: 'carts#show'
-
-
+  delete '/carts', to: 'carts#destroy'
 
   resources :users, only: [:new, :create, :edit, :show, :update]
 
