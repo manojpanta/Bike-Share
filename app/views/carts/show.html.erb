@@ -7,7 +7,7 @@
           <h2><%= link_to item.title, accessory_path(item) %></h2>
           <div class='med-image'><a href="/accessories/<%=item.id%>"><img src="<%=item.image%>" alt="Forest"></div>
             <h3>Price: <%= item.price %></h3>
-            <h3>Quantity: <%= quantity %><%= button_to "+", carts_path(accessory_id: item.id), method: 'patch' %></h3>
+            <h3>Quantity: <%= quantity %><%= button_to "+", carts_path(accessory_id: item.id), method: 'patch' %><%= button_to "-", carts_path(accessory_id: item.id, decrease: true), method: 'patch' %></h3>
             <h3>Subtotal: <%= item.price * quantity %></h3>
             <h3><%= button_to 'Remove', carts_path(accessory: item.id), class: 'delete-button',  method: 'delete'%></h3>
       </section>
