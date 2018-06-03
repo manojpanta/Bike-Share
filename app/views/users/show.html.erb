@@ -2,7 +2,7 @@
   <h1>Hello <%= @user.name %></h1>
   <h3><%= link_to "Edit Info", edit_user_path(@user) %></h3>
 
-  <article>
+  <div class='show-display'>
     <section>
       <h2>Email:</h2>
       <h3><%= @user.email %></h3>
@@ -12,7 +12,7 @@
       <h3><%= @user.address %></h3>
     </section>
 
-  </article>
+  </div>
 
   <table>
     <h2> Your Orders </h2>
@@ -31,10 +31,7 @@
     </tr>
     <% end %>
   </table>
-<<<<<<< HEAD
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   <%if current_admin? %>
   <h2> Total Number Of Orders With Ordered Status: <%=@total_ordered%></h2>
   <h2> Total Number Of Orders With Paid Status: <%=@total_paid%></h2>
