@@ -12,5 +12,10 @@ class CartsController < ApplicationController
     redirect_to '/bike-shop'
   end
 
-
+  def show
+    cart = Cart.new(session[:cart]).contents
+    @cart_items = cart.keys.map do |key|
+      [Accessory.find(key.to_i), cart[key]]
+    end
+  end
 end

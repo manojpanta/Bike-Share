@@ -1,0 +1,13 @@
+<main>
+  <h1>Cart</h1>
+  <div class='accessories'>
+    <% @cart_items.each do |item, quantity| %>
+      <section>
+          <h2><%= link_to item.title, accessory_path(item) %></h2>
+          <div class='med-image'><a href="/accessories/<%=item.id%>"><img src="<%=item.image%>" alt="Forest"></div>
+            <h3>Quantity: <%= quantity %></h3>
+            <h3><%= button_to 'Remove from cart', carts_path(accessory_id: item.id), class: 'add-button', method: 'destroy'%></h3>
+      </section>
+    <% end %>
+  </div>
+</main>
