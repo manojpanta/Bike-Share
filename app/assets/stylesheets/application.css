@@ -1,18 +1,4 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+
 body {
   font-family: ariel, sans-serif;
   font-size: 12pt;
@@ -20,7 +6,7 @@ body {
 }
 
 nav {
-  background-color: navy;
+  background-color: darkblue;
   color: white;
   font-size: 1.2em;
   padding: .5em;
@@ -35,8 +21,7 @@ nav a:hover {
 }
 
 main {
-  padding: 1em;
-  /* display: block; */
+  padding: 1em, 0;
 }
 h1 {
   text-align: center;
@@ -88,12 +73,10 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* flex: 0, 0, 250px; */
 }
 .accessories section {
   padding: 1rem;
   width: 250px;
-  /* min-width: 200px; */
 }
 .accessories h2 {
   text-align: center;
@@ -102,6 +85,33 @@ a {
 .accessories img {
   width: 100%;
 }
+
+.crementers {
+  margin-top: -.7em;
+  display: flex;
+  justify-content: center;
+}
+.crementers input {
+  width: 40px;
+  height: 25px;
+  border: none;
+  font-size: 1em;
+}
+.inc {
+  background-color: darkblue;
+  color: white;
+}
+.dec {
+  background-color: darkred;
+  color: white;
+}
+.inc:hover {
+  background-color: blue;
+}
+.dec:hover {
+  background-color: red;
+}
+
 
 .med-image {
   height: 175px;
@@ -121,7 +131,6 @@ a {
   padding: .2em;
   width: 100%;
   border: none;
-  /* background-color: green; */
   color: white;
   font-size: .8em;
 }
@@ -133,6 +142,7 @@ a {
   background-color: orange;
 }
 .delete-button {
+  color: white;
   background-color: darkred;
 }
 .delete-button:hover {

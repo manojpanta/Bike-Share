@@ -1,15 +1,20 @@
 <main>
   <h1>Cart</h1>
-  <h2>Total Cost: <%= @total %></h2>
+  <h3>Total Cost: <%= @total %></h3>
   <div class='accessories'>
     <% @cart_items.each do |item, quantity| %>
       <section>
-          <h2><%= link_to item.title, accessory_path(item) %></h2>
-          <div class='med-image'><a href="/accessories/<%=item.id%>"><img src="<%=item.image%>" alt="Forest"></div>
-            <h3>Price: <%= item.price %></h3>
-            <h3>Quantity: <%= quantity %><%= button_to "+", carts_path(accessory_id: item.id), method: 'patch' %><%= button_to "-", carts_path(accessory_id: item.id, decrease: true), method: 'patch' %></h3>
-            <h3>Subtotal: <%= item.price * quantity %></h3>
-            <h3><%= button_to 'Remove', carts_path(accessory: item.id), class: 'delete-button',  method: 'delete'%></h3>
+        <h2><%= link_to item.title, accessory_path(item) %></h2>
+        <div class='med-image'><a href="/accessories/<%=item.id%>"><img src="<%=item.image%>" alt="Forest">
+        </div>
+          <h3>Price: <%= item.price %></h3>
+        <h3>Quantity: <%= quantity %></h3>
+        <div class='crementers'>
+          <%= button_to "+", carts_path(accessory_id: item.id), method: 'patch', class: 'inc' %>
+          <%= button_to "-", carts_path(accessory_id: item.id, decrease: true), method: 'patch', class: 'dec' %>
+        </div>
+        <h3>Subtotal: <%= item.price * quantity %></h3>
+        <h3><%= button_to 'Remove', carts_path(accessory: item.id), class: 'delete-button',  method: 'delete'%></h3>
       </section>
     <% end %>
   </div>
