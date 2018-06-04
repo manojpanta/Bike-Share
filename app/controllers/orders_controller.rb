@@ -23,6 +23,7 @@ class OrdersController < ApplicationController
       @orders.accessory_orders.create(accessory: i, quantity: quantity)
     end
     flash[:notice] = "Successfully submitted your order totaling $ #{@orders.cost}"
+    session[:cart] = nil
     redirect_to dashboard_path(current_user)
   end
 end
