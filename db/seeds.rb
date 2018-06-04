@@ -5,9 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Station.destroy_all
-Trip.destroy_all
-User.destroy_all
+# Station.destroy_all
+# Trip.destroy_all
+# User.destroy_all
 
 
 TITLES = ['wranch', 'screw driver', 'Jumper Cables', 'socket set']
@@ -55,7 +55,7 @@ end
   Accessory.create!(title: TITLES.sample, image: IMAGES.sample, price: PRICES.sample, description: DESCRIPTIONS.sample, is_retired?: retired)
 end
 
-m = User.create(name: 'manoj', email: 'manoj', password: 'manoj', address: 'manoj', role: 1)
+m = User.create!(name: 'manoj', email: 'manoj', password: 'manoj', address: 'manoj', role: 1)
 5.times do
   o = m.orders.create(status: rand(4))
   2.times do
