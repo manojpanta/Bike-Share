@@ -36,5 +36,7 @@ RSpec.describe Cart do
       expect(cart.contents[item1.id.to_s]).to eq(1)
       expect(cart.contents[item2.id.to_s]).to eq(3)
     end
+
+  
   end
 end
