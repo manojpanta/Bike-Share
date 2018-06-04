@@ -18,4 +18,9 @@
       </section>
     <% end %>
   </div>
+
+  <% if current_user %>
+  <h3><%= button_to 'Checkout',new_order_path, class: 'add-button',  method: 'get'%></h3>
+  <% end%>
+
 </main>
