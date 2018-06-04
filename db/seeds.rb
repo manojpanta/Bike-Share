@@ -31,6 +31,8 @@ stations.each do |station|
   installation_date:    DateTime.strptime(station[:installation_date], '%m/%d/%Y')
   )
 end
+ActiveRecord::Base.connection.reset_pk_sequence!('stations')
+
 trips = CSV.open('./data/trip.csv',
                     headers: true,
                     header_converters: :symbol)
@@ -79,3 +81,9 @@ u = User.create(name: 'user', email: 'user@bob.bob', password: '1234', address: 
     o.accessory_orders.create(accessory: item, quantity: (rand(3) + 1))
   end
 end
+
+puts "Database Seeded"
+puts "Stations: #{Station.all.count}"
+puts "Trips: #{Trip.all.count}"
+puts "Users: #{User.all.count}"
+puts "Accessories: #{Accessory.all.count}"

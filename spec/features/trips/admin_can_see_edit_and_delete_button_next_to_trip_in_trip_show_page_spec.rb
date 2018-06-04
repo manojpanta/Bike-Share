@@ -32,9 +32,9 @@ describe "A visitor" do
 
       fill_in 'trip[duration]',	with: 50
       fill_in 'trip[start_date]',	with: trip.start_date
-      fill_in 'trip[start_station_id]',	with: station.id
+      select station.name, from: 'trip[start_station_id]'
       fill_in 'trip[end_date]',	with: trip.end_date
-      fill_in 'trip[end_station_id]',	with: station.id
+      select station.name, from: 'trip[end_station_id]'
       fill_in 'trip[bike_id]',	with: trip.bike_id
       fill_in 'trip[subscription_type]',	with: trip.subscription_type
       fill_in 'trip[zip_code]',	with: 80231
