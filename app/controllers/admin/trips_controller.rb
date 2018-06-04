@@ -5,6 +5,7 @@ class Admin::TripsController < Admin::BaseController
 
   def new
     @trip = Trip.new
+    @stations = Station.all
   end
 
   def destroy

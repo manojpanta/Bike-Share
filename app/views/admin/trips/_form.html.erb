@@ -3,18 +3,23 @@
   <section>
     <h2>Duration:</h2>
     <%= f.text_field :duration%>
-  <section>
+  </section>
+
   <section>
     <h2>Start Date:</h2>
     <%= f.text_field :start_date%>
-  <section>
+  </section>
+
   <section>
     <h2>End Date:</h2>
     <%= f.text_field :end_date%>
+  </section>
+
   <section>
     <h2>Bike ID:</h2>
     <%= f.text_field :bike_id%>
   </section>
+
   <section>
     <h2>Subscription Type:</h2>
     <%= f.text_field :subscription_type%>
@@ -23,13 +28,16 @@
     <h2>Zip Code:</h2>
     <%= f.text_field :zip_code%>
   </section>
+
   <section>
-    <h2>Start Station</h2>
-    <%= f.text_field :start_station_id%>
+    <h2><%= f.label :start_station_id %></h2>
+    <%= f.collection_select(:start_station_id, @stations, :id, :name)%>
   </section>
+
   <section>
-    <h2>End Station:</h2>
-    <%= f.text_field :end_station_id%>
+    <h2><%= f.label :end_station_id %></h2>
+    <%= f.collection_select(:end_station_id, @stations, :id, :name)%>
   </section>
+
   <%=f.submit%>
 <%end%>

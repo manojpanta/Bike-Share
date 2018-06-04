@@ -1,18 +1,26 @@
-<%= form_for [:admin, @accessory] do |f| %>
-  <section>
-    <h2>Name:</h2>
-    <%= f.text_field :title%>
-  <section>
-  <section>
-    <h2>Price:</h2>
-    <%= f.text_field :price%>
-  <section>
-    <h2>Description:</h2>
-    <%= f.text_field :description%>
-  </section>
-  <section>
-    <h2>Image:</h2>
-    <%= f.text_field :image%>
-  </section>
-  <%=f.submit%>
-<%end%>
+<main>
+  <article>
+    <%= form_for [:admin, @accessory] do |f| %>
+      <section>
+        <h2>Name:</h2>
+        <h3><%= f.text_field :title%></h3>
+      </section>
+
+      <section>
+        <h2>Price:</h2>
+        <h3><%= f.text_field :price%></h3>
+      </section>
+
+      <section>
+        <h2>Description:</h2>
+        <h3><%= f.text_field :description%></h3>
+      </section>
+
+      <section>
+        <h2>Image:</h2>
+        <h3><%= f.text_field :image%></h3>
+      </section>
+      <%=f.submit%>
+    <%end%>
+  </article>
+</main>
