@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'visitor visits cart show' do
+describe 'user visits cart show' do
   it 'shows items in cart' do
 
     user = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123')
