@@ -42,28 +42,34 @@ describe 'admin visits admin dashboard' do
     click_on 'Paid'
 
     expect(page).to have_content('All Paid Orders')
-    expect(page).to have_content(order2.id)
+    within('.orders-table') do
+      expect(page).to have_link(order2.id)
 
-    expect(page).to_not have_content(order1.id)
-    expect(page).to_not have_content(order3.id)
-    expect(page).to_not have_content(order4.id)
+      expect(page).to_not have_link(order1.id)
+      expect(page).to_not have_link(order3.id)
+      expect(page).to_not have_link(order4.id)
+    end
 
     click_on 'Cancelled'
 
     expect(page).to have_content('All Cancelled Orders')
-    expect(page).to have_content(order3.id)
+    within('.orders-table') do
+      expect(page).to have_link(order3.id)
 
-    expect(page).to_not have_content(order1.id)
-    expect(page).to_not have_content(order2.id)
-    expect(page).to_not have_content(order4.id)
+      expect(page).to_not have_link(order1.id)
+      expect(page).to_not have_link(order2.id)
+      expect(page).to_not have_link(order4.id)
+    end
 
     click_on 'Completed'
 
     expect(page).to have_content('All Completed Orders')
-    expect(page).to have_content(order4.id)
+    within('.orders-table') do
+      expect(page).to have_link(order4.id)
 
-    expect(page).to_not have_content(order1.id)
-    expect(page).to_not have_content(order2.id)
-    expect(page).to_not have_content(order3.id)
+      expect(page).to_not have_link(order1.id)
+      expect(page).to_not have_link(order2.id)
+      expect(page).to_not have_link(order3.id)
+    end
   end
 end
