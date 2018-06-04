@@ -1,6 +1,7 @@
 class Admin::TripsController < Admin::BaseController
   def edit
     @trip = Trip.find(params[:id])
+    @stations = Station.all
   end
 
   def new
