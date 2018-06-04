@@ -4,8 +4,8 @@ class Station < ApplicationRecord
   validates :city, presence: true
   validates :installation_date, presence: true
 
-  has_many :trips_started, class_name: 'Trip', foreign_key: 'start_station_id'
-  has_many :trips_ended, class_name: 'Trip', foreign_key: 'end_station_id'
+  has_many :trips_started, class_name: 'Trip', foreign_key: 'start_station_id', dependent: :delete_all
+  has_many :trips_ended, class_name: 'Trip', foreign_key: 'end_station_id', dependent: :delete_all
 
   def to_param
     name
@@ -87,7 +87,7 @@ class Station < ApplicationRecord
       rides_date.keys[0].strftime('%A, %B %e, %Y')
     end
   end
-  
+
   def most_frequent_zip
     zip = trips_started.group(:zip_code)
                        .order('count_all DESC')
@@ -109,6 +109,6 @@ class Station < ApplicationRecord
       bike.keys[0]
     end
   end
-  
-  
+
+
 end
