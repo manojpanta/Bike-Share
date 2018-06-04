@@ -9,4 +9,8 @@ class OrdersController < ApplicationController
       render file: '/public/404'
     end
   end
+
+  def new
+
+  end
 end

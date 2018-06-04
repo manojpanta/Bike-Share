@@ -56,25 +56,25 @@ class Station < ApplicationRecord
   end
 
   def frequent_destination
-      destination = trips_ended.group(:end_station_id)
-                              .order('count_all DESC')
-                              .count
-      if destination.empty?
-        "Unknown"
-      else
-        Station.find(destination.first[0]).name
-      end
+    destination = trips_ended.group(:end_station_id)
+                            .order('count_all DESC')
+                            .count
+    if destination.empty?
+      "Unknown"
+    else
+      Station.find(destination.first[0]).name
+    end
   end
 
   def frequent_origination
-      origination = trips_started.group(:start_station_id)
-                              .order('count_all DESC')
-                              .count
-      if origination.empty?
-        "Unknown"
-      else
-        Station.find(origination.first[0]).name
-      end
+    origination = trips_started.group(:start_station_id)
+                            .order('count_all DESC')
+                            .count
+    if origination.empty?
+      "Unknown"
+    else
+      Station.find(origination.first[0]).name
+    end
   end
 
   def most_rides_started
@@ -109,6 +109,4 @@ class Station < ApplicationRecord
       bike.keys[0]
     end
   end
-
-
 end

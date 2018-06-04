@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   resources :accessories, only: [:show]
   resources :stations, only: [:index, :show]
 
-  resources :orders, only: [:show]
+  resources :orders, only: [:show, :new]
   resources :carts, only: [:create, :update]
 
 
