@@ -14,6 +14,8 @@ class OrdersController < ApplicationController
     @user = current_user
     @orders = @user.orders.create
     @items = []
+    render file: '/public/404' if !current_user
+    return render file: '/public/404' if params[:cart_items] == nil
     until params[:cart_items].empty?
       @items << params[:cart_items].slice!(0..1)
     end
