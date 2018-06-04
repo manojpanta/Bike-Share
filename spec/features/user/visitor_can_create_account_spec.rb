@@ -26,4 +26,16 @@ describe 'user visits visits home page' do
     expect(page).to have_link('Logout')
     expect(page).to_not have_content('Login')
   end
+
+  it "see flash message error when create account fails" do
+
+    visit '/'
+
+    click_on 'Login'
+    click_on 'Create Account'
+    click_button 'Create'
+
+    expect(page).to have_content('User creation failed')
+  end
+  
 end
