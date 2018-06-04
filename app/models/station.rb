@@ -4,8 +4,8 @@ class Station < ApplicationRecord
   validates :city, presence: true
   validates :installation_date, presence: true
 
-  has_many :trips_started, class_name: 'Trip', foreign_key: 'start_station_id'
-  has_many :trips_ended, class_name: 'Trip', foreign_key: 'end_station_id'
+  has_many :trips_started, class_name: 'Trip', foreign_key: 'start_station_id', dependent: :delete_all
+  has_many :trips_ended, class_name: 'Trip', foreign_key: 'end_station_id', dependent: :delete_all
 
   def to_param
     name
