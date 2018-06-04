@@ -23,9 +23,9 @@ describe "An admin" do
 
     fill_in 'trip[duration]',	with: duration
     fill_in 'trip[start_date]',	with: start_date
-    fill_in 'trip[start_station_id]',	with: station.id
+    select station.name,	from: 'trip[start_station_id]'
     fill_in 'trip[end_date]',	with: end_date
-    fill_in 'trip[end_station_id]',	with: station.id
+    select station.name,	from: 'trip[end_station_id]'
     fill_in 'trip[bike_id]',	with: bike_id
     fill_in 'trip[subscription_type]',	with: subscription_type
     fill_in 'trip[zip_code]',	with: zip_code
