@@ -20,7 +20,7 @@
   </div>
 
   <% if current_user %>
-  <h3><%= button_to 'Checkout',new_order_path, class: 'add-button',  method: 'get'%></h3>
+  <h3><%= button_to 'Checkout',orders_path(cart_items: @cart_items), class: 'add-button'%></h3>
   <% end%>
 
 </main>
