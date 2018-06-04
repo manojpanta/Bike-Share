@@ -1,43 +1,47 @@
+<main>
+  <article>
+    <%= form_for [:admin, @trip] do |f| %>
+      <section>
+        <h2>Duration:</h2>
+        <h3><%= f.text_field :duration%></h3>
+      </section>
 
-<%= form_for [:admin, @trip] do |f| %>
-  <section>
-    <h2>Duration:</h2>
-    <%= f.text_field :duration%>
-  </section>
+      <section>
+        <h2>Start Date:</h2>
+        <h3><%= f.text_field :start_date%></h3>
+      </section>
 
-  <section>
-    <h2>Start Date:</h2>
-    <%= f.text_field :start_date%>
-  </section>
+      <section>
+        <h2>End Date:</h2>
+        <h3><%= f.text_field :end_date%></h3>
+      </section>
 
-  <section>
-    <h2>End Date:</h2>
-    <%= f.text_field :end_date%>
-  </section>
+      <section>
+        <h2>Bike ID:</h2>
+        <h3><%= f.text_field :bike_id%></h3>
+      </section>
 
-  <section>
-    <h2>Bike ID:</h2>
-    <%= f.text_field :bike_id%>
-  </section>
+      <section>
+        <h2>Subscription Type:</h2>
+        <h3><%= f.text_field :subscription_type%></h3>
+      </section>
 
-  <section>
-    <h2>Subscription Type:</h2>
-    <%= f.text_field :subscription_type%>
-  </section>
-  <section>
-    <h2>Zip Code:</h2>
-    <%= f.text_field :zip_code%>
-  </section>
+      <section>
+        <h2>Zip Code:</h2>
+        <h3><%= f.text_field :zip_code%></h3>
+      </section>
 
-  <section>
-    <h2><%= f.label :start_station_id %></h2>
-    <%= f.collection_select(:start_station_id, @stations, :id, :name)%>
-  </section>
+      <section>
+        <h2><%= f.label :start_station_id %></h2>
+        <h3><%= f.collection_select(:start_station_id, @stations, :id, :name)%></h3>
+      </section>
 
-  <section>
-    <h2><%= f.label :end_station_id %></h2>
-    <%= f.collection_select(:end_station_id, @stations, :id, :name)%>
-  </section>
+      <section>
+        <h2><%= f.label :end_station_id %></h2>
+        <h3><%= f.collection_select(:end_station_id, @stations, :id, :name)%></h3>
+      </section>
 
-  <%=f.submit%>
-<%end%>
+      <%=f.submit%>
+    <%end%>
+  </article>
+</main>
