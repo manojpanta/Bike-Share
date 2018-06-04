@@ -1,87 +1,59 @@
-# Project Title
+# Bike Share
 
 *Bike-Share* is the final project for Back-End Engineering Module 2 at Turing School of Software and Design. This was a team project with three contributors. The purpose of the project was to gain familiarity with one-to-many and many-to-many relationships within Rails and build a project from scratch with only user stories, no wireframes.  Features of the project include simple analysis of SF Bay Area Bike Share data from kaggle.com.
+
+The app also has an e-commerce area where visitors can add accessories to their cart, and registered users can checkout their cart to create an order. The app features a secure login for users and admins, with users, accessories, orders, accessory_orders, stations, and trips in a PostgreSQL database.
 
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
+This project uses these gems:
+
+ * figaro
+ * bcrypt
+ * rspec
+ * capybara
+ * launchy
+ * should-matchers
+ * pry
+ * active_designer
+ * simplecov
+
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+Standard Rails setup for *Rails 5.2*
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
+To install dependencies after cloning the app, run in the command line:
+`bundle install`
 
-Say what the step will be
+To enable rspec testing, run:
+`rails g rspec:install`
 
-```
-Give the example
-```
+To setup the database, run:
+`rails db:create`
+`rails db:migrate`
+`rails db:seed`
 
-And repeat
+To run the tests, run:
+`rspec`
 
-```
-until finished
-```
+To run the server on localhost:3000, run:
+`rails s`
 
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+Run `rspec` in the terminal.
 
-### Break down into end to end tests
+## Using The Site
 
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+Visitors can view stations index and show, trips index and show, accessories index and show, and they are able to login, create a new account, or add items to a cart before logging in. Logged in users can view and edit their profile, checkout their cart, and view additional analytics data. Admin users can be created from the command line. They can create, edit, and delete stations, trips, and accessories.
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* **Manoj Panta** -   (https://github.com/manojpanta)
+* **Steve Schwedt** - (https://github.com/apoc64)
+* **Eliot Swank** -   (https://github.com/EMSwank)
