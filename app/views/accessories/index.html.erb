@@ -1,5 +1,8 @@
 <main>
   <h1> Bike Shop </h1>
+  <% if current_admin? %>
+    <h3><%=link_to 'Create New Accessory', admin_bikeshop_new_path %></h3>
+  <% end %>
   <div class='accessories'>
     <% @accessories.each do |a| %>
       <section>
