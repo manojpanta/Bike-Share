@@ -36,6 +36,5 @@ describe 'user visits visits home page' do
     click_button 'Create'
 
     expect(page).to have_content('User creation failed')
-  end
-  
+  end  
 end
