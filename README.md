@@ -9,7 +9,7 @@ The app also has an e-commerce area where visitors can add accessories to their 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 This project uses these gems:
-
+--include versions
  * figaro
  * bcrypt
  * rspec
@@ -21,7 +21,8 @@ This project uses these gems:
  * simplecov
 
 ### Prerequisites
-
+--Ruby versions
+--postgres -v
 Standard Rails setup for *Rails 5.2*
 
 ### Installing
