@@ -10,7 +10,19 @@ class OrdersController < ApplicationController
     end
   end
 
-  def new
-
+  def create
+    @user = current_user
+    @orders = @user.orders.create
+    @items = []
+    until params[:cart_items].empty?
+      @items << params[:cart_items].slice!(0..1)
+    end
+    @items.each do |i, quantity|
+      i = Accessory.find(i.first.to_i)
+      quantity = quantity.first.to_i
+      @orders.accessory_orders.create(accessory: i, quantity: quantity)
+    end
+    flash[:notice] = "Successfully submitted your order totaling $ #{@orders.cost}"
+    redirect_to dashboard_path(current_user)
   end
 end

@@ -11,6 +11,7 @@ describe 'visitor visits cart show' do
     visit '/bike-shop'
     click_on 'Add to cart'
 
+
     visit '/cart'
 
     click_on 'Checkout'
