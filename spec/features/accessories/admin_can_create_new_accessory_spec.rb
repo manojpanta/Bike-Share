@@ -6,7 +6,7 @@ describe 'user visits bikeshop new page' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
     title = 'wranch'
     description = 'this is awesome wranch'
-    price = 123
+    price = 123.00
     image = 'http://blog.zealousgood.com/wp-content/uploads/2013/05/tools.jpg'
 
     visit admin_bikeshop_new_path
