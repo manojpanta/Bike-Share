@@ -10,7 +10,7 @@
 # User.destroy_all
 
 
-TITLES = ['wranch', 'screw driver', 'Jumper Cables', 'socket set']
+TITLES = ['Wranch', 'Screw driver', 'Jumper Cables', 'Socket set', 'Tool', 'Saw', 'Hammer', 'Hacksaw', 'Chisel', 'Monkey Wrench', 'Bradwal', 'Drill', 'Chainsaw', 'Anvil', 'Sandpaper', 'Wire', 'Nail']
 IMAGES = ['https://cimg2.ibsrv.net/cimg/www.doityourself.com/660x300_100-1/514/Tools-199514.jpg', 'https://www.3wayplumbing.com/Portals/0/EasyGalleryImages/1/73/tools.jpg', 'https://cdn.everydaycarry.com/uploads/17-12-04/15a257f8f0ad64.jpg']
 PRICES = [12, 34, 45, 56, 67, 67, 92]
 DESCRIPTIONS = ['This my tool', 'This tool is necessory', 'This tool is must have', 'Hepls you fix your oil change', 'This is the best offer you will see today', 'This is not really the product we think is useful for household usage', 'This is not a goo tool we have to be honest with you all.']
@@ -54,7 +54,7 @@ end
   if rand > 0.8
     retired = true
   end
-  Accessory.create!(title: TITLES.sample, image: IMAGES.sample, price: PRICES.sample, description: DESCRIPTIONS.sample, is_retired?: retired)
+  Accessory.create(title: TITLES.sample, image: IMAGES.sample, price: PRICES.sample, description: DESCRIPTIONS.sample, is_retired?: retired)
 end
 
 m = User.create!(name: 'manoj', email: 'manoj', password: 'manoj', address: 'manoj', role: 1)

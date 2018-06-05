@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_27_003254) do
+ActiveRecord::Schema.define(version: 2018_06_05_024122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "accessories", force: :cascade do |t|
     t.string "title"
-    t.string "image"
+    t.string "image", default: "http://fixmfg.com/wp-content/uploads/2017/02/WheelieWrench_angleLR.jpg"
     t.decimal "price"
     t.boolean "is_retired?", default: false
     t.string "description"
