@@ -60,5 +60,17 @@ describe Trip, type: :model do
 
       expect(starts).to eq(station1)
     end
+
+    it 'finds the shortest duration' do
+      station1 = Station.create!(name: 'Foo', dock_count: 5, city: 'Denver', installation_date: Time.now)
+      station2 = Station.create!(name: 'Bar', dock_count: 5, city: 'Denver', installation_date: Time.now)
+      trip1 = Trip.create!(duration: 5, start_date: Time.now, start_station: station1, end_date: (Time.now + 1), end_station: station1, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
+      trip2 = Trip.create!(duration: 10, start_date: Time.now, start_station: station1, end_date: (Time.now + 1), end_station: station2, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
+      trip3 = Trip.create!(duration: 15, start_date: Time.now, start_station: station2, end_date: (Time.now + 1), end_station: station2, bike_id: 2, subscription_type: 'Subscriber', zip_code: 80202 )
+
+      shortest = Trip.shortest
+
+      expect(shortest).to eq(trip1.id)
+    end
   end
 end

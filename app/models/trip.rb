@@ -23,4 +23,8 @@ class Trip < ApplicationRecord
   def self.most_starts
     Trip.select('COUNT(id) AS trip_count, start_station_id').group(:start_station_id).order('trip_count DESC').first.start_station
   end
+
+  def self.shortest
+    Trip.where(duration: Trip.minimum(:duration)).first.id
+  end
 end

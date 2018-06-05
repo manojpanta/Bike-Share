@@ -12,9 +12,9 @@ class TripsController < ApplicationController
     render file: '/public/404' if !current_user
     @average = Trip.average(:duration)
     @longest = Trip.where(duration: Trip.maximum(:duration)).first.id
-    @shortest = Trip.where(duration: Trip.minimum(:duration)).first.id
+    @shortest = Trip.shortest
+    # Trip.where(duration: Trip.minimum(:duration)).first.id
     @most_starts = Trip.most_starts
-    # Trip.select('COUNT(id) AS trip_count, start_station_id').group(:start_station_id).order('trip_count DESC').first.start_station
     @most_ends = Trip.most_ends
 
     bikes = Trip.bikes
