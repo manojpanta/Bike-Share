@@ -19,4 +19,8 @@ class Trip < ApplicationRecord
   def self.most_ends
     Trip.select('COUNT(id) AS trip_count, end_station_id').group(:end_station_id).order('trip_count DESC').first.end_station
   end
+
+  def self.most_starts
+    Trip.select('COUNT(id) AS trip_count, start_station_id').group(:start_station_id).order('trip_count DESC').first.start_station
+  end
 end
