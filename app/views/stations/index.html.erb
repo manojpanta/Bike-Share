@@ -6,24 +6,26 @@
 <% if current_admin? %>
   <h3><%= link_to "Create New Station", new_admin_station_path %></h3>
 <% end %>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Dock Count</th>
-    <th>City</th>
-    <th>Install Date</th>
-  </tr>
-  <% @stations.each do |station| %>
-  <tr>
-    <td><%= link_to station.name, station_path(station) %></td>
-    <td><%= station.dock_count %></td>
-    <td><%= station.city %></td>
-    <td><%= station.installation_date %></td>
-    <%if current_admin?%>
-    <td><%= button_to 'Edit', edit_admin_station_path(station), method: :get %></td>
-    <td><%= button_to 'Delete', admin_station_path(station), method: :delete %></td>
-    <%end%>
-  </tr>
-  <% end %>
-</table>
+<center>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Dock Count</th>
+      <th>City</th>
+      <th>Install Date</th>
+    </tr>
+    <% @stations.each do |station| %>
+    <tr>
+      <td><%= link_to station.name, station_path(station) %></td>
+      <td><%= station.dock_count %></td>
+      <td><%= station.city %></td>
+      <td><%= station.installation_date %></td>
+      <%if current_admin?%>
+      <td><%= button_to 'Edit', edit_admin_station_path(station), method: :get %></td>
+      <td><%= button_to 'Delete', admin_station_path(station), method: :delete %></td>
+      <%end%>
+    </tr>
+    <% end %>
+  </table>
+</center>
 </main>
