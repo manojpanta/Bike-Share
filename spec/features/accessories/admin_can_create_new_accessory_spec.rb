@@ -9,7 +9,6 @@ describe 'user visits bikeshop new page' do
     price = 123
     image = 'http://blog.zealousgood.com/wp-content/uploads/2013/05/tools.jpg'
 
-    accessory = Accessory.create!(title: 'wranch', image: 'http://blog.zealousgood.com/wp-content/uploads/2013/05/tools.jpg', price: 100, description: 'this is tool')
     visit admin_bikeshop_new_path
 
     fill_in 'accessory[title]', with: title
