@@ -11,4 +11,12 @@ class Trip < ApplicationRecord
   def self.subscriptions
     Trip.select('COUNT(id) AS sub_count, subscription_type').group(:subscription_type).order('sub_count DESC')
   end
+
+  def self.bikes
+    Trip.select('COUNT(id) AS bike_count, bike_id').group(:bike_id).order('bike_count DESC')
+  end
+
+  def self.most_ends
+    Trip.select('COUNT(id) AS trip_count, end_station_id').group(:end_station_id).order('trip_count DESC').first.end_station
+  end
 end
