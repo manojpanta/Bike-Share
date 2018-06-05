@@ -101,5 +101,20 @@ describe Trip, type: :model do
       expect(dates.last.start_date).to eq(date2)
       expect(dates.last.date_count).to eq(1)
     end
+
+    it 'groups by month' do
+      station1 = Station.create!(name: 'Foo', dock_count: 5, city: 'Denver', installation_date: Time.now)
+      station2 = Station.create!(name: 'Bar', dock_count: 5, city: 'Denver', installation_date: Time.now)
+      date1 = DateTime.strptime('8/29/13 16:18', '%m/%d/%y %H:%M')
+      date2 = DateTime.strptime('8/29/14 16:18', '%m/%d/%y %H:%M')
+      trip1 = Trip.create!(duration: 5, start_date: date1, start_station: station1, end_date: (Time.now + 1), end_station: station1, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
+      trip2 = Trip.create!(duration: 10, start_date: date1, start_station: station1, end_date: (Time.now + 1), end_station: station2, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
+      trip3 = Trip.create!(duration: 15, start_date: date2, start_station: station2, end_date: (Time.now + 1), end_station: station2, bike_id: 2, subscription_type: 'Subscriber', zip_code: 80202 )
+
+      months = Trip.months
+
+      expect(months[months.keys.max]).to eq(1)
+      expect(months[months.keys.min]).to eq(2)
+    end
   end
 end

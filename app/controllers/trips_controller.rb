@@ -30,15 +30,10 @@ class TripsController < ApplicationController
     @customer_percent = (@customer_count * 100) / total_count
 
     dates = Trip.dates
-    # Trip.select('COUNT(id) AS date_count, start_date').group(:start_date).order('date_count DESC')
     @max_date = dates.first
     @min_date = dates.last
 
+    @months = Trip.months
     # Trip.group("date_trunc('month', start_date)").count
-    @months = Trip.group("date_trunc('month', start_date)").count
-
-
-    # binding.pry
-    # .select("COUNT(id) AS year_count, DATEPART(YEAR, start_date) AS year_of").group('DATEPART(YEAR, start_date)')
   end
 end
