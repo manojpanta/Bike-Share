@@ -39,4 +39,8 @@ class Trip < ApplicationRecord
   def self.months
     Trip.group("date_trunc('month', start_date)").count
   end
+
+  def self.years
+    Trip.group("date_trunc('year', start_date)").count
+  end
 end

@@ -34,6 +34,6 @@ class TripsController < ApplicationController
     @min_date = dates.last
 
     @months = Trip.months
-    # Trip.group("date_trunc('month', start_date)").count
+    @years = Trip.years
   end
 end
