@@ -12,7 +12,6 @@ class TripsController < ApplicationController
     render file: '/public/404' if !current_user
     @average = Trip.average(:duration)
     @longest = Trip.longest
-    # Trip.where(duration: Trip.maximum(:duration)).first.id
     @shortest = Trip.shortest
     @most_starts = Trip.most_starts
     @most_ends = Trip.most_ends
@@ -30,7 +29,8 @@ class TripsController < ApplicationController
     @customer_count = subscriptions.where(subscription_type: 'Customer').first.sub_count
     @customer_percent = (@customer_count * 100) / total_count
 
-    dates = Trip.select('COUNT(id) AS date_count, start_date').group(:start_date).order('date_count DESC')
+    dates = Trip.dates
+    # Trip.select('COUNT(id) AS date_count, start_date').group(:start_date).order('date_count DESC')
     @max_date = dates.first
     @min_date = dates.last
 

@@ -31,4 +31,8 @@ class Trip < ApplicationRecord
   def self.longest
     Trip.where(duration: Trip.maximum(:duration)).first.id
   end
+
+  def self.dates
+    Trip.select('COUNT(id) AS date_count, start_date').group(:start_date).order('date_count DESC')
+  end
 end
