@@ -27,4 +27,8 @@ class Trip < ApplicationRecord
   def self.shortest
     Trip.where(duration: Trip.minimum(:duration)).first.id
   end
+
+  def self.longest
+    Trip.where(duration: Trip.maximum(:duration)).first.id
+  end
 end
