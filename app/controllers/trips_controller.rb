@@ -22,7 +22,8 @@ class TripsController < ApplicationController
     @least_ridden_bike = bikes.last.bike_id
     @fewest_bike_rides = bikes.last.bike_count
 
-    subscriptions = Trip.select('COUNT(id) AS sub_count, subscription_type').group(:subscription_type).order('sub_count DESC')
+    subscriptions = Trip.subscriptions
+    # Trip.select('COUNT(id) AS sub_count, subscription_type').group(:subscription_type).order('sub_count DESC')
     total_count = Trip.count
     @subscriber_count = subscriptions.where(subscription_type: 'Subscriber').first.sub_count
     @subscriber_percent = (@subscriber_count * 100) / total_count

@@ -11,4 +11,18 @@ describe Trip, type: :model do
     it {should belong_to :start_station}
     it {should belong_to :end_station}
   end
+
+  describe 'class methods' do
+    it 'groups by subscription' do
+      station = Station.create!(name: 'Foo', dock_count: 5, city: 'Denver', installation_date: Time.now)
+      trip1 = Trip.create!(start_date: Time.now, start_station: station, end_date: (Time.now + 1), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
+      trip2 = Trip.create!(start_date: Time.now, start_station: station, end_date: (Time.now + 1), end_station: station, bike_id: 4, subscription_type: 'Member', zip_code: 80202 )
+      trip3 = Trip.create!(start_date: Time.now, start_station: station, end_date: (Time.now + 1), end_station: station, bike_id: 4, subscription_type: 'Subscriber', zip_code: 80202 )
+
+      subs = Trip.subscriptions
+
+      expect(subs.first.subscription_type).to eq("Member")
+      expect(subs.last.subscription_type).to eq("Subscriber")
+    end
+  end
 end
