@@ -19,7 +19,7 @@
     </section>
     <section>
       <h2>Station With Most Rides Ended:</h2>
-      <h3><%= link_to @fewest_starts.name, station_path(@fewest_starts) %></h3>
+      <h3><%= link_to @most_ends.name, station_path(@most_ends) %></h3>
     </section>
     <section>
       <h2>Most Ridden Bike:</h2>
@@ -45,14 +45,25 @@
       <h2>Date With Fewest Rides:</h2>
       <h3><%= @min_date.start_date.strftime('%D') %>, <%= @min_date.date_count %></h3>
     </section>
-
+<br>
+  <h3>Trips by Month</h3>
     <%@months.each do |month| %>
     <section>
       <h2><%= month[0].strftime('%B, %y') %>:</h2>
       <h3><%= month[1] %></h3>
     </section>
     <% end %>
+
+<br>
+<br>
+<h3>Trips by Year</h3>
+    <%@years.each do |year| %>
+    <section>
+      <h2>20<%= year[0].strftime('%y') %>:</h2>
+      <h3><%= year[1] %></h3>
+    </section>
+    <% end %>
   </div>
 
-    
+
 </main>

@@ -33,6 +33,7 @@
       <% end %>
     </table>
   </center>
+  <hr>
 
   <center>
     <%if current_admin? %>
@@ -54,6 +55,7 @@
           <h3><%=@total_completed%></h3>
         </section>
       </div>
+      <hr>
 
       <div class='admin-order-buttons'>
         <%= link_to 'Ordered', user_path(current_user, status: 'ordered'), class: 'ordered' %>
@@ -62,7 +64,8 @@
         <%= link_to 'Cancelled', user_path(current_user, status: 'cancelled'), class: 'cancelled' %>
       <%= link_to 'All Orders', user_path(current_user), class: 'all-orders' %>
       </div>
-
+      <br>
+      <hr>
       <table class='orders-table'>
         <h2><%=@header%></h2>
         <tr>
@@ -79,13 +82,13 @@
           <td><%= order.status %></td>
           <td><%= order.created_at %></td>
           <%if order.status =='paid' || order.status == 'ordered' %>
-          <td><%= button_to 'Cancel', admin_order_path(order, status: 'cancelled'), method: :put %></td>
+          <td><%= button_to 'Cancel', admin_order_path(order, status: 'cancelled'), method: :put, class: 'delete-button' %></td>
           <%end%>
           <%if order.status == 'ordered' %>
-          <td><%= button_to 'Mark as Paid', admin_order_path(order, status: 'paid'), method: :put %></td>
+          <td><%= button_to 'Mark as Paid', admin_order_path(order, status: 'paid'), method: :put, class: 'delete-button' %></td>
           <%end%>
           <%if order.status == 'paid' %>
-          <td><%= button_to 'Mark as Completed', admin_order_path(order, status: 'completed'), method: :put %></td>
+          <td><%= button_to 'Mark as Completed', admin_order_path(order, status: 'completed'), method: :put, class: 'delete-button' %></td>
           <%end%>
         </tr>
         <% end %>

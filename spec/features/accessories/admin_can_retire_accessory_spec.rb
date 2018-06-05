@@ -14,11 +14,11 @@ describe 'user visits accessory path' do
 
     visit accessory_path(accessory)
     # save_and_open_page
-    expect(page).to have_link('Add to cart')
+    expect(page).to have_button('Add to cart')
 
     click_on 'Retire'
 
-    expect(page).to_not have_link('Add to cart')
+    expect(page).to_not have_button('Add to cart')
   end
   it 'as an admin can reactivate accessory' do
     admin = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123 Elm St', role: 1)
@@ -37,7 +37,7 @@ describe 'user visits accessory path' do
 
     click_on 'Reactivate'
 
-    expect(page).to have_link('Add to cart')
+    expect(page).to have_button('Add to cart')
   end
   it 'as an admin can retire accessory from accessory index page' do
     admin = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123 Elm St', role: 1)

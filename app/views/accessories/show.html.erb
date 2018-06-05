@@ -10,15 +10,15 @@
     </section>
     <%if @accessory.is_retired?%>
       <% if current_admin? %>
-        <h3><%= button_to 'Reactivate', admin_accessory_path(@accessory, is_retired?: false), method: :put %></h3>
-        <h3><%= button_to 'Edit', edit_admin_accessory_path(@accessory), method: :get %></h3>
+        <h3><%= button_to 'Reactivate', admin_accessory_path(@accessory, is_retired?: false), method: :put, class: 'add-button' %></h3>
+        <h3><%= button_to 'Edit', edit_admin_accessory_path(@accessory), method: :get, class: 'edit-button' %></h3>
       <% end %>
       <h3>Accessory Retired</h3>
       <%else%>
-      <h3><%= link_to 'Add to cart', '/bike-shop' %></h3>
+      <h3><%= button_to 'Add to cart', carts_path(accessory_id: @accessory.id), class: 'add-button' %></h3>
       <% if current_admin? %>
-      <h3><%= button_to 'Edit', edit_admin_accessory_path(@accessory), method: :get %></h3>
-      <h3><%= button_to 'Retire', admin_accessory_path(@accessory, is_retired?: true), method: :put%></h3>
+      <h3><%= button_to 'Edit', edit_admin_accessory_path(@accessory), method: :get, class: 'edit-button' %></h3>
+      <h3><%= button_to 'Retire', admin_accessory_path(@accessory, is_retired?: true), method: :put, class: 'delete-button'%></h3>
       <%end%>
     <%end%>
   </div>
