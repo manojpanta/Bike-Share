@@ -23,8 +23,8 @@ describe "A user" do
     expect(page).to have_content("Station With Most Rides Ended:\n#{station2.name}")
     expect(page).to have_content("Most Ridden Bike:\n#{trip2.bike_id}, 2 rides")
     expect(page).to have_content("Least Ridden Bike:\n#{trip1.bike_id}, 1 rides")
-    expect(page).to have_content("Subscribers:\n2, %66")
-    expect(page).to have_content("Customers:\n1, %33")
+    expect(page).to have_content("Subscribers:\n2, 66%")
+    expect(page).to have_content("Customers:\n1, 33%")
     expect(page).to have_content("Date With Most Rides:\n#{date1.strftime('%D')}")
     expect(page).to have_content("Date With Fewest Rides:\n#{date2.strftime('%D')}")
   end
