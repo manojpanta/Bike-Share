@@ -24,7 +24,20 @@ describe 'visit user edit page' do
     expect(page).to have_content(new_address)
   end
 
+  it "sees a flash message when update fails" do
+    user = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123 Elm St')
 
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    visit edit_user_path(user)
+
+    fill_in 'user[name]', with: ''
+
+    click_on 'Update'
+
+    expect(page).to have_content("User update failed")
+  end
+  
   it 'does not allow users to access other users' do
     user = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123 Elm St')
     user2 = User.create(name: 'blob', email: 'blob@blob.blob', password: '1234', address: '321 Elm St')

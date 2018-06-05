@@ -9,7 +9,7 @@ The app also has an e-commerce area where visitors can add accessories to their 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 This project uses these gems:
-
+--include versions
  * figaro
  * bcrypt
  * rspec
@@ -21,7 +21,8 @@ This project uses these gems:
  * simplecov
 
 ### Prerequisites
-
+--Ruby versions
+--postgres -v
 Standard Rails setup for *Rails 5.2*
 
 ### Installing
@@ -29,16 +30,10 @@ Standard Rails setup for *Rails 5.2*
 To install dependencies after cloning the app, run in the command line:
 `bundle install`
 
-To enable rspec testing, run:
-`rails g rspec:install`
-
 To setup the database, run:
 `rails db:create`
 `rails db:migrate`
 `rails db:seed`
-
-To run the tests, run:
-`rspec`
 
 To run the server on localhost:3000, run:
 `rails s`
@@ -50,7 +45,12 @@ Run `rspec` in the terminal.
 
 ## Using The Site
 
+--bullet points for visitors, users, admins
+
 Visitors can view stations index and show, trips index and show, accessories index and show, and they are able to login, create a new account, or add items to a cart before logging in. Logged in users can view and edit their profile, checkout their cart, and view additional analytics data. Admin users can be created from the command line. They can create, edit, and delete stations, trips, and accessories.
+
+
+--see this projects at heroku
 
 ## Authors
 

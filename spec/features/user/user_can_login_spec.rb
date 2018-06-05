@@ -19,6 +19,18 @@ describe 'user visits visits home page' do
     expect(page).to_not have_content('Login')
   end
 
+  it "and it redirects if invalid information is provided" do
+    visit '/'
+    click_on 'Login'
+
+    fill_in :email, with: ''
+    fill_in :password, with: ''
+    click_on 'Log In'
+
+    expect(current_path).to eq(login_path)
+  end
+
+
   it 'user can logout and see a login link' do
     user = User.create(name: 'bob', email: 'bob@bob.bob', password: '1234', address: '123 Elm St')
 
