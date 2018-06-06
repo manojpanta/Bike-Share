@@ -1,19 +1,21 @@
 <main>
   <h1>Order</h1>
-  <table>
-    <tr>
-      <th>Item</th>
-      <th>Quantity</th>
-      <th>Subtotal</th>
-    </tr>
-    <% @order.accessory_orders.each do |ao| %>
-    <tr>
-      <td><%= link_to ao.accessory.title, accessory_path(ao.accessory) %></td>
-      <td><%= ao.quantity %></td>
-      <td><%= ao.subtotal %></td>
-    </tr>
-    <% end %>
-  </table>
+  <center>
+    <table class='orders-table'>
+      <tr>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+      </tr>
+      <% @order.accessory_orders.each do |ao| %>
+      <tr>
+        <td><%= link_to ao.accessory.title, accessory_path(ao.accessory) %></td>
+        <td><%= ao.quantity %></td>
+        <td><%= ao.subtotal %></td>
+      </tr>
+      <% end %>
+    </table>
+  </center>
 
   <h3>Status: <%= @order.status %></h3>
   <h3>Total: <%= @order.cost %></h3>
@@ -31,13 +33,13 @@
     <h3>Address: <%= @order.user.address %></h3>
 
     <%if @order.status =='paid' || @order.status == 'ordered' %>
-    <%= button_to 'Cancel', admin_order_path(@order, status: 'cancelled'), method: :put %>
+    <h3><%= button_to 'Cancel', admin_order_path(@order, status: 'cancelled'), method: :put, class: 'delete-button' %></h3>
     <%end%>
     <%if @order.status == 'ordered' %>
-    <%= button_to 'Mark as Paid', admin_order_path(@order, status: 'paid'), method: :put %>
+    <h3><%= button_to 'Mark as Paid', admin_order_path(@order, status: 'paid'), method: :put, class: 'delete-button' %></h3>
     <%end%>
     <%if @order.status == 'paid' %>
-    <%= button_to 'Mark as Completed', admin_order_path(@order, status: 'completed'), method: :put %>
+    <h3><%= button_to 'Mark as Completed', admin_order_path(@order, status: 'completed'), method: :put, class: 'delete-button' %></h3>
     <%end%>
   <% end %>
 
