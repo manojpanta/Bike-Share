@@ -265,3 +265,8 @@ td  {
 .pagination {
   font-size: larger;
 }
+
+.homepage {
+  background: url('bicycles.jpg');
+  background-size: cover;
+}
