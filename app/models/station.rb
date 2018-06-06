@@ -56,7 +56,7 @@ class Station < ApplicationRecord
   end
 
   def frequent_destination
-    destination = trips_ended.group(:end_station_id)
+    destination = trips_started.group(:end_station_id)
                             .order('count_all DESC')
                             .count
     if destination.empty?
@@ -67,7 +67,7 @@ class Station < ApplicationRecord
   end
 
   def frequent_origination
-    origination = trips_started.group(:start_station_id)
+    origination = trips_ended.group(:start_station_id)
                             .order('count_all DESC')
                             .count
     if origination.empty?
