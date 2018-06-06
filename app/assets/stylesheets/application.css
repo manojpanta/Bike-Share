@@ -270,3 +270,16 @@ td  {
   background: url('bicycles.jpg');
   background-size: cover;
 }
+
+.create-account a{
+  color: white;
+  font-size: 25px;
+  text-shadow: 4px 2px mediumvioletred;
+}
+
+.homepage-name {
+  font-size: 100px;
+  color: aliceblue;
+  font-family: fantasy;
+  text-shadow: 5px 1px red;
+}

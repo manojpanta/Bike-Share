@@ -5,14 +5,14 @@
     <% @cart_items.each do |item, quantity| %>
       <section>
         <h2><%= link_to item.title, accessory_path(item) %></h2>
-        <div class='med-image'><a href="/accessories/<%=item.id%>"><img src="<%=item.image%>" alt="Forest">
-        </div>
+        <div class='med-image'><a href="/accessories/<%=item.id%>"><img src="<%=item.image%>" alt="Forest"></div>
           <h3>Price: <%= item.price %></h3>
-        <h3>Quantity: <%= quantity %></h3>
+          <h3>Quantity: <%= quantity %></h3>
         <div class='crementers'>
           <%= button_to "+", carts_path(accessory_id: item.id), method: 'patch', class: 'inc' %>
           <%= button_to "-", carts_path(accessory_id: item.id, decrease: true), method: 'patch', class: 'dec' %>
         </div>
+
         <h3>Subtotal: <%= item.price * quantity %></h3>
         <h3><%= button_to 'Remove', carts_path(accessory: item.id), class: 'delete-button',  method: 'delete'%></h3>
       </section>
@@ -20,7 +20,9 @@
   </div>
 
   <% if current_user %>
-  <h3><%= button_to 'Checkout',orders_path(cart_items: @cart_items), class: 'add-button'%></h3>
+    <h3><%= button_to 'Checkout',orders_path(cart_items: @cart_items), class: 'add-button'%></h3>
+  <% else %>
+    <h3><%= button_to "Checkout", login_path ,class: 'add-button'%></h3>
   <% end%>
 
 </main>
