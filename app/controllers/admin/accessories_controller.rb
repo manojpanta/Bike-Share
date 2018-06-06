@@ -15,6 +15,9 @@ class Admin::AccessoriesController < Admin::BaseController
 
   def create
     @accessory = Accessory.new(accessory_params)
+    if @accessory.image == ''
+      @accessory.image = 'https://lwr.org/wp-content/uploads/FarmingTools400x4001.jpg'
+    end
     if @accessory.save
       flash[:success] = "#{@accessory.title} Created!"
       redirect_to accessory_path(@accessory)
