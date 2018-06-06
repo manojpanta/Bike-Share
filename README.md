@@ -9,7 +9,6 @@ The app also has an e-commerce area where visitors can add accessories to their 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 This project uses these gems:
---include versions
  * figaro
  * bcrypt
  * rspec
@@ -21,9 +20,8 @@ This project uses these gems:
  * simplecov
 
 ### Prerequisites
---Ruby versions
---postgres -v
-Standard Rails setup for *Rails 5.2*
+* *Ruby 2.4.1*
+* Standard Rails setup for *Rails 5.2*
 
 ### Installing
 
@@ -45,15 +43,24 @@ Run `rspec` in the terminal.
 
 ## Using The Site
 
---bullet points for visitors, users, admins
+* Visitors can view stations index and show, trips index and show, accessories index and show, and they are able to login, create a new account, or add items to a cart before logging in. 
+* Logged in users can view and edit their profile, checkout their cart, and view additional analytics data. 
+* Admin users can be created from the command line. They can create, edit, and delete stations, trips, and accessories.
 
-Visitors can view stations index and show, trips index and show, accessories index and show, and they are able to login, create a new account, or add items to a cart before logging in. Logged in users can view and edit their profile, checkout their cart, and view additional analytics data. Admin users can be created from the command line. They can create, edit, and delete stations, trips, and accessories.
 
-
---see this projects at heroku
+### See this project on Heroku
+http://bikeshare-manoj.herokuapp.com/
 
 ## Authors
 
 * **Manoj Panta** -   (https://github.com/manojpanta)
 * **Steve Schwedt** - (https://github.com/apoc64)
 * **Eliot Swank** -   (https://github.com/EMSwank)
+
+## Contributing
+
+1. Fork it ( https://github.com/manojpanta/Bike-Share )
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a new Pull Request
